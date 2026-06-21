@@ -31,6 +31,12 @@ def print_summary(cert: dict) -> None:
         cassels = descent.get("casselsPairing") or {}
         if cassels.get("computed"):
             line += " casselsPairing=computed"
+        two_power = curve.get("higherTwoPowerEvidence")
+        if two_power:
+            line += (
+                f" higher2Power={two_power.get('normalizedStructure') or two_power.get('status')}"
+                f" higher2PowerStatus={two_power.get('status')}"
+            )
         evidence = curve.get("threeSelmerEvidence")
         if evidence:
             line += (

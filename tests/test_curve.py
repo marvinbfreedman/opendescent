@@ -1,5 +1,7 @@
 import json
+from pathlib import Path
 from fractions import Fraction
+from tempfile import TemporaryDirectory
 
 from opendescent.backends import available_backends, run_backend
 from opendescent.certificate import build_certificate
@@ -7,7 +9,12 @@ from opendescent.curve import EllipticCurve, Point
 from opendescent.finite_field import ap, count_points_mod_p
 from opendescent.local import reduction_record
 from opendescent.mwrank_backend import parse_mwrank_output
-from opendescent.transcripts import parse_three_selmer_order, three_selmer_evidence
+from opendescent.transcripts import (
+    higher_two_power_evidence,
+    parse_abelian_group_structure,
+    parse_three_selmer_order,
+    three_selmer_evidence,
+)
 
 
 def test_11a1_invariants_and_points():
@@ -126,3 +133,74 @@ Relations:
     assert evidence["conditional"] is True
     assert evidence["matchesExpected"] is True
     assert evidence["status"] == "conditional_match"
+
+
+def test_higher_two_power_parser_detects_z4_plus_z4():
+    raw = """
+Higher 2-primary computation
+Abelian Group isomorphic to Z/4 + Z/4
+Defined on 2 generators
+"""
+    parsed = parse_abelian_group_structure(raw)
+    assert parsed["cyclicFactors"] == [4, 4]
+    assert parsed["order"] == 16
+    assert parsed["exponent"] == 4
+    assert parsed["higherTwoPowerDetected"] is True
+
+    evidence = higher_two_power_evidence(
+        "case",
+        raw,
+        expected_structure="Z/4 + Z/4",
+        expected_order=16,
+    )
+    assert evidence["normalizedStructure"] == "Z/4 + Z/4"
+    assert evidence["matchesExpectedStructure"] is True
+    assert evidence["matchesExpectedOrder"] is True
+    assert evidence["status"] == "higher_two_power_match"
+
+
+def test_certificate_marks_missing_required_higher_two_power_evidence():
+    payload = {
+        "curves": [
+            {
+                "label": "needs-2power",
+                "weierstrass": [0, -1, 1, -10, -20],
+                "prime": 2,
+                "targetPrimaryOrder": 16,
+                "expectedTwoPrimaryStructure": "Z/4 + Z/4",
+                "requiresHigherTwoPowerEvidence": True,
+            }
+        ]
+    }
+    cert = build_certificate(payload)
+    evidence = cert["curves"][0]["higherTwoPowerEvidence"]
+    assert evidence["required"] is True
+    assert evidence["status"] == "missing_higher_two_power_evidence"
+
+
+def test_certificate_attaches_higher_two_power_transcript():
+    with TemporaryDirectory() as tmp:
+        base = Path(tmp)
+        transcript = base / "z4_plus_z4.txt"
+        transcript.write_text("Abelian Group isomorphic to Z/4 + Z/4\n")
+        input_path = base / "input.json"
+        payload = {
+            "curves": [
+                {
+                    "label": "has-2power",
+                    "weierstrass": [0, -1, 1, -10, -20],
+                    "expectedTwoPrimaryStructure": "Z/4 + Z/4",
+                    "expectedTwoPrimaryOrder": 16,
+                    "higherTwoPowerTranscript": transcript.name,
+                }
+            ]
+        }
+        input_path.write_text(json.dumps(payload))
+
+        cert = build_certificate(payload, input_path=str(input_path), evidence_transcripts=True)
+        evidence = cert["curves"][0]["higherTwoPowerEvidence"]
+        assert evidence["normalizedStructure"] == "Z/4 + Z/4"
+        assert evidence["higherTwoPowerDetected"] is True
+        assert evidence["matchesExpectedStructure"] is True
+        assert evidence["matchesExpectedOrder"] is True
+        assert evidence["status"] == "higher_two_power_match"

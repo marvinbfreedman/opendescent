@@ -22,11 +22,14 @@ emits machine-readable JSON certificates.
 - optional Sage/eclib backend for rank intervals and 2-Selmer ranks
 - direct mwrank/eclib backend for independent rank/Selmer cross-checks
 - higher 2-descent evidence capture from mwrank second-descent traces
+- higher 2-power transcript parsing for structures like `Z/4 + Z/4`
 - explicit Cassels-pairing status fields in certificates
 
 Native OpenDescent 2-descent is intentionally marked as a gap until the full
 algorithm is implemented.  Cassels pairings are also marked as not computed
 unless a backend explicitly provides pairing data.
+Plain 2-Selmer output is not treated as evidence for `Z/4 + Z/4` or another
+higher 2-primary structure.
 
 ## Quick Start
 
@@ -117,4 +120,6 @@ live in `examples/transcripts/`.
 4. Native 2-Selmer upper bounds.
 5. Native higher 2-descent and Cassels-pairing routines for unresolved
    Selmer gaps.
-6. Mordell-Weil rank certificate closing lower and upper bounds.
+6. Native higher 2-power structure certification, including `Z/4 + Z/4`-type
+   evidence.
+7. Mordell-Weil rank certificate closing lower and upper bounds.

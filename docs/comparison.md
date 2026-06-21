@@ -36,6 +36,12 @@ Sha-size information, but that is not the same as computing a Cassels-pairing
 matrix.  Certificates therefore keep `higherTwoDescent` and `casselsPairing` as
 separate blocks.
 
+Higher 2-power group-structure claims are separate again.  Evidence for a
+`Z/4 + Z/4`-type structure must come from an explicit higher 2-descent,
+Cassels-pairing, or transcript output that reports the 2-primary abelian group
+structure.  OpenDescent records that under `higherTwoPowerEvidence`; it does not
+infer it from an ordinary 2-Selmer rank alone.
+
 ## Design Difference
 
 OpenDescent is certificate-first:

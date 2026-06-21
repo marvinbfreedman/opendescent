@@ -15,7 +15,9 @@ OpenDescent's native engine should eventually certify elliptic-curve rank and
    does not close the rank interval.
 6. Implement Cassels-pairing computation on 2-coverings when the pairing can
    certify the relevant Sha/Selmer obstruction.
-7. Combine point-search or height-pairing lower bounds with Selmer upper bounds
+7. Certify higher 2-primary structure claims such as `Z/4 + Z/4`, either from
+   native higher 2-descent data or from a verified Cassels-pairing computation.
+8. Combine point-search or height-pairing lower bounds with Selmer upper bounds
    to close the rank interval.
 
 ## Imported Timeout Cases
@@ -32,3 +34,6 @@ upper rank bounds are both present and equal.
 Higher-descent evidence from external backends may be recorded in certificates,
 but native OpenDescent must keep `higherTwoDescent.computed=false` and
 `casselsPairing.computed=false` until those routines are implemented directly.
+If a case requires higher 2-power information, native OpenDescent must also
+produce or import explicit `higherTwoPowerEvidence`; ordinary 2-Selmer ranks are
+not enough for a `Z/4 + Z/4`-type claim.

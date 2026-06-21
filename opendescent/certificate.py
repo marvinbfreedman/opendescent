@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from .backends import available_backends, run_backend
@@ -9,7 +10,7 @@ from .curve import EllipticCurve
 from .finite_field import ap, primes_upto
 from .local import bad_primes, reduction_record
 from .selmer import two_selmer_certificate
-from .transcripts import three_selmer_evidence
+from .transcripts import higher_two_power_evidence, three_selmer_evidence
 
 
 CASE_METADATA_FIELDS = (
@@ -18,6 +19,9 @@ CASE_METADATA_FIELDS = (
     "targetPrimaryOrder",
     "predictedShaOrder",
     "predictedShaFactorization",
+    "expectedTwoPrimaryStructure",
+    "expectedTwoPrimaryOrder",
+    "requiresHigherTwoPowerEvidence",
     "source",
 )
 
@@ -116,6 +120,79 @@ def add_transcript_evidence(cert: dict, row: dict, base_dir: Path) -> None:
     )
 
 
+def requires_higher_two_power_evidence(row: dict) -> bool:
+    if row.get("requiresHigherTwoPowerEvidence"):
+        return True
+    if row.get("expectedTwoPrimaryStructure") or row.get("expectedTwoPrimaryOrder"):
+        return True
+    if row.get("higherTwoPowerTranscript") or row.get("twoPrimaryTranscript"):
+        return True
+    factorization = str(row.get("predictedShaFactorization") or "")
+    if re.search(r"(^|[^0-9])2\^([2-9]|\d{2,})", factorization):
+        return True
+    try:
+        target_order = int(row.get("targetPrimaryOrder") or 1)
+    except Exception:
+        target_order = 1
+    return row.get("prime") == 2 and target_order > 2
+
+
+def missing_higher_two_power_evidence(cert: dict, row: dict, reason: str) -> dict:
+    return {
+        "label": cert["label"],
+        "kind": "higher_two_power_requirement",
+        "required": True,
+        "source": row.get("higherTwoPowerTranscript") or row.get("twoPrimaryTranscript"),
+        "expectedStructure": row.get("expectedTwoPrimaryStructure"),
+        "expectedOrder": row.get("expectedTwoPrimaryOrder"),
+        "status": "missing_higher_two_power_evidence",
+        "reason": reason,
+    }
+
+
+def add_higher_two_power_evidence(cert: dict, row: dict, base_dir: Path, evidence_transcripts: bool) -> None:
+    required = requires_higher_two_power_evidence(row)
+    transcript_path = row.get("higherTwoPowerTranscript") or row.get("twoPrimaryTranscript")
+    if not required and not transcript_path:
+        return
+    if not evidence_transcripts:
+        cert["higherTwoPowerEvidence"] = missing_higher_two_power_evidence(
+            cert,
+            row,
+            "transcript evidence was not loaded; rerun with --evidence-transcripts",
+        )
+        return
+    if not transcript_path:
+        cert["higherTwoPowerEvidence"] = missing_higher_two_power_evidence(
+            cert,
+            row,
+            "no higherTwoPowerTranscript or twoPrimaryTranscript was supplied",
+        )
+        return
+
+    path = Path(transcript_path)
+    if not path.is_absolute():
+        path = base_dir / path
+    try:
+        raw = path.read_text()
+    except Exception as exc:
+        cert["higherTwoPowerEvidence"] = missing_higher_two_power_evidence(
+            cert,
+            row,
+            f"transcript_read_failed: {exc}",
+        )
+        return
+    cert["higherTwoPowerEvidence"] = higher_two_power_evidence(
+        cert["label"],
+        raw,
+        expected_structure=row.get("expectedTwoPrimaryStructure"),
+        expected_order=row.get("expectedTwoPrimaryOrder"),
+        grh=bool(row.get("grh")),
+        source=str(transcript_path),
+        computation_kind=row.get("higherTwoPowerComputationKind"),
+    )
+
+
 def build_certificate(
     payload: dict,
     point_bound: int = 50,
@@ -143,6 +220,7 @@ def build_certificate(
         add_case_metadata(cert, row)
         if evidence_transcripts:
             add_transcript_evidence(cert, row, base_dir)
+        add_higher_two_power_evidence(cert, row, base_dir, evidence_transcripts)
         if "knownRank" in row:
             cert["knownRank"] = row["knownRank"]
         curves.append(cert)

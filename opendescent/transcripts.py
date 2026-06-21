@@ -3,6 +3,54 @@
 from __future__ import annotations
 
 import re
+from math import prod
+
+
+GROUP_RE = re.compile(r"Abelian Group isomorphic to\s+(?P<structure>[^\n]+)", re.IGNORECASE)
+CYCLIC_FACTOR_RE = re.compile(r"\b(?:Z|C)\s*(?:/|_)\s*(\d+)\b", re.IGNORECASE)
+
+
+def _is_power_of(value: int, prime: int) -> bool:
+    if value < 1:
+        return False
+    while value % prime == 0 and value > 1:
+        value //= prime
+    return value == 1
+
+
+def _normal_structure(factors: list[int]) -> str | None:
+    if not factors:
+        return None
+    return " + ".join(f"Z/{factor}" for factor in sorted(factors))
+
+
+def _int_or_none(value: object) -> int | None:
+    if value is None:
+        return None
+    try:
+        return int(value)
+    except Exception:
+        return None
+
+
+def parse_abelian_group_structure(raw: str) -> dict:
+    """Parse an abelian group structure line such as ``Z/4 + Z/4``."""
+
+    match = GROUP_RE.search(raw)
+    structure = match.group("structure").strip() if match else None
+    factors = [int(value) for value in CYCLIC_FACTOR_RE.findall(structure or "")]
+    order = prod(factors) if factors else None
+    exponent = max(factors) if factors else None
+    two_primary = bool(factors) and all(_is_power_of(factor, 2) for factor in factors)
+    return {
+        "structure": structure,
+        "cyclicFactors": sorted(factors),
+        "normalizedStructure": _normal_structure(factors),
+        "order": order,
+        "exponent": exponent,
+        "twoPrimary": two_primary,
+        "higherTwoPowerDetected": two_primary and any(factor >= 4 for factor in factors),
+    }
 
 
 def parse_three_selmer_order(raw: str) -> int | None:
@@ -44,5 +92,64 @@ def three_selmer_evidence(
             if matches
             else "unconditional_mismatch"
         ),
+        "rawLineCount": len(raw.splitlines()),
+    }
+
+
+def higher_two_power_evidence(
+    label: str,
+    raw: str,
+    expected_structure: str | None = None,
+    expected_order: int | None = None,
+    grh: bool = False,
+    source: str | None = None,
+    computation_kind: str | None = None,
+) -> dict:
+    parsed = parse_abelian_group_structure(raw)
+    expected = parse_abelian_group_structure(
+        f"Abelian Group isomorphic to {expected_structure}"
+    ) if expected_structure else {}
+    expected_factors = expected.get("cyclicFactors")
+    expected_order_int = _int_or_none(expected_order)
+    structure_matches = (
+        parsed["cyclicFactors"] == expected_factors
+        if expected_factors
+        else None
+    )
+    order_matches = (
+        parsed["order"] == expected_order_int
+        if expected_order_int is not None and parsed["order"] is not None
+        else None
+    )
+
+    if not parsed["cyclicFactors"]:
+        status = "no_group_structure_detected"
+    elif not parsed["twoPrimary"]:
+        status = "non_two_primary_structure"
+    elif structure_matches is False or order_matches is False:
+        status = "higher_two_power_mismatch"
+    elif parsed["higherTwoPowerDetected"]:
+        status = "higher_two_power_match" if (structure_matches or order_matches) else "higher_two_power_detected"
+    else:
+        status = "two_primary_but_no_higher_two_power"
+
+    return {
+        "label": label,
+        "kind": computation_kind or "higher_two_power_transcript",
+        "source": source,
+        "conditional": bool(grh),
+        "condition": "GRH" if grh else None,
+        "structure": parsed["structure"],
+        "normalizedStructure": parsed["normalizedStructure"],
+        "cyclicFactors": parsed["cyclicFactors"],
+        "order": parsed["order"],
+        "exponent": parsed["exponent"],
+        "twoPrimary": parsed["twoPrimary"],
+        "higherTwoPowerDetected": parsed["higherTwoPowerDetected"],
+        "expectedStructure": expected_structure,
+        "expectedOrder": expected_order,
+        "matchesExpectedStructure": structure_matches,
+        "matchesExpectedOrder": order_matches,
+        "status": status,
         "rawLineCount": len(raw.splitlines()),
     }
