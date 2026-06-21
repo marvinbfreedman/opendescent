@@ -26,6 +26,7 @@ and easy to compare across backends.
 - `integralPointSearch`: bounded integral point search result
 - `descent`: rank/Selmer certificate block
 - `threeSelmerEvidence`: optional external 3-Selmer transcript evidence
+- `fiveSelmerEvidence`: optional external `FiveSelmerGroup(E)` evidence
 - `higherTwoPowerEvidence`: optional external higher 2-primary evidence, such
   as `Z/4 + Z/4`
 
@@ -120,6 +121,51 @@ loaded, the curve certificate gets:
 That missing-evidence block is intentional.  It prevents a plain 2-Selmer rank
 or ordinary second-descent trace from being mistaken for `Z/4 + Z/4` evidence.
 
+## FiveSelmerGroup(E)
+
+OpenDescent exposes a calculator-style `FiveSelmerGroup(E)` evidence primitive.
+It does not yet compute a native 5-descent.  Instead, it records explicit
+backend or transcript output, for example:
+
+```text
+FiveSelmerGroup(E)
+Abelian Group isomorphic to Z/5 + Z/5
+25
+```
+
+Input records can attach that evidence with:
+
+```json
+{
+  "prime": 5,
+  "requiresFiveSelmerEvidence": true,
+  "expectedFiveSelmerStructure": "Z/5 + Z/5",
+  "expectedFiveSelmerOrder": 25,
+  "fiveSelmerTranscript": "transcripts/example_five_selmer.txt"
+}
+```
+
+When `--evidence-transcripts` is enabled, the curve certificate gets a
+`fiveSelmerEvidence` block containing:
+
+- `function: "FiveSelmerGroup(E)"`
+- `prime: 5`
+- normalized cyclic factors
+- order
+- exponent
+- whether the group is 5-primary
+- optional vector-space dimension for elementary `Z/5` factors
+- expected structure/order match flags
+
+If a curve requires five-Selmer evidence but no transcript is supplied or
+loaded, the certificate records:
+
+```json
+{
+  "status": "missing_five_selmer_evidence"
+}
+```
+
 ## Optional Case Metadata
 
 Some imported research cases include extra fields under `caseMetadata`:
@@ -132,6 +178,9 @@ Some imported research cases include extra fields under `caseMetadata`:
 - `expectedTwoPrimaryStructure`
 - `expectedTwoPrimaryOrder`
 - `requiresHigherTwoPowerEvidence`
+- `expectedFiveSelmerStructure`
+- `expectedFiveSelmerOrder`
+- `requiresFiveSelmerEvidence`
 - `source`
 
 These fields document the external descent target.  They do not change rank
@@ -140,8 +189,9 @@ certification rules.
 ## Transcript Evidence
 
 When `--evidence-transcripts` is used, OpenDescent reads transcript paths from
-curve records and attaches available `threeSelmerEvidence` and
-`higherTwoPowerEvidence` blocks.  GRH-conditional transcripts are recorded with:
+curve records and attaches available `threeSelmerEvidence`,
+`fiveSelmerEvidence`, and `higherTwoPowerEvidence` blocks.  GRH-conditional
+transcripts are recorded with:
 
 ```json
 {

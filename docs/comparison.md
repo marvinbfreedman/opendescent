@@ -42,6 +42,11 @@ Cassels-pairing, or transcript output that reports the 2-primary abelian group
 structure.  OpenDescent records that under `higherTwoPowerEvidence`; it does not
 infer it from an ordinary 2-Selmer rank alone.
 
+For 5-primary work, OpenDescent provides a calculator primitive named
+`FiveSelmerGroup(E)` that records explicit transcript/backend output such as
+`Z/5 + Z/5`.  This is not yet a native 5-descent implementation; certificates
+keep the evidence source and match checks visible.
+
 ## Design Difference
 
 OpenDescent is certificate-first:

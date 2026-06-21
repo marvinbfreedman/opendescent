@@ -23,6 +23,7 @@ emits machine-readable JSON certificates.
 - direct mwrank/eclib backend for independent rank/Selmer cross-checks
 - higher 2-descent evidence capture from mwrank second-descent traces
 - higher 2-power transcript parsing for structures like `Z/4 + Z/4`
+- calculator primitive for `FiveSelmerGroup(E)` transcript evidence
 - explicit Cassels-pairing status fields in certificates
 
 Native OpenDescent 2-descent is intentionally marked as a gap until the full
@@ -30,6 +31,9 @@ algorithm is implemented.  Cassels pairings are also marked as not computed
 unless a backend explicitly provides pairing data.
 Plain 2-Selmer output is not treated as evidence for `Z/4 + Z/4` or another
 higher 2-primary structure.
+`FiveSelmerGroup(E)` is currently an evidence-ingestion calculator primitive:
+it parses explicit transcript/backend output such as `Z/5 + Z/5`; native
+5-descent computation is still roadmap work.
 
 ## Quick Start
 
@@ -122,4 +126,6 @@ live in `examples/transcripts/`.
    Selmer gaps.
 6. Native higher 2-power structure certification, including `Z/4 + Z/4`-type
    evidence.
-7. Mordell-Weil rank certificate closing lower and upper bounds.
+7. Native 5-Selmer descent, replacing transcript-only `FiveSelmerGroup(E)`
+   evidence.
+8. Mordell-Weil rank certificate closing lower and upper bounds.

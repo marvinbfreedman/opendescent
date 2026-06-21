@@ -37,6 +37,12 @@ def print_summary(cert: dict) -> None:
                 f" higher2Power={two_power.get('normalizedStructure') or two_power.get('status')}"
                 f" higher2PowerStatus={two_power.get('status')}"
             )
+        five = curve.get("fiveSelmerEvidence")
+        if five:
+            line += (
+                f" fiveSelmer={five.get('normalizedStructure') or five.get('order') or five.get('status')}"
+                f" fiveSelmerStatus={five.get('status')}"
+            )
         evidence = curve.get("threeSelmerEvidence")
         if evidence:
             line += (

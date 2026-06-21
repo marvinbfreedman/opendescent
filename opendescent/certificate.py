@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 
 from .backends import available_backends, run_backend
+from .calculator import FiveSelmerGroup
 from .curve import EllipticCurve
 from .finite_field import ap, primes_upto
 from .local import bad_primes, reduction_record
@@ -22,6 +23,9 @@ CASE_METADATA_FIELDS = (
     "expectedTwoPrimaryStructure",
     "expectedTwoPrimaryOrder",
     "requiresHigherTwoPowerEvidence",
+    "expectedFiveSelmerOrder",
+    "expectedFiveSelmerStructure",
+    "requiresFiveSelmerEvidence",
     "source",
 )
 
@@ -150,6 +154,77 @@ def missing_higher_two_power_evidence(cert: dict, row: dict, reason: str) -> dic
     }
 
 
+def requires_five_selmer_evidence(row: dict) -> bool:
+    if row.get("requiresFiveSelmerEvidence"):
+        return True
+    if row.get("fiveSelmerTranscript") or row.get("expectedFiveSelmerOrder"):
+        return True
+    if row.get("expectedFiveSelmerStructure"):
+        return True
+    try:
+        target_order = int(row.get("targetPrimaryOrder") or 1)
+    except Exception:
+        target_order = 1
+    return row.get("prime") == 5 and target_order > 1
+
+
+def missing_five_selmer_evidence(cert: dict, row: dict, reason: str) -> dict:
+    return {
+        "label": cert["label"],
+        "kind": "five_selmer_group_requirement",
+        "function": "FiveSelmerGroup(E)",
+        "prime": 5,
+        "required": True,
+        "source": row.get("fiveSelmerTranscript"),
+        "expectedStructure": row.get("expectedFiveSelmerStructure"),
+        "expectedOrder": row.get("expectedFiveSelmerOrder"),
+        "status": "missing_five_selmer_evidence",
+        "reason": reason,
+    }
+
+
+def add_five_selmer_evidence(cert: dict, curve: EllipticCurve, row: dict, base_dir: Path, evidence_transcripts: bool) -> None:
+    required = requires_five_selmer_evidence(row)
+    transcript_path = row.get("fiveSelmerTranscript")
+    if not required and not transcript_path:
+        return
+    if not evidence_transcripts:
+        cert["fiveSelmerEvidence"] = missing_five_selmer_evidence(
+            cert,
+            row,
+            "transcript evidence was not loaded; rerun with --evidence-transcripts",
+        )
+        return
+    if not transcript_path:
+        cert["fiveSelmerEvidence"] = missing_five_selmer_evidence(
+            cert,
+            row,
+            "no fiveSelmerTranscript was supplied",
+        )
+        return
+
+    path = Path(transcript_path)
+    if not path.is_absolute():
+        path = base_dir / path
+    try:
+        raw = path.read_text()
+    except Exception as exc:
+        cert["fiveSelmerEvidence"] = missing_five_selmer_evidence(
+            cert,
+            row,
+            f"transcript_read_failed: {exc}",
+        )
+        return
+    cert["fiveSelmerEvidence"] = FiveSelmerGroup(
+        curve,
+        transcript=raw,
+        expected_order=row.get("expectedFiveSelmerOrder"),
+        expected_structure=row.get("expectedFiveSelmerStructure"),
+        grh=bool(row.get("grh") or row.get("fiveSelmerGRH")),
+        source=str(transcript_path),
+    )
+
+
 def add_higher_two_power_evidence(cert: dict, row: dict, base_dir: Path, evidence_transcripts: bool) -> None:
     required = requires_higher_two_power_evidence(row)
     transcript_path = row.get("higherTwoPowerTranscript") or row.get("twoPrimaryTranscript")
@@ -220,6 +295,7 @@ def build_certificate(
         add_case_metadata(cert, row)
         if evidence_transcripts:
             add_transcript_evidence(cert, row, base_dir)
+        add_five_selmer_evidence(cert, curve, row, base_dir, evidence_transcripts)
         add_higher_two_power_evidence(cert, row, base_dir, evidence_transcripts)
         if "knownRank" in row:
             cert["knownRank"] = row["knownRank"]
@@ -248,6 +324,7 @@ def build_certificate(
             "local solubility for coverings",
             "2-Selmer upper bound",
             "higher 2-descent or Cassels pairing closure when Selmer rank exceeds rank lower bound",
+            "native 5-Selmer descent for FiveSelmerGroup(E)",
             "Mordell-Weil rank certificate",
         ],
     }

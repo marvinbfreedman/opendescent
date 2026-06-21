@@ -4,6 +4,7 @@ from fractions import Fraction
 from tempfile import TemporaryDirectory
 
 from opendescent.backends import available_backends, run_backend
+from opendescent.calculator import FiveSelmerGroup
 from opendescent.certificate import build_certificate
 from opendescent.curve import EllipticCurve, Point
 from opendescent.finite_field import ap, count_points_mod_p
@@ -12,6 +13,7 @@ from opendescent.mwrank_backend import parse_mwrank_output
 from opendescent.transcripts import (
     higher_two_power_evidence,
     parse_abelian_group_structure,
+    parse_selmer_group_order,
     parse_three_selmer_order,
     three_selmer_evidence,
 )
@@ -204,3 +206,82 @@ def test_certificate_attaches_higher_two_power_transcript():
         assert evidence["matchesExpectedStructure"] is True
         assert evidence["matchesExpectedOrder"] is True
         assert evidence["status"] == "higher_two_power_match"
+
+
+def test_five_selmer_group_calculator_parses_z5_plus_z5():
+    curve = EllipticCurve.from_weierstrass([0, -1, 1, -10, -20], label="11a1")
+    raw = """
+FiveSelmerGroup(E)
+Abelian Group isomorphic to Z/5 + Z/5
+Defined on 2 generators
+25
+"""
+    assert parse_selmer_group_order(raw) == 25
+    evidence = FiveSelmerGroup(
+        curve,
+        transcript=raw,
+        expected_structure="Z/5 + Z/5",
+        expected_order=25,
+    )
+    assert evidence["function"] == "FiveSelmerGroup(E)"
+    assert evidence["prime"] == 5
+    assert evidence["normalizedStructure"] == "Z/5 + Z/5"
+    assert evidence["order"] == 25
+    assert evidence["primePrimary"] is True
+    assert evidence["vectorSpaceDimension"] == 2
+    assert evidence["status"] == "selmer_group_match"
+
+
+def test_five_selmer_group_calculator_marks_unavailable_without_transcript():
+    curve = EllipticCurve.from_weierstrass([0, -1, 1, -10, -20], label="11a1")
+    evidence = FiveSelmerGroup(curve)
+    assert evidence["computed"] is False
+    assert evidence["available"] is False
+    assert evidence["status"] == "unavailable"
+
+
+def test_certificate_attaches_five_selmer_transcript():
+    with TemporaryDirectory() as tmp:
+        base = Path(tmp)
+        transcript = base / "five_selmer.txt"
+        transcript.write_text("Abelian Group isomorphic to Z/5 + Z/5\n25\n")
+        input_path = base / "input.json"
+        payload = {
+            "curves": [
+                {
+                    "label": "has-five",
+                    "weierstrass": [0, -1, 1, -10, -20],
+                    "prime": 5,
+                    "expectedFiveSelmerStructure": "Z/5 + Z/5",
+                    "expectedFiveSelmerOrder": 25,
+                    "fiveSelmerTranscript": transcript.name,
+                }
+            ]
+        }
+        input_path.write_text(json.dumps(payload))
+
+        cert = build_certificate(payload, input_path=str(input_path), evidence_transcripts=True)
+        evidence = cert["curves"][0]["fiveSelmerEvidence"]
+        assert evidence["function"] == "FiveSelmerGroup(E)"
+        assert evidence["normalizedStructure"] == "Z/5 + Z/5"
+        assert evidence["matchesExpectedStructure"] is True
+        assert evidence["matchesExpectedOrder"] is True
+
+
+def test_certificate_marks_missing_required_five_selmer_evidence():
+    payload = {
+        "curves": [
+            {
+                "label": "needs-five",
+                "weierstrass": [0, -1, 1, -10, -20],
+                "prime": 5,
+                "targetPrimaryOrder": 25,
+                "requiresFiveSelmerEvidence": True,
+            }
+        ]
+    }
+    cert = build_certificate(payload)
+    evidence = cert["curves"][0]["fiveSelmerEvidence"]
+    assert evidence["function"] == "FiveSelmerGroup(E)"
+    assert evidence["required"] is True
+    assert evidence["status"] == "missing_five_selmer_evidence"

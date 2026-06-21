@@ -53,8 +53,11 @@ def parse_abelian_group_structure(raw: str) -> dict:
     }
 
 
-def parse_three_selmer_order(raw: str) -> int | None:
-    """Extract the reported ThreeSelmerGroup order from a Magma transcript."""
+def parse_selmer_group_order(raw: str) -> int | None:
+    """Extract a reported Selmer-group order from a calculator transcript."""
+    parsed = parse_abelian_group_structure(raw)
+    if parsed["order"] is not None:
+        return parsed["order"]
     head = raw
     generator_at = raw.find("\nG.")
     if generator_at >= 0:
@@ -63,6 +66,82 @@ def parse_three_selmer_order(raw: str) -> int | None:
     if not matches:
         return None
     return int(matches[-1])
+
+
+def parse_three_selmer_order(raw: str) -> int | None:
+    """Extract the reported ThreeSelmerGroup order from a Magma transcript."""
+    return parse_selmer_group_order(raw)
+
+
+def selmer_group_evidence(
+    label: str,
+    raw: str,
+    prime: int,
+    expected_order: int | None = None,
+    expected_structure: str | None = None,
+    grh: bool = False,
+    source: str | None = None,
+    function_name: str | None = None,
+    kind: str | None = None,
+) -> dict:
+    parsed = parse_abelian_group_structure(raw)
+    order = parsed["order"] if parsed["order"] is not None else parse_selmer_group_order(raw)
+    expected = parse_abelian_group_structure(
+        f"Abelian Group isomorphic to {expected_structure}"
+    ) if expected_structure else {}
+    expected_factors = expected.get("cyclicFactors")
+    expected_order_int = _int_or_none(expected_order)
+    structure_matches = (
+        parsed["cyclicFactors"] == expected_factors
+        if expected_factors
+        else None
+    )
+    order_matches = (
+        order == expected_order_int
+        if expected_order_int is not None and order is not None
+        else None
+    )
+    prime_primary = (
+        bool(parsed["cyclicFactors"])
+        and all(_is_power_of(factor, prime) for factor in parsed["cyclicFactors"])
+    )
+    vector_dimension = None
+    if prime_primary and parsed["cyclicFactors"] and all(factor == prime for factor in parsed["cyclicFactors"]):
+        vector_dimension = len(parsed["cyclicFactors"])
+
+    if not parsed["cyclicFactors"] and order is None:
+        status = "no_selmer_group_detected"
+    elif parsed["cyclicFactors"] and not prime_primary:
+        status = "non_prime_primary_structure"
+    elif structure_matches is False or order_matches is False:
+        status = "selmer_group_mismatch"
+    elif structure_matches or order_matches:
+        status = "selmer_group_match"
+    else:
+        status = "selmer_group_detected"
+
+    return {
+        "label": label,
+        "kind": kind or f"{prime}_selmer_group",
+        "function": function_name or f"{prime}SelmerGroup(E)",
+        "prime": prime,
+        "source": source,
+        "conditional": bool(grh),
+        "condition": "GRH" if grh else None,
+        "structure": parsed["structure"],
+        "normalizedStructure": parsed["normalizedStructure"],
+        "cyclicFactors": parsed["cyclicFactors"],
+        "order": order,
+        "exponent": parsed["exponent"],
+        "primePrimary": prime_primary,
+        "vectorSpaceDimension": vector_dimension,
+        "expectedStructure": expected_structure,
+        "expectedOrder": expected_order,
+        "matchesExpectedStructure": structure_matches,
+        "matchesExpectedOrder": order_matches,
+        "status": status,
+        "rawLineCount": len(raw.splitlines()),
+    }
 
 
 def three_selmer_evidence(
