@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-import json
-import os
-import subprocess
-import sys
-
+from .backends import available_backends, run_backend
 from .curve import EllipticCurve
 from .finite_field import ap, primes_upto
 from .local import bad_primes, reduction_record
+from .selmer import two_selmer_certificate
 
 
 def curve_certificate(curve: EllipticCurve, point_bound: int = 50, prime_bound: int = 31) -> dict:
@@ -37,59 +34,33 @@ def curve_certificate(curve: EllipticCurve, point_bound: int = 50, prime_bound: 
             "truncated": len(pts) > 50,
         },
         "descent": {
-            "engine": "opendescent-native",
-            "twoSelmerRank": None,
+            **two_selmer_certificate(curve),
             "rankLowerBound": None,
-            "rankUpperBound": None,
-            "rankCertified": False,
-            "status": "gap: native 2-descent not implemented yet",
+            "rankInterval": None,
         },
     }
-
-
-def run_sage_backend(input_path: str) -> dict:
-    env = dict(os.environ)
-    cwd = os.getcwd()
-    env["PYTHONPATH"] = cwd + os.pathsep + env.get("PYTHONPATH", "")
-    proc = subprocess.run(
-        ["sage", "-python", "-m", "opendescent.sage_backend", input_path],
-        capture_output=True,
-        text=True,
-        check=False,
-        env=env,
-    )
-    result = {
-        "command": "sage -python -m opendescent.sage_backend",
-        "returncode": proc.returncode,
-        "stdout": proc.stdout,
-        "stderr": proc.stderr,
-        "succeeded": proc.returncode == 0,
-        "parsed": None,
-    }
-    try:
-        result["parsed"] = json.loads(proc.stdout)
-    except Exception:
-        pass
-    return result
 
 
 def merge_backend(cert: dict, backend_rows: dict) -> dict:
     row = backend_rows.get(cert["label"])
     if not isinstance(row, dict):
         return cert
+    lower = row.get("rankLowerBound")
+    upper = row.get("rankUpperBound")
+    certified = lower is not None and upper is not None and lower == upper
     cert["descent"] = {
         "engine": row.get("engine"),
         "twoSelmerRank": row.get("twoSelmerRank"),
         "selmerUpperBound": row.get("selmerUpperBound"),
-        "rankLowerBound": row.get("rankLowerBound"),
-        "rankUpperBound": row.get("rankUpperBound"),
-        "rankInterval": row.get("rankInterval"),
-        "rankCertified": row.get("rankCertified"),
+        "rankLowerBound": lower,
+        "rankUpperBound": upper,
+        "rankInterval": [lower, upper] if lower is not None and upper is not None else None,
+        "rankCertified": certified,
         "torsionOrder": row.get("torsionOrder"),
         "rankSource": row.get("rankSource"),
         "selmerSource": row.get("selmerSource"),
         "selmerError": row.get("selmerError"),
-        "status": row.get("status"),
+        "status": "certified rank interval" if certified else "open rank interval",
     }
     return cert
 
@@ -101,15 +72,11 @@ def build_certificate(
     backend: str = "native",
     input_path: str | None = None,
 ) -> dict:
-    backend_result = None
+    backend_result = run_backend(backend, input_path)
     backend_rows = {}
-    if backend == "sage":
-        if input_path is None:
-            raise ValueError("input_path is required for the Sage backend")
-        backend_result = run_sage_backend(input_path)
-        parsed = backend_result.get("parsed")
-        if isinstance(parsed, dict) and isinstance(parsed.get("curves"), dict):
-            backend_rows = parsed["curves"]
+    parsed = backend_result.get("parsed") if backend_result else None
+    if isinstance(parsed, dict) and isinstance(parsed.get("curves"), dict):
+        backend_rows = parsed["curves"]
 
     curves = []
     for row in payload.get("curves", []):
@@ -124,15 +91,21 @@ def build_certificate(
             cert["knownRank"] = row["knownRank"]
         curves.append(cert)
 
+    all_certified = bool(curves) and all(
+        curve.get("descent", {}).get("rankCertified") is True for curve in curves
+    )
+    backend_succeeded = backend == "native" or bool(backend_result and backend_result.get("succeeded"))
+
     return {
         "artifact": "opendescent_certificate",
         "version": "0.1.0",
         "status": (
-            "sage-backed rank certificate"
-            if backend == "sage" and backend_result and backend_result.get("succeeded")
+            "rank certificate"
+            if backend_succeeded and all_certified
             else "arithmetic scaffold; descent gap explicit"
         ),
         "backend": backend,
+        "availableBackends": available_backends(),
         "backendResult": backend_result,
         "curves": curves,
         "remainingWork": [

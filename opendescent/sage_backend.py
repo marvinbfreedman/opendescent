@@ -4,9 +4,9 @@ Run with:
 
     sage -python -m opendescent.sage_backend input.json
 
-This is an open-source backend adapter, not a proprietary Magma substitute.  It
-lets OpenDescent consume Sage/eclib rank and Selmer computations through the
-same JSON certificate protocol while native descent is under construction.
+This open-source backend adapter lets OpenDescent consume Sage/eclib rank and
+Selmer computations through the same JSON certificate protocol while native
+descent is under construction.
 """
 
 from __future__ import annotations
@@ -112,4 +112,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -5,11 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "opendescent"
 version = "0.1.0"
-description = "Open BSD/descent certificate engine scaffold"
+description = "Open-source arithmetic descent certificates for elliptic curves over Q"
 requires-python = ">=3.10"
 authors = [{ name = "Marvin B Freedman" }]
 license = { text = "MIT" }
+keywords = ["bsd", "elliptic-curves", "descent", "selmer", "computer-algebra"]
 
 [project.scripts]
 opendescent = "opendescent.cli:main"
-

@@ -6,22 +6,44 @@ import argparse
 import json
 from pathlib import Path
 
+from .backends import BACKENDS, available_backends
 from .certificate import build_certificate
+
+
+def print_summary(cert: dict) -> None:
+    print(f"status={cert['status']}")
+    print(f"backend={cert['backend']}")
+    for curve in cert["curves"]:
+        descent = curve["descent"]
+        print(
+            f"{curve['label']}: "
+            f"rankInterval={descent.get('rankInterval')} "
+            f"certified={descent.get('rankCertified')} "
+            f"selmer={descent.get('twoSelmerRank')}"
+        )
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate OpenDescent JSON certificates.")
-    parser.add_argument("input", help="Input JSON containing curves.")
+    parser.add_argument("input", nargs="?", help="Input JSON containing curves.")
     parser.add_argument("--out", default="-", help="Output JSON path, or '-' for stdout.")
     parser.add_argument("--point-bound", type=int, default=50)
     parser.add_argument("--prime-bound", type=int, default=31)
+    parser.add_argument("--list-backends", action="store_true", help="Print backend availability and exit.")
+    parser.add_argument("--quiet", action="store_true", help="Suppress concise summary when writing to a file.")
     parser.add_argument(
         "--backend",
-        choices=["native", "sage"],
+        choices=BACKENDS,
         default="native",
         help="Optional open-source backend for rank/Selmer certification.",
     )
     args = parser.parse_args()
+
+    if args.list_backends:
+        print(json.dumps(available_backends(), indent=2, sort_keys=True))
+        return
+    if not args.input:
+        parser.error("input is required unless --list-backends is used")
 
     input_path = str(Path(args.input).resolve())
     payload = json.loads(Path(input_path).read_text())
@@ -38,6 +60,8 @@ def main() -> None:
     else:
         Path(args.out).write_text(text)
         print(f"wrote {args.out}")
+        if not args.quiet:
+            print_summary(cert)
 
 
 if __name__ == "__main__":
