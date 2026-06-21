@@ -13,6 +13,8 @@ import shutil
 import subprocess
 import sys
 
+from .higher_descent import cassels_pairing_placeholder, parse_mwrank_higher_two_descent
+
 
 RANK_RE = re.compile(r"^Rank\s*=\s*(\d+)", re.MULTILINE)
 SELMER_RE = re.compile(r"^Rank of S\^2\(E\)\s*=\s*(\d+)", re.MULTILINE)
@@ -68,6 +70,11 @@ def parse_mwrank_output(label: str, returncode: int, output: str) -> dict:
         "selmerError": None if selmer is not None else "mwrank Selmer rank line not found",
         "regulator": _float_or_none(regulator_match.group(1)) if regulator_match else None,
         "generators": generators,
+        "higherTwoDescent": parse_mwrank_higher_two_descent(output),
+        "casselsPairing": cassels_pairing_placeholder(
+            "mwrank_direct",
+            reason="mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+        ),
         "returncode": returncode,
         "success": returncode == 0,
         "status": "certified rank interval" if certified else "mwrank output did not close the rank interval",

@@ -17,6 +17,8 @@ import traceback
 
 from sage.all import EllipticCurve, QQ
 
+from .higher_descent import cassels_pairing_placeholder, sage_higher_two_descent_capabilities
+
 
 def _int_or_none(value):
     if value is None:
@@ -58,6 +60,13 @@ def curve_backend(row: dict) -> dict:
     except Exception:
         pass
 
+    descent_methods = [
+        name
+        for name in ("two_descent", "simon_two_descent", "selmer_rank", "three_selmer_rank")
+        if hasattr(E, name)
+    ]
+    cassels_methods = sorted(name for name in dir(E) if "cassels" in name.lower())
+
     certified = lower is not None and upper is not None and lower == upper
     return {
         "label": label,
@@ -72,6 +81,12 @@ def curve_backend(row: dict) -> dict:
         "rankSource": rank_source,
         "selmerSource": selmer_source,
         "selmerError": selmer_error,
+        "higherTwoDescent": sage_higher_two_descent_capabilities(descent_methods),
+        "casselsPairing": cassels_pairing_placeholder(
+            "sage",
+            reason="Sage backend did not compute a Cassels pairing matrix for this certificate",
+            available_methods=cassels_methods,
+        ),
         "status": "certified rank interval" if certified else "open rank interval",
     }
 

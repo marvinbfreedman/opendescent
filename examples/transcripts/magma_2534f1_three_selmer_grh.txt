@@ -1,0 +1,10 @@
+===== 2534f1 GRH =====
+0 true
+Abelian Group of order 1
+1
+Abelian Group isomorphic to Z/3 + Z/3
+Defined on 2 generators
+Relations:
+    3*G.1 = 0
+    3*G.2 = 0
+9

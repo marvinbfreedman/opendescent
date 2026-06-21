@@ -15,7 +15,7 @@ def print_summary(cert: dict) -> None:
     print(f"backend={cert['backend']}")
     for curve in cert["curves"]:
         descent = curve["descent"]
-        print(
+        line = (
             f"{curve['label']}: "
             f"rankInterval={descent.get('rankInterval')} "
             f"certified={descent.get('rankCertified')} "
@@ -23,6 +23,22 @@ def print_summary(cert: dict) -> None:
             f"torsion={descent.get('torsionOrder')} "
             f"engine={descent.get('engine')}"
         )
+        higher = descent.get("higherTwoDescent") or {}
+        if higher.get("secondDescentDetected"):
+            line += " higher2=second-descent"
+        elif higher.get("method"):
+            line += f" descentMethod={higher.get('method')}"
+        cassels = descent.get("casselsPairing") or {}
+        if cassels.get("computed"):
+            line += " casselsPairing=computed"
+        evidence = curve.get("threeSelmerEvidence")
+        if evidence:
+            line += (
+                f" threeSelmerOrder={evidence.get('threeSelmerOrder')}"
+                f" evidenceMatch={evidence.get('matchesExpected')}"
+                f" conditional={evidence.get('conditional')}"
+            )
+        print(line)
 
 
 def main() -> None:
@@ -34,6 +50,7 @@ def main() -> None:
     parser.add_argument("--list-backends", action="store_true", help="Print backend availability and exit.")
     parser.add_argument("--quiet", action="store_true", help="Suppress concise summary when writing to a file.")
     parser.add_argument("--summary-only", action="store_true", help="Print only the concise certificate summary.")
+    parser.add_argument("--evidence-transcripts", action="store_true", help="Attach transcript evidence referenced by input curves.")
     parser.add_argument(
         "--backend",
         choices=BACKENDS,
@@ -56,6 +73,7 @@ def main() -> None:
         prime_bound=args.prime_bound,
         backend=args.backend,
         input_path=input_path,
+        evidence_transcripts=args.evidence_transcripts,
     )
     text = json.dumps(cert, indent=2, sort_keys=True) + "\n"
     if args.summary_only:

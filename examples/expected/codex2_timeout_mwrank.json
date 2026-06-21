@@ -1,0 +1,715 @@
+{
+  "artifact": "opendescent_certificate",
+  "availableBackends": {
+    "magma": {
+      "available": false,
+      "description": "Detector only; Magma is not bundled or required",
+      "kind": "optional licensed external"
+    },
+    "mwrank_direct": {
+      "available": true,
+      "description": "Direct eclib/mwrank rank and 2-Selmer adapter",
+      "kind": "open-source external"
+    },
+    "native": {
+      "available": true,
+      "description": "OpenDescent native arithmetic scaffold",
+      "kind": "built-in"
+    },
+    "pari_gp": {
+      "available": true,
+      "description": "PARI/GP adapter placeholder",
+      "kind": "planned external"
+    },
+    "sage": {
+      "available": true,
+      "description": "Sage/eclib rank bounds, Selmer rank, and torsion",
+      "kind": "open-source external"
+    }
+  },
+  "backend": "mwrank_direct",
+  "backendResult": {
+    "command": "python3 -m opendescent.mwrank_backend",
+    "parsed": {
+      "artifact": "opendescent_mwrank_backend",
+      "curves": {
+        "2429b1": {
+          "casselsPairing": {
+            "available": false,
+            "availableMethods": [],
+            "computed": false,
+            "engine": "mwrank_direct",
+            "matrix": null,
+            "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+            "status": "Cassels pairing not computed"
+          },
+          "engine": "mwrank_direct",
+          "generators": [],
+          "higherTwoDescent": {
+            "available": true,
+            "computed": true,
+            "engine": "mwrank",
+            "fullMultiplicationByTwoDetected": false,
+            "isogenousCurve": "[1,1,0,-1850,-31411]",
+            "isogenyDescentDetected": true,
+            "method": "2-isogeny descent with second local descent",
+            "secondDescentDetected": true,
+            "selmerDimensions": {
+              "rankBoundAfterFirstDescent": 0,
+              "rankBoundAfterSecondDescent": 0,
+              "rankPhiPrimeS2E": 1,
+              "rankPhiS2EPrime": 1,
+              "rankS2E": 1,
+              "rankS2EPrime": 1,
+              "rankSPhiEPrime": 1,
+              "rankSPhiPrimeE": 1
+            },
+            "shaTwoInformation": {
+              "shaEPrime_phi": 1,
+              "shaEPrime_phiPrimeImage": 1,
+              "shaEPrime_two": 1,
+              "shaE_phiPrime": 1,
+              "shaE_two": 1
+            },
+            "status": "higher 2-descent evidence parsed from mwrank second descent step"
+          },
+          "label": "2429b1",
+          "rankCertified": true,
+          "rankInterval": [
+            0,
+            0
+          ],
+          "rankLowerBound": 0,
+          "rankSource": "mwrank:Rank",
+          "rankUpperBound": 0,
+          "rawOutput": "Curve [1,1,0,-115,-528] :\t\n1 points of order 2:\n[12:-6:1]\n\nUsing 2-isogenous curve [0,-298,0,-7,0] (minimal model [1,1,0,-1850,-31411])\n-------------------------------------------------------\nFirst step, determining 1st descent Selmer groups\n-------------------------------------------------------\nAfter first local descent, rank bound = 0\nrk(S^{phi}(E'))=\t1\nrk(S^{phi'}(E))=\t1\n\n-------------------------------------------------------\nSecond step, determining 2nd descent Selmer groups\n-------------------------------------------------------\n...skipping since we already know rank=0\nAfter second local descent, rank bound = 0\nrk(phi'(S^{2}(E)))=\t1\nrk(phi(S^{2}(E')))=\t1\nrk(S^{2}(E))=\t1\nrk(S^{2}(E'))=\t1\n\nThird step, determining E(Q)/phi(E'(Q)) and E'(Q)/phi'(E(Q))\n-------------------------------------------------------\n1. E(Q)/phi(E'(Q))\n-------------------------------------------------------\n(c,d)  =(149,5552)\n(c',d')=(-298,-7)\nThis component of the rank is 0\n-------------------------------------------------------\n2. E'(Q)/phi'(E(Q))\n-------------------------------------------------------\nThis component of the rank is 0\n\n-------------------------------------------------------\nSummary of results:\n-------------------------------------------------------\n\trank(E) = 0\n\t#E(Q)/2E(Q) = 2\n\nInformation on III(E/Q):\n\t#III(E/Q)[phi']    = 1\n\t#III(E/Q)[2]       = 1\n\nInformation on III(E'/Q):\n\t#phi'(III(E/Q)[2]) = 1\n\t#III(E'/Q)[phi]    = 1\n\t#III(E'/Q)[2]      = 1\n\n\nUsed descent via 2-isogeny with isogenous curve E' = [1,1,0,-1850,-31411]\nRank = 0\nRank of S^2(E)  = 1\nRank of S^2(E') = 1\nRank of S^phi(E') = 1\nRank of S^phi'(E) = 1\n\nProcessing points found during 2-descent...done:\n  now regulator = 1\n\n\nRegulator = 1\n\nThe rank and full Mordell-Weil basis have been determined unconditionally.\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (0.271093 seconds)\nEnter curve: ",
+          "regulator": 1.0,
+          "returncode": 0,
+          "selmerError": null,
+          "selmerSource": "mwrank:Rank of S^2(E)",
+          "selmerUpperBound": 1,
+          "status": "certified rank interval",
+          "success": true,
+          "torsionOrder": null,
+          "twoSelmerRank": 1
+        },
+        "2534f1": {
+          "casselsPairing": {
+            "available": false,
+            "availableMethods": [],
+            "computed": false,
+            "engine": "mwrank_direct",
+            "matrix": null,
+            "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+            "status": "Cassels pairing not computed"
+          },
+          "engine": "mwrank_direct",
+          "generators": [],
+          "higherTwoDescent": {
+            "available": true,
+            "computed": true,
+            "engine": "mwrank",
+            "fullMultiplicationByTwoDetected": true,
+            "isogenousCurve": null,
+            "isogenyDescentDetected": false,
+            "method": "full 2-descent via multiplication-by-2 map",
+            "secondDescentDetected": false,
+            "selmerDimensions": {
+              "rankS2E": 0
+            },
+            "shaTwoInformation": {},
+            "status": "ordinary full 2-descent evidence parsed; no higher step detected"
+          },
+          "label": "2534f1",
+          "rankCertified": true,
+          "rankInterval": [
+            0,
+            0
+          ],
+          "rankLowerBound": 0,
+          "rankSource": "mwrank:Rank",
+          "rankUpperBound": 0,
+          "rawOutput": "Curve [1,-1,1,-303,-1955] :\tBasic pair: I=14529, J=3508542\ndisc=-42053534208\n2-adic index bound = 2\nBy Lemma 5.1(b), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\n*** BSD give two (I,J) pairs\nLooking for quartics with I = 14529, J = 3508542\nLooking for Type 3 quartics:\nTrying negative a from -1 down to -40\n(-1,0,57,28,-940)\t--trivial\n(-1,2,45,52,-1068)\t--trivial\nFinished looking for Type 3 quartics.\nMordell rank contribution from B=im(eps) = 0\nSelmer  rank contribution from B=im(eps) = 0\nSha     rank contribution from B=im(eps) = 0\nMordell rank contribution from A=ker(eps) = 0\nSelmer  rank contribution from A=ker(eps) = 0\nSha     rank contribution from A=ker(eps) = 0\n\nUsed full 2-descent via multiplication-by-2 map\nRank = 0\nRank of S^2(E)  = 0\n\nProcessing points found during 2-descent...done:\n  now regulator = 1\n\n\nRegulator = 1\n\nThe rank and full Mordell-Weil basis have been determined unconditionally.\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (0.034801 seconds)\nEnter curve: ",
+          "regulator": 1.0,
+          "returncode": 0,
+          "selmerError": null,
+          "selmerSource": "mwrank:Rank of S^2(E)",
+          "selmerUpperBound": 0,
+          "status": "certified rank interval",
+          "success": true,
+          "torsionOrder": null,
+          "twoSelmerRank": 0
+        },
+        "2674b1": {
+          "casselsPairing": {
+            "available": false,
+            "availableMethods": [],
+            "computed": false,
+            "engine": "mwrank_direct",
+            "matrix": null,
+            "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+            "status": "Cassels pairing not computed"
+          },
+          "engine": "mwrank_direct",
+          "generators": [],
+          "higherTwoDescent": {
+            "available": true,
+            "computed": true,
+            "engine": "mwrank",
+            "fullMultiplicationByTwoDetected": false,
+            "isogenousCurve": "[1,1,0,-43718,-3536620]",
+            "isogenyDescentDetected": true,
+            "method": "2-isogeny descent with second local descent",
+            "secondDescentDetected": true,
+            "selmerDimensions": {
+              "rankBoundAfterFirstDescent": 0,
+              "rankBoundAfterSecondDescent": 0,
+              "rankPhiPrimeS2E": 1,
+              "rankPhiS2EPrime": 1,
+              "rankS2E": 1,
+              "rankS2EPrime": 1,
+              "rankSPhiEPrime": 1,
+              "rankSPhiPrimeE": 1
+            },
+            "shaTwoInformation": {
+              "shaEPrime_phi": 1,
+              "shaEPrime_phiPrimeImage": 1,
+              "shaEPrime_two": 1,
+              "shaE_phiPrime": 1,
+              "shaE_two": 1
+            },
+            "status": "higher 2-descent evidence parsed from mwrank second descent step"
+          },
+          "label": "2674b1",
+          "rankCertified": true,
+          "rankInterval": [
+            0,
+            0
+          ],
+          "rankLowerBound": 0,
+          "rankSource": "mwrank:Rank",
+          "rankUpperBound": 0,
+          "rawOutput": "Curve [1,1,0,-2758,-55020] :\t\n1 points of order 2:\n[60:-30:1]\n\nUsing 2-isogenous curve [0,-1450,0,1337,0] (minimal model [1,1,0,-43718,-3536620])\n-------------------------------------------------------\nFirst step, determining 1st descent Selmer groups\n-------------------------------------------------------\nAfter first local descent, rank bound = 0\nrk(S^{phi}(E'))=\t1\nrk(S^{phi'}(E))=\t1\n\n-------------------------------------------------------\nSecond step, determining 2nd descent Selmer groups\n-------------------------------------------------------\n...skipping since we already know rank=0\nAfter second local descent, rank bound = 0\nrk(phi'(S^{2}(E)))=\t1\nrk(phi(S^{2}(E')))=\t1\nrk(S^{2}(E))=\t1\nrk(S^{2}(E'))=\t1\n\nThird step, determining E(Q)/phi(E'(Q)) and E'(Q)/phi'(E(Q))\n-------------------------------------------------------\n1. E(Q)/phi(E'(Q))\n-------------------------------------------------------\n(c,d)  =(725,131072)\n(c',d')=(-1450,1337)\nThis component of the rank is 0\n-------------------------------------------------------\n2. E'(Q)/phi'(E(Q))\n-------------------------------------------------------\nThis component of the rank is 0\n\n-------------------------------------------------------\nSummary of results:\n-------------------------------------------------------\n\trank(E) = 0\n\t#E(Q)/2E(Q) = 2\n\nInformation on III(E/Q):\n\t#III(E/Q)[phi']    = 1\n\t#III(E/Q)[2]       = 1\n\nInformation on III(E'/Q):\n\t#phi'(III(E/Q)[2]) = 1\n\t#III(E'/Q)[phi]    = 1\n\t#III(E'/Q)[2]      = 1\n\n\nUsed descent via 2-isogeny with isogenous curve E' = [1,1,0,-43718,-3536620]\nRank = 0\nRank of S^2(E)  = 1\nRank of S^2(E') = 1\nRank of S^phi(E') = 1\nRank of S^phi'(E) = 1\n\nProcessing points found during 2-descent...done:\n  now regulator = 1\n\n\nRegulator = 1\n\nThe rank and full Mordell-Weil basis have been determined unconditionally.\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (0.25161 seconds)\nEnter curve: ",
+          "regulator": 1.0,
+          "returncode": 0,
+          "selmerError": null,
+          "selmerSource": "mwrank:Rank of S^2(E)",
+          "selmerUpperBound": 1,
+          "status": "certified rank interval",
+          "success": true,
+          "torsionOrder": null,
+          "twoSelmerRank": 1
+        }
+      },
+      "failures": {},
+      "success": true
+    },
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\n  \"artifact\": \"opendescent_mwrank_backend\",\n  \"curves\": {\n    \"2429b1\": {\n      \"casselsPairing\": {\n        \"available\": false,\n        \"availableMethods\": [],\n        \"computed\": false,\n        \"engine\": \"mwrank_direct\",\n        \"matrix\": null,\n        \"reason\": \"mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix\",\n        \"status\": \"Cassels pairing not computed\"\n      },\n      \"engine\": \"mwrank_direct\",\n      \"generators\": [],\n      \"higherTwoDescent\": {\n        \"available\": true,\n        \"computed\": true,\n        \"engine\": \"mwrank\",\n        \"fullMultiplicationByTwoDetected\": false,\n        \"isogenousCurve\": \"[1,1,0,-1850,-31411]\",\n        \"isogenyDescentDetected\": true,\n        \"method\": \"2-isogeny descent with second local descent\",\n        \"secondDescentDetected\": true,\n        \"selmerDimensions\": {\n          \"rankBoundAfterFirstDescent\": 0,\n          \"rankBoundAfterSecondDescent\": 0,\n          \"rankPhiPrimeS2E\": 1,\n          \"rankPhiS2EPrime\": 1,\n          \"rankS2E\": 1,\n          \"rankS2EPrime\": 1,\n          \"rankSPhiEPrime\": 1,\n          \"rankSPhiPrimeE\": 1\n        },\n        \"shaTwoInformation\": {\n          \"shaEPrime_phi\": 1,\n          \"shaEPrime_phiPrimeImage\": 1,\n          \"shaEPrime_two\": 1,\n          \"shaE_phiPrime\": 1,\n          \"shaE_two\": 1\n        },\n        \"status\": \"higher 2-descent evidence parsed from mwrank second descent step\"\n      },\n      \"label\": \"2429b1\",\n      \"rankCertified\": true,\n      \"rankInterval\": [\n        0,\n        0\n      ],\n      \"rankLowerBound\": 0,\n      \"rankSource\": \"mwrank:Rank\",\n      \"rankUpperBound\": 0,\n      \"rawOutput\": \"Curve [1,1,0,-115,-528] :\\t\\n1 points of order 2:\\n[12:-6:1]\\n\\nUsing 2-isogenous curve [0,-298,0,-7,0] (minimal model [1,1,0,-1850,-31411])\\n-------------------------------------------------------\\nFirst step, determining 1st descent Selmer groups\\n-------------------------------------------------------\\nAfter first local descent, rank bound = 0\\nrk(S^{phi}(E'))=\\t1\\nrk(S^{phi'}(E))=\\t1\\n\\n-------------------------------------------------------\\nSecond step, determining 2nd descent Selmer groups\\n-------------------------------------------------------\\n...skipping since we already know rank=0\\nAfter second local descent, rank bound = 0\\nrk(phi'(S^{2}(E)))=\\t1\\nrk(phi(S^{2}(E')))=\\t1\\nrk(S^{2}(E))=\\t1\\nrk(S^{2}(E'))=\\t1\\n\\nThird step, determining E(Q)/phi(E'(Q)) and E'(Q)/phi'(E(Q))\\n-------------------------------------------------------\\n1. E(Q)/phi(E'(Q))\\n-------------------------------------------------------\\n(c,d)  =(149,5552)\\n(c',d')=(-298,-7)\\nThis component of the rank is 0\\n-------------------------------------------------------\\n2. E'(Q)/phi'(E(Q))\\n-------------------------------------------------------\\nThis component of the rank is 0\\n\\n-------------------------------------------------------\\nSummary of results:\\n-------------------------------------------------------\\n\\trank(E) = 0\\n\\t#E(Q)/2E(Q) = 2\\n\\nInformation on III(E/Q):\\n\\t#III(E/Q)[phi']    = 1\\n\\t#III(E/Q)[2]       = 1\\n\\nInformation on III(E'/Q):\\n\\t#phi'(III(E/Q)[2]) = 1\\n\\t#III(E'/Q)[phi]    = 1\\n\\t#III(E'/Q)[2]      = 1\\n\\n\\nUsed descent via 2-isogeny with isogenous curve E' = [1,1,0,-1850,-31411]\\nRank = 0\\nRank of S^2(E)  = 1\\nRank of S^2(E') = 1\\nRank of S^phi(E') = 1\\nRank of S^phi'(E) = 1\\n\\nProcessing points found during 2-descent...done:\\n  now regulator = 1\\n\\n\\nRegulator = 1\\n\\nThe rank and full Mordell-Weil basis have been determined unconditionally.\\n\\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\\ndetermine the rank of an elliptic curve E over Q, and list a\\nset of points that generate E(Q) modulo 2E(Q).\\nand finally saturate to obtain generating points on the curve.\\nFor more details see the mwrank documentation.\\nFor details of algorithms see the author's book.\\n\\nPlease acknowledge use of this program in published work, \\nand send problems to john.cremona@gmail.com.\\n\\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\\nUsing multiprecision floating point with 50 bits precision.\\nEnter curve:  (0.271093 seconds)\\nEnter curve: \",\n      \"regulator\": 1.0,\n      \"returncode\": 0,\n      \"selmerError\": null,\n      \"selmerSource\": \"mwrank:Rank of S^2(E)\",\n      \"selmerUpperBound\": 1,\n      \"status\": \"certified rank interval\",\n      \"success\": true,\n      \"torsionOrder\": null,\n      \"twoSelmerRank\": 1\n    },\n    \"2534f1\": {\n      \"casselsPairing\": {\n        \"available\": false,\n        \"availableMethods\": [],\n        \"computed\": false,\n        \"engine\": \"mwrank_direct\",\n        \"matrix\": null,\n        \"reason\": \"mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix\",\n        \"status\": \"Cassels pairing not computed\"\n      },\n      \"engine\": \"mwrank_direct\",\n      \"generators\": [],\n      \"higherTwoDescent\": {\n        \"available\": true,\n        \"computed\": true,\n        \"engine\": \"mwrank\",\n        \"fullMultiplicationByTwoDetected\": true,\n        \"isogenousCurve\": null,\n        \"isogenyDescentDetected\": false,\n        \"method\": \"full 2-descent via multiplication-by-2 map\",\n        \"secondDescentDetected\": false,\n        \"selmerDimensions\": {\n          \"rankS2E\": 0\n        },\n        \"shaTwoInformation\": {},\n        \"status\": \"ordinary full 2-descent evidence parsed; no higher step detected\"\n      },\n      \"label\": \"2534f1\",\n      \"rankCertified\": true,\n      \"rankInterval\": [\n        0,\n        0\n      ],\n      \"rankLowerBound\": 0,\n      \"rankSource\": \"mwrank:Rank\",\n      \"rankUpperBound\": 0,\n      \"rawOutput\": \"Curve [1,-1,1,-303,-1955] :\\tBasic pair: I=14529, J=3508542\\ndisc=-42053534208\\n2-adic index bound = 2\\nBy Lemma 5.1(b), 2-adic index = 1\\n2-adic index = 1\\nOne (I,J) pair\\n*** BSD give two (I,J) pairs\\nLooking for quartics with I = 14529, J = 3508542\\nLooking for Type 3 quartics:\\nTrying negative a from -1 down to -40\\n(-1,0,57,28,-940)\\t--trivial\\n(-1,2,45,52,-1068)\\t--trivial\\nFinished looking for Type 3 quartics.\\nMordell rank contribution from B=im(eps) = 0\\nSelmer  rank contribution from B=im(eps) = 0\\nSha     rank contribution from B=im(eps) = 0\\nMordell rank contribution from A=ker(eps) = 0\\nSelmer  rank contribution from A=ker(eps) = 0\\nSha     rank contribution from A=ker(eps) = 0\\n\\nUsed full 2-descent via multiplication-by-2 map\\nRank = 0\\nRank of S^2(E)  = 0\\n\\nProcessing points found during 2-descent...done:\\n  now regulator = 1\\n\\n\\nRegulator = 1\\n\\nThe rank and full Mordell-Weil basis have been determined unconditionally.\\n\\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\\ndetermine the rank of an elliptic curve E over Q, and list a\\nset of points that generate E(Q) modulo 2E(Q).\\nand finally saturate to obtain generating points on the curve.\\nFor more details see the mwrank documentation.\\nFor details of algorithms see the author's book.\\n\\nPlease acknowledge use of this program in published work, \\nand send problems to john.cremona@gmail.com.\\n\\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\\nUsing multiprecision floating point with 50 bits precision.\\nEnter curve:  (0.034801 seconds)\\nEnter curve: \",\n      \"regulator\": 1.0,\n      \"returncode\": 0,\n      \"selmerError\": null,\n      \"selmerSource\": \"mwrank:Rank of S^2(E)\",\n      \"selmerUpperBound\": 0,\n      \"status\": \"certified rank interval\",\n      \"success\": true,\n      \"torsionOrder\": null,\n      \"twoSelmerRank\": 0\n    },\n    \"2674b1\": {\n      \"casselsPairing\": {\n        \"available\": false,\n        \"availableMethods\": [],\n        \"computed\": false,\n        \"engine\": \"mwrank_direct\",\n        \"matrix\": null,\n        \"reason\": \"mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix\",\n        \"status\": \"Cassels pairing not computed\"\n      },\n      \"engine\": \"mwrank_direct\",\n      \"generators\": [],\n      \"higherTwoDescent\": {\n        \"available\": true,\n        \"computed\": true,\n        \"engine\": \"mwrank\",\n        \"fullMultiplicationByTwoDetected\": false,\n        \"isogenousCurve\": \"[1,1,0,-43718,-3536620]\",\n        \"isogenyDescentDetected\": true,\n        \"method\": \"2-isogeny descent with second local descent\",\n        \"secondDescentDetected\": true,\n        \"selmerDimensions\": {\n          \"rankBoundAfterFirstDescent\": 0,\n          \"rankBoundAfterSecondDescent\": 0,\n          \"rankPhiPrimeS2E\": 1,\n          \"rankPhiS2EPrime\": 1,\n          \"rankS2E\": 1,\n          \"rankS2EPrime\": 1,\n          \"rankSPhiEPrime\": 1,\n          \"rankSPhiPrimeE\": 1\n        },\n        \"shaTwoInformation\": {\n          \"shaEPrime_phi\": 1,\n          \"shaEPrime_phiPrimeImage\": 1,\n          \"shaEPrime_two\": 1,\n          \"shaE_phiPrime\": 1,\n          \"shaE_two\": 1\n        },\n        \"status\": \"higher 2-descent evidence parsed from mwrank second descent step\"\n      },\n      \"label\": \"2674b1\",\n      \"rankCertified\": true,\n      \"rankInterval\": [\n        0,\n        0\n      ],\n      \"rankLowerBound\": 0,\n      \"rankSource\": \"mwrank:Rank\",\n      \"rankUpperBound\": 0,\n      \"rawOutput\": \"Curve [1,1,0,-2758,-55020] :\\t\\n1 points of order 2:\\n[60:-30:1]\\n\\nUsing 2-isogenous curve [0,-1450,0,1337,0] (minimal model [1,1,0,-43718,-3536620])\\n-------------------------------------------------------\\nFirst step, determining 1st descent Selmer groups\\n-------------------------------------------------------\\nAfter first local descent, rank bound = 0\\nrk(S^{phi}(E'))=\\t1\\nrk(S^{phi'}(E))=\\t1\\n\\n-------------------------------------------------------\\nSecond step, determining 2nd descent Selmer groups\\n-------------------------------------------------------\\n...skipping since we already know rank=0\\nAfter second local descent, rank bound = 0\\nrk(phi'(S^{2}(E)))=\\t1\\nrk(phi(S^{2}(E')))=\\t1\\nrk(S^{2}(E))=\\t1\\nrk(S^{2}(E'))=\\t1\\n\\nThird step, determining E(Q)/phi(E'(Q)) and E'(Q)/phi'(E(Q))\\n-------------------------------------------------------\\n1. E(Q)/phi(E'(Q))\\n-------------------------------------------------------\\n(c,d)  =(725,131072)\\n(c',d')=(-1450,1337)\\nThis component of the rank is 0\\n-------------------------------------------------------\\n2. E'(Q)/phi'(E(Q))\\n-------------------------------------------------------\\nThis component of the rank is 0\\n\\n-------------------------------------------------------\\nSummary of results:\\n-------------------------------------------------------\\n\\trank(E) = 0\\n\\t#E(Q)/2E(Q) = 2\\n\\nInformation on III(E/Q):\\n\\t#III(E/Q)[phi']    = 1\\n\\t#III(E/Q)[2]       = 1\\n\\nInformation on III(E'/Q):\\n\\t#phi'(III(E/Q)[2]) = 1\\n\\t#III(E'/Q)[phi]    = 1\\n\\t#III(E'/Q)[2]      = 1\\n\\n\\nUsed descent via 2-isogeny with isogenous curve E' = [1,1,0,-43718,-3536620]\\nRank = 0\\nRank of S^2(E)  = 1\\nRank of S^2(E') = 1\\nRank of S^phi(E') = 1\\nRank of S^phi'(E) = 1\\n\\nProcessing points found during 2-descent...done:\\n  now regulator = 1\\n\\n\\nRegulator = 1\\n\\nThe rank and full Mordell-Weil basis have been determined unconditionally.\\n\\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\\ndetermine the rank of an elliptic curve E over Q, and list a\\nset of points that generate E(Q) modulo 2E(Q).\\nand finally saturate to obtain generating points on the curve.\\nFor more details see the mwrank documentation.\\nFor details of algorithms see the author's book.\\n\\nPlease acknowledge use of this program in published work, \\nand send problems to john.cremona@gmail.com.\\n\\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\\nUsing multiprecision floating point with 50 bits precision.\\nEnter curve:  (0.25161 seconds)\\nEnter curve: \",\n      \"regulator\": 1.0,\n      \"returncode\": 0,\n      \"selmerError\": null,\n      \"selmerSource\": \"mwrank:Rank of S^2(E)\",\n      \"selmerUpperBound\": 1,\n      \"status\": \"certified rank interval\",\n      \"success\": true,\n      \"torsionOrder\": null,\n      \"twoSelmerRank\": 1\n    }\n  },\n  \"failures\": {},\n  \"success\": true\n}\n",
+    "succeeded": true
+  },
+  "curves": [
+    {
+      "badPrimes": [
+        7,
+        347
+      ],
+      "caseMetadata": {
+        "expectedSelmerOrder": 9,
+        "predictedShaFactorization": "3^2",
+        "predictedShaOrder": 9,
+        "prime": 3,
+        "source": "codex-2 Magma timeout case",
+        "targetPrimaryOrder": 9
+      },
+      "conductor": 2429,
+      "descent": {
+        "casselsPairing": {
+          "available": false,
+          "availableMethods": [],
+          "computed": false,
+          "engine": "mwrank_direct",
+          "matrix": null,
+          "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+          "status": "Cassels pairing not computed"
+        },
+        "engine": "mwrank_direct",
+        "generators": [],
+        "higherTwoDescent": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": false,
+          "isogenousCurve": "[1,1,0,-1850,-31411]",
+          "isogenyDescentDetected": true,
+          "method": "2-isogeny descent with second local descent",
+          "secondDescentDetected": true,
+          "selmerDimensions": {
+            "rankBoundAfterFirstDescent": 0,
+            "rankBoundAfterSecondDescent": 0,
+            "rankPhiPrimeS2E": 1,
+            "rankPhiS2EPrime": 1,
+            "rankS2E": 1,
+            "rankS2EPrime": 1,
+            "rankSPhiEPrime": 1,
+            "rankSPhiPrimeE": 1
+          },
+          "shaTwoInformation": {
+            "shaEPrime_phi": 1,
+            "shaEPrime_phiPrimeImage": 1,
+            "shaEPrime_two": 1,
+            "shaE_phiPrime": 1,
+            "shaE_two": 1
+          },
+          "status": "higher 2-descent evidence parsed from mwrank second descent step"
+        },
+        "rankCertified": true,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "rankLowerBound": 0,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": 0,
+        "regulator": 1.0,
+        "selmerError": null,
+        "selmerSource": "mwrank:Rank of S^2(E)",
+        "selmerUpperBound": 1,
+        "status": "certified rank interval",
+        "torsionOrder": null,
+        "twoSelmerRank": 1
+      },
+      "goodPrimeSamples": [
+        {
+          "a_p": 1,
+          "p": 2
+        },
+        {
+          "a_p": 2,
+          "p": 3
+        },
+        {
+          "a_p": 0,
+          "p": 5
+        },
+        {
+          "a_p": 0,
+          "p": 11
+        },
+        {
+          "a_p": 6,
+          "p": 13
+        },
+        {
+          "a_p": 0,
+          "p": 17
+        },
+        {
+          "a_p": 8,
+          "p": 19
+        },
+        {
+          "a_p": 0,
+          "p": 23
+        },
+        {
+          "a_p": 6,
+          "p": 29
+        },
+        {
+          "a_p": 6,
+          "p": 31
+        }
+      ],
+      "integralPointSearch": {
+        "bound": 50,
+        "count": 1,
+        "points": [
+          [
+            "12",
+            "-6"
+          ]
+        ],
+        "truncated": false
+      },
+      "invariants": {
+        "b2": 5,
+        "b4": -230,
+        "b6": -2112,
+        "b8": -15865,
+        "c4": 5545,
+        "c6": 414667,
+        "discriminant": -842863,
+        "j": "-170492253625/842863"
+      },
+      "label": "2429b1",
+      "localRecords": [
+        {
+          "a_p": 1,
+          "localFactor": [
+            1,
+            -1
+          ],
+          "p": 7,
+          "reduction": "nonsplit multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 1
+        },
+        {
+          "a_p": -1,
+          "localFactor": [
+            1,
+            1
+          ],
+          "p": 347,
+          "reduction": "split multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 2
+        }
+      ],
+      "weierstrass": [
+        1,
+        1,
+        0,
+        -115,
+        -528
+      ]
+    },
+    {
+      "badPrimes": [
+        2,
+        7,
+        181
+      ],
+      "caseMetadata": {
+        "expectedSelmerOrder": 9,
+        "predictedShaFactorization": "3^2",
+        "predictedShaOrder": 9,
+        "prime": 3,
+        "source": "codex-2 Magma timeout case",
+        "targetPrimaryOrder": 9
+      },
+      "conductor": 2534,
+      "descent": {
+        "casselsPairing": {
+          "available": false,
+          "availableMethods": [],
+          "computed": false,
+          "engine": "mwrank_direct",
+          "matrix": null,
+          "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+          "status": "Cassels pairing not computed"
+        },
+        "engine": "mwrank_direct",
+        "generators": [],
+        "higherTwoDescent": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": true,
+          "isogenousCurve": null,
+          "isogenyDescentDetected": false,
+          "method": "full 2-descent via multiplication-by-2 map",
+          "secondDescentDetected": false,
+          "selmerDimensions": {
+            "rankS2E": 0
+          },
+          "shaTwoInformation": {},
+          "status": "ordinary full 2-descent evidence parsed; no higher step detected"
+        },
+        "rankCertified": true,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "rankLowerBound": 0,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": 0,
+        "regulator": 1.0,
+        "selmerError": null,
+        "selmerSource": "mwrank:Rank of S^2(E)",
+        "selmerUpperBound": 0,
+        "status": "certified rank interval",
+        "torsionOrder": null,
+        "twoSelmerRank": 0
+      },
+      "goodPrimeSamples": [
+        {
+          "a_p": 3,
+          "p": 3
+        },
+        {
+          "a_p": -1,
+          "p": 5
+        },
+        {
+          "a_p": 4,
+          "p": 11
+        },
+        {
+          "a_p": -1,
+          "p": 13
+        },
+        {
+          "a_p": -1,
+          "p": 17
+        },
+        {
+          "a_p": 6,
+          "p": 19
+        },
+        {
+          "a_p": -6,
+          "p": 23
+        },
+        {
+          "a_p": 0,
+          "p": 29
+        },
+        {
+          "a_p": 8,
+          "p": 31
+        }
+      ],
+      "integralPointSearch": {
+        "bound": 50,
+        "count": 0,
+        "points": [],
+        "truncated": false
+      },
+      "invariants": {
+        "b2": -3,
+        "b4": -605,
+        "b6": -7819,
+        "b8": -85642,
+        "c4": 14529,
+        "c6": 1754271,
+        "discriminant": -6084134,
+        "j": "-3066953357889/6084134"
+      },
+      "label": "2534f1",
+      "localRecords": [
+        {
+          "a_p": 1,
+          "localFactor": [
+            1,
+            -1
+          ],
+          "p": 2,
+          "reduction": "nonsplit multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 1
+        },
+        {
+          "a_p": 1,
+          "localFactor": [
+            1,
+            -1
+          ],
+          "p": 7,
+          "reduction": "nonsplit multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 5
+        },
+        {
+          "a_p": 1,
+          "localFactor": [
+            1,
+            -1
+          ],
+          "p": 181,
+          "reduction": "nonsplit multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 1
+        }
+      ],
+      "weierstrass": [
+        1,
+        -1,
+        1,
+        -303,
+        -1955
+      ]
+    },
+    {
+      "badPrimes": [
+        2,
+        7,
+        191
+      ],
+      "caseMetadata": {
+        "expectedSelmerOrder": 9,
+        "predictedShaFactorization": "3^2",
+        "predictedShaOrder": 9,
+        "prime": 3,
+        "source": "codex-2 Magma timeout case",
+        "targetPrimaryOrder": 9
+      },
+      "conductor": 2674,
+      "descent": {
+        "casselsPairing": {
+          "available": false,
+          "availableMethods": [],
+          "computed": false,
+          "engine": "mwrank_direct",
+          "matrix": null,
+          "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+          "status": "Cassels pairing not computed"
+        },
+        "engine": "mwrank_direct",
+        "generators": [],
+        "higherTwoDescent": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": false,
+          "isogenousCurve": "[1,1,0,-43718,-3536620]",
+          "isogenyDescentDetected": true,
+          "method": "2-isogeny descent with second local descent",
+          "secondDescentDetected": true,
+          "selmerDimensions": {
+            "rankBoundAfterFirstDescent": 0,
+            "rankBoundAfterSecondDescent": 0,
+            "rankPhiPrimeS2E": 1,
+            "rankPhiS2EPrime": 1,
+            "rankS2E": 1,
+            "rankS2EPrime": 1,
+            "rankSPhiEPrime": 1,
+            "rankSPhiPrimeE": 1
+          },
+          "shaTwoInformation": {
+            "shaEPrime_phi": 1,
+            "shaEPrime_phiPrimeImage": 1,
+            "shaEPrime_two": 1,
+            "shaE_phiPrime": 1,
+            "shaE_two": 1
+          },
+          "status": "higher 2-descent evidence parsed from mwrank second descent step"
+        },
+        "rankCertified": true,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "rankLowerBound": 0,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": 0,
+        "regulator": 1.0,
+        "selmerError": null,
+        "selmerSource": "mwrank:Rank of S^2(E)",
+        "selmerUpperBound": 1,
+        "status": "certified rank interval",
+        "torsionOrder": null,
+        "twoSelmerRank": 1
+      },
+      "goodPrimeSamples": [
+        {
+          "a_p": 2,
+          "p": 3
+        },
+        {
+          "a_p": 4,
+          "p": 5
+        },
+        {
+          "a_p": 6,
+          "p": 11
+        },
+        {
+          "a_p": 0,
+          "p": 13
+        },
+        {
+          "a_p": -2,
+          "p": 17
+        },
+        {
+          "a_p": 4,
+          "p": 19
+        },
+        {
+          "a_p": 0,
+          "p": 23
+        },
+        {
+          "a_p": 4,
+          "p": 29
+        },
+        {
+          "a_p": 0,
+          "p": 31
+        }
+      ],
+      "integralPointSearch": {
+        "bound": 50,
+        "count": 0,
+        "points": [],
+        "truncated": false
+      },
+      "invariants": {
+        "b2": 5,
+        "b4": -5516,
+        "b6": -220080,
+        "b8": -7881664,
+        "c4": 132409,
+        "c6": 46544275,
+        "discriminant": 89724551168,
+        "j": "2321413559693929/89724551168"
+      },
+      "label": "2674b1",
+      "localRecords": [
+        {
+          "a_p": 1,
+          "localFactor": [
+            1,
+            -1
+          ],
+          "p": 2,
+          "reduction": "nonsplit multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 26
+        },
+        {
+          "a_p": 1,
+          "localFactor": [
+            1,
+            -1
+          ],
+          "p": 7,
+          "reduction": "nonsplit multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 1
+        },
+        {
+          "a_p": -1,
+          "localFactor": [
+            1,
+            1
+          ],
+          "p": 191,
+          "reduction": "split multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 1
+        }
+      ],
+      "weierstrass": [
+        1,
+        1,
+        0,
+        -2758,
+        -55020
+      ]
+    }
+  ],
+  "remainingWork": [
+    "full Tate algorithm",
+    "2-covering construction",
+    "local solubility for coverings",
+    "2-Selmer upper bound",
+    "higher 2-descent or Cassels pairing closure when Selmer rank exceeds rank lower bound",
+    "Mordell-Weil rank certificate"
+  ],
+  "status": "rank certificate",
+  "version": "0.1.0"
+}

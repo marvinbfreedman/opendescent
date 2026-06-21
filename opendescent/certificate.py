@@ -2,11 +2,24 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 from .backends import available_backends, run_backend
 from .curve import EllipticCurve
 from .finite_field import ap, primes_upto
 from .local import bad_primes, reduction_record
 from .selmer import two_selmer_certificate
+from .transcripts import three_selmer_evidence
+
+
+CASE_METADATA_FIELDS = (
+    "prime",
+    "expectedSelmerOrder",
+    "targetPrimaryOrder",
+    "predictedShaOrder",
+    "predictedShaFactorization",
+    "source",
+)
 
 
 def curve_certificate(curve: EllipticCurve, point_bound: int = 50, prime_bound: int = 31) -> dict:
@@ -59,6 +72,8 @@ def merge_backend(cert: dict, backend_rows: dict) -> dict:
         "torsionOrder": row.get("torsionOrder"),
         "regulator": row.get("regulator"),
         "generators": row.get("generators"),
+        "higherTwoDescent": row.get("higherTwoDescent"),
+        "casselsPairing": row.get("casselsPairing"),
         "rankSource": row.get("rankSource"),
         "selmerSource": row.get("selmerSource"),
         "selmerError": row.get("selmerError"),
@@ -67,12 +82,47 @@ def merge_backend(cert: dict, backend_rows: dict) -> dict:
     return cert
 
 
+def add_case_metadata(cert: dict, row: dict) -> None:
+    metadata = {field: row[field] for field in CASE_METADATA_FIELDS if field in row}
+    if metadata:
+        cert["caseMetadata"] = metadata
+
+
+def add_transcript_evidence(cert: dict, row: dict, base_dir: Path) -> None:
+    transcript_path = row.get("threeSelmerTranscript") or row.get("transcriptPath")
+    if not transcript_path:
+        return
+    path = Path(transcript_path)
+    if not path.is_absolute():
+        path = base_dir / path
+    try:
+        raw = path.read_text()
+    except Exception as exc:
+        cert["threeSelmerEvidence"] = {
+            "label": cert["label"],
+            "kind": "magma_three_selmer_transcript",
+            "source": str(path),
+            "conditional": bool(row.get("grh")),
+            "status": "transcript_read_failed",
+            "error": str(exc),
+        }
+        return
+    cert["threeSelmerEvidence"] = three_selmer_evidence(
+        cert["label"],
+        raw,
+        row.get("expectedSelmerOrder"),
+        grh=bool(row.get("grh")),
+        source=str(transcript_path),
+    )
+
+
 def build_certificate(
     payload: dict,
     point_bound: int = 50,
     prime_bound: int = 31,
     backend: str = "native",
     input_path: str | None = None,
+    evidence_transcripts: bool = False,
 ) -> dict:
     backend_result = run_backend(backend, input_path)
     backend_rows = {}
@@ -81,6 +131,7 @@ def build_certificate(
         backend_rows = parsed["curves"]
 
     curves = []
+    base_dir = Path(input_path).resolve().parent if input_path else Path.cwd()
     for row in payload.get("curves", []):
         curve = EllipticCurve.from_weierstrass(
             row["weierstrass"],
@@ -89,6 +140,9 @@ def build_certificate(
         )
         cert = curve_certificate(curve, point_bound=point_bound, prime_bound=prime_bound)
         cert = merge_backend(cert, backend_rows)
+        add_case_metadata(cert, row)
+        if evidence_transcripts:
+            add_transcript_evidence(cert, row, base_dir)
         if "knownRank" in row:
             cert["knownRank"] = row["knownRank"]
         curves.append(cert)
@@ -115,6 +169,7 @@ def build_certificate(
             "2-covering construction",
             "local solubility for coverings",
             "2-Selmer upper bound",
+            "higher 2-descent or Cassels pairing closure when Selmer rank exceeds rank lower bound",
             "Mordell-Weil rank certificate",
         ],
     }

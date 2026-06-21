@@ -6,6 +6,7 @@ import json
 import os
 import shutil
 import subprocess
+import tempfile
 
 
 BACKENDS = ("native", "sage", "mwrank_direct", "pari_gp", "magma")
@@ -59,6 +60,8 @@ def run_sage_backend(input_path: str) -> dict:
     env = dict(os.environ)
     cwd = os.getcwd()
     env["PYTHONPATH"] = cwd + os.pathsep + env.get("PYTHONPATH", "")
+    env.setdefault("DOT_SAGE", os.path.join(tempfile.gettempdir(), "opendescent-sage"))
+    os.makedirs(env["DOT_SAGE"], exist_ok=True)
     proc = subprocess.run(
         ["sage", "-python", "-m", "opendescent.sage_backend", input_path],
         capture_output=True,

@@ -21,9 +21,12 @@ emits machine-readable JSON certificates.
 - JSON certificate CLI
 - optional Sage/eclib backend for rank intervals and 2-Selmer ranks
 - direct mwrank/eclib backend for independent rank/Selmer cross-checks
+- higher 2-descent evidence capture from mwrank second-descent traces
+- explicit Cassels-pairing status fields in certificates
 
 Native OpenDescent 2-descent is intentionally marked as a gap until the full
-algorithm is implemented.
+algorithm is implemented.  Cassels pairings are also marked as not computed
+unless a backend explicitly provides pairing data.
 
 ## Quick Start
 
@@ -44,6 +47,14 @@ Direct mwrank/eclib certificate summary:
 
 ```bash
 python3 -m opendescent.cli examples/calibration_curves.json --backend mwrank_direct --summary-only
+```
+
+Run the three imported `codex-2` timeout cases:
+
+```bash
+python3 -m opendescent.cli examples/codex2_timeout_cases.json --backend sage --summary-only
+python3 -m opendescent.cli examples/codex2_timeout_cases.json --backend mwrank_direct --summary-only
+python3 -m opendescent.cli examples/codex2_timeout_cases.json --backend native --evidence-transcripts --out timeout_evidence.json
 ```
 
 Expected Sage-backed calibration summary:
@@ -80,7 +91,7 @@ y^2 + a1*x*y + a3*y = x^3 + a2*x^2 + a4*x + a6
 | --- | --- | --- |
 | `native` | partial | OpenDescent's own arithmetic and explicit descent gaps |
 | `sage` | working | Open-source Sage/eclib rank bounds, Selmer rank, torsion |
-| `mwrank_direct` | working | Direct eclib/mwrank rank and 2-Selmer adapter |
+| `mwrank_direct` | working | Direct eclib/mwrank rank, 2-Selmer, and second-descent trace adapter |
 | `pari_gp` | planned | PARI/GP number-theory support |
 | `magma` | optional detector only | Future licensed-user adapter; not required and not bundled |
 
@@ -88,6 +99,9 @@ Certification is true only when the backend returns equal lower and upper rank
 bounds.
 
 Committed calibration fixtures live in `examples/expected/`.
+The three timeout cases from `p3/codex-2` live in
+`examples/codex2_timeout_cases.json`; their GRH-conditional transcript fixtures
+live in `examples/transcripts/`.
 
 ## Documentation
 
@@ -101,4 +115,6 @@ Committed calibration fixtures live in `examples/expected/`.
 2. Native 2-covering construction.
 3. Local solubility tests for coverings.
 4. Native 2-Selmer upper bounds.
-5. Mordell-Weil rank certificate closing lower and upper bounds.
+5. Native higher 2-descent and Cassels-pairing routines for unresolved
+   Selmer gaps.
+6. Mordell-Weil rank certificate closing lower and upper bounds.

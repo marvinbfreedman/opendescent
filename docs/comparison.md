@@ -25,7 +25,16 @@ certificate format while native descent modules are developed.
 PARI/GP and mwrank/eclib are open-source arithmetic engines.  OpenDescent will
 support direct adapters for them so users can cross-check certificates without a
 single monolithic system.  The direct `mwrank` adapter is the first of these
-cross-check backends.
+cross-check backends.  It now records mwrank's full 2-descent and second
+2-isogeny descent traces in the JSON certificate when those traces are present.
+
+## Higher 2-Descent and Cassels Pairing
+
+OpenDescent treats higher descent and Cassels pairing as separate certificate
+claims.  A backend may record second-descent evidence, Selmer dimensions, and
+Sha-size information, but that is not the same as computing a Cassels-pairing
+matrix.  Certificates therefore keep `higherTwoDescent` and `casselsPairing` as
+separate blocks.
 
 ## Design Difference
 
@@ -35,3 +44,5 @@ OpenDescent is certificate-first:
 - every unavailable proof step should be explicit
 - generated certificates should be diffable
 - external backends should be replaceable
+- conditional evidence, such as GRH-dependent transcript output, should be
+  separated from unconditional certification

@@ -1,0 +1,45 @@
+{
+  "artifact": "opendescent_codex2_timeout_cases",
+  "source": "p3/codex-2/bsd_primary_descent_tasks.json",
+  "curves": [
+    {
+      "label": "2429b1",
+      "conductor": 2429,
+      "weierstrass": [1, 1, 0, -115, -528],
+      "prime": 3,
+      "expectedSelmerOrder": 9,
+      "targetPrimaryOrder": 9,
+      "predictedShaOrder": 9,
+      "predictedShaFactorization": "3^2",
+      "source": "codex-2 Magma timeout case",
+      "grh": true,
+      "threeSelmerTranscript": "transcripts/magma_2429b1_three_selmer_grh.txt"
+    },
+    {
+      "label": "2534f1",
+      "conductor": 2534,
+      "weierstrass": [1, -1, 1, -303, -1955],
+      "prime": 3,
+      "expectedSelmerOrder": 9,
+      "targetPrimaryOrder": 9,
+      "predictedShaOrder": 9,
+      "predictedShaFactorization": "3^2",
+      "source": "codex-2 Magma timeout case",
+      "grh": true,
+      "threeSelmerTranscript": "transcripts/magma_2534f1_three_selmer_grh.txt"
+    },
+    {
+      "label": "2674b1",
+      "conductor": 2674,
+      "weierstrass": [1, 1, 0, -2758, -55020],
+      "prime": 3,
+      "expectedSelmerOrder": 9,
+      "targetPrimaryOrder": 9,
+      "predictedShaOrder": 9,
+      "predictedShaFactorization": "3^2",
+      "source": "codex-2 Magma timeout case",
+      "grh": true,
+      "threeSelmerTranscript": "transcripts/magma_2674b1_three_selmer_grh.txt"
+    }
+  ]
+}
