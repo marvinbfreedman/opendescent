@@ -15,3 +15,4 @@ keywords = ["bsd", "elliptic-curves", "descent", "selmer", "computer-algebra"]
 opendescent = "opendescent.cli:main"
 bsd-local-magma-batch-export = "opendescent.magma_batch_export:main"
 codex2-no-magma-completion = "opendescent.codex2_no_magma:main"
+codex2-higher2-completion = "opendescent.codex2_higher2:main"

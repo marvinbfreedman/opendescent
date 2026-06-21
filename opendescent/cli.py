@@ -31,6 +31,12 @@ def print_summary(cert: dict) -> None:
         cassels = descent.get("casselsPairing") or {}
         if cassels.get("computed"):
             line += " casselsPairing=computed"
+        higher_cert = curve.get("higherTwoDescentCertificate")
+        if higher_cert:
+            line += (
+                f" higher2Cert={higher_cert.get('certificationState')}"
+                f" higher2Status={higher_cert.get('status')}"
+            )
         two_power = curve.get("higherTwoPowerEvidence")
         if two_power:
             line += (
@@ -70,6 +76,7 @@ def main() -> None:
     parser.add_argument("--summary-only", action="store_true", help="Print only the concise certificate summary.")
     parser.add_argument("--evidence-transcripts", action="store_true", help="Attach transcript evidence referenced by input curves.")
     parser.add_argument("--five-descent", action="store_true", help="Attach native 5-descent task output.")
+    parser.add_argument("--higher-two-descent", action="store_true", help="Attach higher 2-descent certificate output.")
     parser.add_argument("--cassels-pairing", action="store_true", help="Attach native Cassels-pairing task output for 5-coverings.")
     parser.add_argument(
         "--native-descent-tasks",
@@ -99,6 +106,7 @@ def main() -> None:
         backend=args.backend,
         input_path=input_path,
         evidence_transcripts=args.evidence_transcripts,
+        higher_two_descent=args.higher_two_descent,
         five_descent=args.five_descent,
         cassels_pairing=args.cassels_pairing,
         native_descent_tasks=args.native_descent_tasks,

@@ -1,0 +1,3320 @@
+{
+  "artifact": "codex2_higher2_unresolved",
+  "policy": "no_magma",
+  "results": [
+    {
+      "case": {
+        "conductor": 2045,
+        "expectedTwoPrimaryOrder": 16,
+        "expectedTwoPrimaryStructure": null,
+        "label": "2045b1",
+        "noMagmaEvidence": {
+          "analyticRank": 0,
+          "backend": "sage",
+          "certificationState": "requires_higher_two_power_evidence",
+          "certified": false,
+          "errors": {},
+          "expectedPrimaryExponent": 4,
+          "expectedPrimaryOrder": 16,
+          "label": "2045b1",
+          "pPrimaryBoundExponent": null,
+          "pPrimaryBoundOrder": null,
+          "pPrimaryOrder": null,
+          "pPrimaryOrderExponent": null,
+          "policy": "no_magma",
+          "prime": 2,
+          "rankInterval": [
+            0,
+            2
+          ],
+          "reason": "ordinary 2-Selmer/Sha[2] data does not certify the required higher 2-primary structure",
+          "shaBound": [
+            2
+          ],
+          "status": "higher_two_power_unresolved",
+          "torsionOrder": 1,
+          "twoSelmerBound": 2
+        },
+        "prime": 2,
+        "sourceArtifact": "bsd_2primary_audit:rows, codex2_no_magma_unresolved:cases",
+        "torsionOrder": 1,
+        "twoSelmerRank": 2,
+        "visibleShaTwoOrder": 4,
+        "weierstrass": [
+          1,
+          -1,
+          0,
+          -5470,
+          -862675
+        ]
+      },
+      "certificate": {
+        "certificationState": "requires_higher_two_power_evidence",
+        "certified": false,
+        "computed": false,
+        "engine": "opendescent-native",
+        "expectedTwoPrimaryOrder": 16,
+        "expectedTwoPrimaryStructure": null,
+        "higherTwoPowerEvidence": null,
+        "kind": "higher_two_descent_certificate",
+        "label": "2045b1",
+        "missingTwoPowerFactor": 4,
+        "mwrankTrace": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": true,
+          "isogenousCurve": null,
+          "isogenyDescentDetected": false,
+          "method": "full 2-descent via multiplication-by-2 map",
+          "rankInterval": [
+            0,
+            2
+          ],
+          "secondDescentDetected": false,
+          "selmerDimensions": {},
+          "selmerOrder": 4,
+          "shaTwoBoundOperator": "<=",
+          "shaTwoBoundOrder": 4,
+          "shaTwoInformation": {},
+          "status": "ordinary full 2-descent evidence parsed; no higher step detected",
+          "type3Quartics": {
+            "count": 60,
+            "locallySolubleNewClassCount": 3,
+            "newClassCount": 3,
+            "newClasses": [
+              {
+                "group": "B",
+                "index": 1
+              },
+              {
+                "group": "B",
+                "index": 2
+              },
+              {
+                "group": "B",
+                "index": 3
+              }
+            ],
+            "records": [
+              {
+                "coefficients": [
+                  2,
+                  -1,
+                  -723,
+                  2880,
+                  -11200
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  2,
+                  -2,
+                  -1449,
+                  20256,
+                  -81607
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  3,
+                  -4,
+                  -20979,
+                  968848,
+                  -12541168
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  17,
+                  -18,
+                  -1029,
+                  4094,
+                  -4987
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  23,
+                  19,
+                  -849,
+                  1512,
+                  -1348
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  29,
+                  38,
+                  -753,
+                  610,
+                  -675
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  47,
+                  19,
+                  -1023,
+                  1880,
+                  -1200
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  50,
+                  -5,
+                  -723,
+                  576,
+                  -448
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  50,
+                  30,
+                  -1443,
+                  3472,
+                  -2512
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  50,
+                  -45,
+                  -708,
+                  863,
+                  -592
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  50,
+                  70,
+                  -1413,
+                  2900,
+                  -1875
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  53,
+                  -18,
+                  -2553,
+                  9890,
+                  -10675
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  77,
+                  -40,
+                  -681,
+                  310,
+                  -258
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  107,
+                  209,
+                  -1128,
+                  945,
+                  -325
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  113,
+                  186,
+                  -609,
+                  -202,
+                  -163
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -1,
+                  0,
+                  621,
+                  9488,
+                  10256
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  -2,
+                  -669,
+                  1166,
+                  5333
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  2,
+                  81,
+                  4084,
+                  -7792
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  -2,
+                  471,
+                  4586,
+                  -367
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  2,
+                  1131,
+                  11434,
+                  26333
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  -2,
+                  18081,
+                  769916,
+                  9202208
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -3,
+                  4,
+                  267,
+                  3710,
+                  -6550
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -7,
+                  -6,
+                  1731,
+                  15362,
+                  35837
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -7,
+                  -10,
+                  219,
+                  2710,
+                  -1587
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -7,
+                  12,
+                  -453,
+                  3190,
+                  -2050
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -13,
+                  19,
+                  -108,
+                  2235,
+                  -2425
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -22,
+                  39,
+                  -144,
+                  1787,
+                  -1708
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -25,
+                  -40,
+                  597,
+                  2388,
+                  1268
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -27,
+                  -14,
+                  -549,
+                  1058,
+                  257
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -27,
+                  -14,
+                  -339,
+                  1448,
+                  -268
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -27,
+                  26,
+                  711,
+                  1798,
+                  317
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  -68,
+                  87,
+                  1250,
+                  0
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -43,
+                  26,
+                  -93,
+                  1210,
+                  -675
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -58,
+                  -86,
+                  927,
+                  2880,
+                  1925
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -67,
+                  26,
+                  -579,
+                  808,
+                  12
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -67,
+                  -80,
+                  2559,
+                  10250,
+                  10878
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -75,
+                  20,
+                  267,
+                  742,
+                  -262
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  -70,
+                  -693,
+                  -38,
+                  233
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  70,
+                  57,
+                  788,
+                  -472
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  70,
+                  1107,
+                  1838,
+                  641
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  80,
+                  237,
+                  640,
+                  -400
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  -130,
+                  -753,
+                  -326,
+                  197
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  130,
+                  -3,
+                  776,
+                  -628
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  -130,
+                  387,
+                  1270,
+                  425
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  130,
+                  1047,
+                  1406,
+                  317
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -82,
+                  -18,
+                  1407,
+                  3280,
+                  1925
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -97,
+                  59,
+                  651,
+                  832,
+                  12
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -118,
+                  -78,
+                  531,
+                  964,
+                  173
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -157,
+                  -240,
+                  219,
+                  790,
+                  188
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -163,
+                  -107,
+                  501,
+                  816,
+                  128
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              }
+            ],
+            "truncated": true
+          }
+        },
+        "rankCertified": false,
+        "rankInterval": [
+          0,
+          2
+        ],
+        "reason": "ordinary 2-descent accounts for visible Sha[2] order 4, but expected 2-primary order is 16",
+        "shaTwoOrder": null,
+        "status": "ordinary_two_selmer_gap",
+        "torsionTwoPrimaryOrder": 1,
+        "twoSelmerRank": 2,
+        "visibleShaTwoOrder": 4
+      },
+      "mwrankParsed": {
+        "casselsPairing": {
+          "available": false,
+          "availableMethods": [],
+          "computed": false,
+          "engine": "mwrank_direct",
+          "matrix": null,
+          "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+          "status": "Cassels pairing not computed"
+        },
+        "engine": "mwrank_direct",
+        "generators": [],
+        "higherTwoDescent": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": true,
+          "isogenousCurve": null,
+          "isogenyDescentDetected": false,
+          "method": "full 2-descent via multiplication-by-2 map",
+          "rankInterval": [
+            0,
+            2
+          ],
+          "secondDescentDetected": false,
+          "selmerDimensions": {},
+          "selmerOrder": 4,
+          "shaTwoBoundOperator": "<=",
+          "shaTwoBoundOrder": 4,
+          "shaTwoInformation": {},
+          "status": "ordinary full 2-descent evidence parsed; no higher step detected",
+          "type3Quartics": {
+            "count": 60,
+            "locallySolubleNewClassCount": 3,
+            "newClassCount": 3,
+            "newClasses": [
+              {
+                "group": "B",
+                "index": 1
+              },
+              {
+                "group": "B",
+                "index": 2
+              },
+              {
+                "group": "B",
+                "index": 3
+              }
+            ],
+            "records": [
+              {
+                "coefficients": [
+                  2,
+                  -1,
+                  -723,
+                  2880,
+                  -11200
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  2,
+                  -2,
+                  -1449,
+                  20256,
+                  -81607
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  3,
+                  -4,
+                  -20979,
+                  968848,
+                  -12541168
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  17,
+                  -18,
+                  -1029,
+                  4094,
+                  -4987
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  23,
+                  19,
+                  -849,
+                  1512,
+                  -1348
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  29,
+                  38,
+                  -753,
+                  610,
+                  -675
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  47,
+                  19,
+                  -1023,
+                  1880,
+                  -1200
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  50,
+                  -5,
+                  -723,
+                  576,
+                  -448
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  50,
+                  30,
+                  -1443,
+                  3472,
+                  -2512
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  50,
+                  -45,
+                  -708,
+                  863,
+                  -592
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  50,
+                  70,
+                  -1413,
+                  2900,
+                  -1875
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  53,
+                  -18,
+                  -2553,
+                  9890,
+                  -10675
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  77,
+                  -40,
+                  -681,
+                  310,
+                  -258
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  107,
+                  209,
+                  -1128,
+                  945,
+                  -325
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  113,
+                  186,
+                  -609,
+                  -202,
+                  -163
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -1,
+                  0,
+                  621,
+                  9488,
+                  10256
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  -2,
+                  -669,
+                  1166,
+                  5333
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  2,
+                  81,
+                  4084,
+                  -7792
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  -2,
+                  471,
+                  4586,
+                  -367
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  2,
+                  1131,
+                  11434,
+                  26333
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -3,
+                  -2,
+                  18081,
+                  769916,
+                  9202208
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -3,
+                  4,
+                  267,
+                  3710,
+                  -6550
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -7,
+                  -6,
+                  1731,
+                  15362,
+                  35837
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -7,
+                  -10,
+                  219,
+                  2710,
+                  -1587
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -7,
+                  12,
+                  -453,
+                  3190,
+                  -2050
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -13,
+                  19,
+                  -108,
+                  2235,
+                  -2425
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -22,
+                  39,
+                  -144,
+                  1787,
+                  -1708
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -25,
+                  -40,
+                  597,
+                  2388,
+                  1268
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -27,
+                  -14,
+                  -549,
+                  1058,
+                  257
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -27,
+                  -14,
+                  -339,
+                  1448,
+                  -268
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -27,
+                  26,
+                  711,
+                  1798,
+                  317
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  -68,
+                  87,
+                  1250,
+                  0
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -43,
+                  26,
+                  -93,
+                  1210,
+                  -675
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -58,
+                  -86,
+                  927,
+                  2880,
+                  1925
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -67,
+                  26,
+                  -579,
+                  808,
+                  12
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -67,
+                  -80,
+                  2559,
+                  10250,
+                  10878
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -75,
+                  20,
+                  267,
+                  742,
+                  -262
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  -70,
+                  -693,
+                  -38,
+                  233
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  70,
+                  57,
+                  788,
+                  -472
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  70,
+                  1107,
+                  1838,
+                  641
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  80,
+                  237,
+                  640,
+                  -400
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  -130,
+                  -753,
+                  -326,
+                  197
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  130,
+                  -3,
+                  776,
+                  -628
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  -130,
+                  387,
+                  1270,
+                  425
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -75,
+                  130,
+                  1047,
+                  1406,
+                  317
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -82,
+                  -18,
+                  1407,
+                  3280,
+                  1925
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -97,
+                  59,
+                  651,
+                  832,
+                  12
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -118,
+                  -78,
+                  531,
+                  964,
+                  173
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -157,
+                  -240,
+                  219,
+                  790,
+                  188
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -163,
+                  -107,
+                  501,
+                  816,
+                  128
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              }
+            ],
+            "truncated": true
+          }
+        },
+        "label": "2045b1",
+        "rankCertified": false,
+        "rankInterval": [
+          0,
+          2
+        ],
+        "rankLowerBound": 0,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": 2,
+        "rawOutput": "Curve [1,-1,0,-5470,-862675] :\tBasic pair: I=262569, J=1493065494\ndisc=-2156835937500000000\n2-adic index bound = 2\nBy Lemma 5.1(b), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\n*** BSD give two (I,J) pairs\nLooking for quartics with I = 262569, J = 1493065494\nLooking for Type 3 quartics:\nTrying positive a from 1 up to 175 (square a first...)\nTrying positive a from 1 up to 175 (...then non-square a)\n(2,-1,-723,2880,-11200)\t--trivial\n(2,-2,-1449,20256,-81607)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #1\n(3,-4,-20979,968848,-12541168)\t--nontrivial...--equivalent to (B) #1\n(17,-18,-1029,4094,-4987)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #2\n(23,19,-849,1512,-1348)\t--nontrivial...--equivalent to (B) #1\n(29,38,-753,610,-675)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #3\n(47,19,-1023,1880,-1200)\t--nontrivial...--equivalent to (B) #1\n(50,-5,-723,576,-448)\t--trivial\n(50,30,-1443,3472,-2512)\t--nontrivial...--equivalent to (B) #1\n(50,-45,-708,863,-592)\t--trivial\n(50,70,-1413,2900,-1875)\t--nontrivial...--equivalent to (B) #1\n(53,-18,-2553,9890,-10675)\t--nontrivial...--equivalent to (B) #3\n(77,-40,-681,310,-258)\t--trivial\n(107,209,-1128,945,-325)\t--nontrivial...--equivalent to (B) #1\n(113,186,-609,-202,-163)\t--nontrivial...--equivalent to (B) #2\nTrying negative a from -1 down to -332\n(-1,0,621,9488,10256)\t--nontrivial...--equivalent to (B) #1\n(-3,-2,-669,1166,5333)\t--nontrivial...--equivalent to (B) #3\n(-3,2,81,4084,-7792)\t--nontrivial...--equivalent to (B) #1\n(-3,-2,471,4586,-367)\t--nontrivial...--equivalent to (B) #2\n(-3,2,1131,11434,26333)\t--nontrivial...--equivalent to (B) #2\n(-3,-2,18081,769916,9202208)\t--trivial\n(-3,4,267,3710,-6550)\t--nontrivial...--equivalent to (B) #1\n(-7,-6,1731,15362,35837)\t--nontrivial...--equivalent to (B) #3\n(-7,-10,219,2710,-1587)\t--nontrivial...--equivalent to (B) #3\n(-7,12,-453,3190,-2050)\t--trivial\n(-13,19,-108,2235,-2425)\t--nontrivial...--equivalent to (B) #1\n(-22,39,-144,1787,-1708)\t--trivial\n(-25,-40,597,2388,1268)\t--nontrivial...--equivalent to (B) #1\n(-27,-14,-549,1058,257)\t--nontrivial...--equivalent to (B) #3\n(-27,-14,-339,1448,-268)\t--trivial\n(-27,26,711,1798,317)\t--nontrivial...--equivalent to (B) #2\n(-37,-68,87,1250,0)\t--trivial\n(-43,26,-93,1210,-675)\t--nontrivial...--equivalent to (B) #2\n(-58,-86,927,2880,1925)\t--trivial\n(-67,26,-579,808,12)\t--nontrivial...--equivalent to (B) #1\n(-67,-80,2559,10250,10878)\t--trivial\n(-75,20,267,742,-262)\t--nontrivial...--equivalent to (B) #1\n(-75,-70,-693,-38,233)\t--nontrivial...--equivalent to (B) #3\n(-75,70,57,788,-472)\t--nontrivial...--equivalent to (B) #1\n(-75,70,1107,1838,641)\t--nontrivial...--equivalent to (B) #2\n(-75,80,237,640,-400)\t--nontrivial...--equivalent to (B) #1\n(-75,-130,-753,-326,197)\t--nontrivial...--equivalent to (B) #3\n(-75,130,-3,776,-628)\t--nontrivial...--equivalent to (B) #1\n(-75,-130,387,1270,425)\t--nontrivial...--equivalent to (B) #2\n(-75,130,1047,1406,317)\t--nontrivial...--equivalent to (B) #2\n(-82,-18,1407,3280,1925)\t--trivial\n(-97,59,651,832,12)\t--nontrivial...--equivalent to (B) #1\n(-118,-78,531,964,173)\t--nontrivial...--equivalent to (B) #1\n(-157,-240,219,790,188)\t--nontrivial...--equivalent to (B) #1\n(-163,-107,501,816,128)\t--nontrivial...--equivalent to (B) #1\n(-163,-198,591,1214,413)\t--nontrivial...--equivalent to (B) #3\n(-163,-202,-609,186,113)\t--nontrivial...--equivalent to (B) #2\n(-175,60,-453,638,-82)\t--trivial\n(-175,90,207,454,-163)\t--nontrivial...--equivalent to (B) #3\n(-175,-190,147,618,53)\t--nontrivial...--equivalent to (B) #3\n(-175,340,-693,1074,-418)\t--trivial\n(-243,145,-156,545,-163)\t--nontrivial...--equivalent to (B) #1\n(-247,2,207,430,-75)\t--nontrivial...--equivalent to (B) #2\n(-325,95,-108,447,-97)\t--nontrivial...--equivalent to (B) #1\n(-325,355,-243,512,-192)\t--nontrivial...--equivalent to (B) #1\nFinished looking for Type 3 quartics.\nMordell rank contribution from B=im(eps) = 0\nSelmer  rank contribution from B=im(eps) = 2\nSha     rank contribution from B=im(eps) = 2\nMordell rank contribution from A=ker(eps) = 0\nSelmer  rank contribution from A=ker(eps) = 0\nSha     rank contribution from A=ker(eps) = 0\n\nSummary of results (all should be powers of 2):\n\nn0 = #E(Q)[2]    = 1\nn1 = #E(Q)/2E(Q) >= 1\nn2 = #S^(2)(E/Q) = 4\n#III(E/Q)[2]     <= 4\n\n0 <= rank <= selmer-rank = 2\n\n\nUsed full 2-descent via multiplication-by-2 map\n0 <= rank <= selmer-rank = 2\nSearching for points (bound = 8)...done:\n  found points which generate a subgroup of rank 0\n  and regulator 1\nProcessing points found during 2-descent...done:\n  now regulator = 1\n\n\nRegulator = 1\n\nThe rank has not been completely determined, \nonly a lower bound of 0 and an upper bound of 2.\n\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (10.4626 seconds)\nEnter curve: ",
+        "regulator": 1.0,
+        "returncode": 0,
+        "selmerError": "mwrank Selmer rank line not found",
+        "selmerSource": null,
+        "selmerUpperBound": null,
+        "status": "mwrank output did not close the rank interval",
+        "success": true,
+        "torsionOrder": null,
+        "twoSelmerRank": null
+      },
+      "rawOutput": "Curve [1,-1,0,-5470,-862675] :\tBasic pair: I=262569, J=1493065494\ndisc=-2156835937500000000\n2-adic index bound = 2\nBy Lemma 5.1(b), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\n*** BSD give two (I,J) pairs\nLooking for quartics with I = 262569, J = 1493065494\nLooking for Type 3 quartics:\nTrying positive a from 1 up to 175 (square a first...)\nTrying positive a from 1 up to 175 (...then non-square a)\n(2,-1,-723,2880,-11200)\t--trivial\n(2,-2,-1449,20256,-81607)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #1\n(3,-4,-20979,968848,-12541168)\t--nontrivial...--equivalent to (B) #1\n(17,-18,-1029,4094,-4987)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #2\n(23,19,-849,1512,-1348)\t--nontrivial...--equivalent to (B) #1\n(29,38,-753,610,-675)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #3\n(47,19,-1023,1880,-1200)\t--nontrivial...--equivalent to (B) #1\n(50,-5,-723,576,-448)\t--trivial\n(50,30,-1443,3472,-2512)\t--nontrivial...--equivalent to (B) #1\n(50,-45,-708,863,-592)\t--trivial\n(50,70,-1413,2900,-1875)\t--nontrivial...--equivalent to (B) #1\n(53,-18,-2553,9890,-10675)\t--nontrivial...--equivalent to (B) #3\n(77,-40,-681,310,-258)\t--trivial\n(107,209,-1128,945,-325)\t--nontrivial...--equivalent to (B) #1\n(113,186,-609,-202,-163)\t--nontrivial...--equivalent to (B) #2\nTrying negative a from -1 down to -332\n(-1,0,621,9488,10256)\t--nontrivial...--equivalent to (B) #1\n(-3,-2,-669,1166,5333)\t--nontrivial...--equivalent to (B) #3\n(-3,2,81,4084,-7792)\t--nontrivial...--equivalent to (B) #1\n(-3,-2,471,4586,-367)\t--nontrivial...--equivalent to (B) #2\n(-3,2,1131,11434,26333)\t--nontrivial...--equivalent to (B) #2\n(-3,-2,18081,769916,9202208)\t--trivial\n(-3,4,267,3710,-6550)\t--nontrivial...--equivalent to (B) #1\n(-7,-6,1731,15362,35837)\t--nontrivial...--equivalent to (B) #3\n(-7,-10,219,2710,-1587)\t--nontrivial...--equivalent to (B) #3\n(-7,12,-453,3190,-2050)\t--trivial\n(-13,19,-108,2235,-2425)\t--nontrivial...--equivalent to (B) #1\n(-22,39,-144,1787,-1708)\t--trivial\n(-25,-40,597,2388,1268)\t--nontrivial...--equivalent to (B) #1\n(-27,-14,-549,1058,257)\t--nontrivial...--equivalent to (B) #3\n(-27,-14,-339,1448,-268)\t--trivial\n(-27,26,711,1798,317)\t--nontrivial...--equivalent to (B) #2\n(-37,-68,87,1250,0)\t--trivial\n(-43,26,-93,1210,-675)\t--nontrivial...--equivalent to (B) #2\n(-58,-86,927,2880,1925)\t--trivial\n(-67,26,-579,808,12)\t--nontrivial...--equivalent to (B) #1\n(-67,-80,2559,10250,10878)\t--trivial\n(-75,20,267,742,-262)\t--nontrivial...--equivalent to (B) #1\n(-75,-70,-693,-38,233)\t--nontrivial...--equivalent to (B) #3\n(-75,70,57,788,-472)\t--nontrivial...--equivalent to (B) #1\n(-75,70,1107,1838,641)\t--nontrivial...--equivalent to (B) #2\n(-75,80,237,640,-400)\t--nontrivial...--equivalent to (B) #1\n(-75,-130,-753,-326,197)\t--nontrivial...--equivalent to (B) #3\n(-75,130,-3,776,-628)\t--nontrivial...--equivalent to (B) #1\n(-75,-130,387,1270,425)\t--nontrivial...--equivalent to (B) #2\n(-75,130,1047,1406,317)\t--nontrivial...--equivalent to (B) #2\n(-82,-18,1407,3280,1925)\t--trivial\n(-97,59,651,832,12)\t--nontrivial...--equivalent to (B) #1\n(-118,-78,531,964,173)\t--nontrivial...--equivalent to (B) #1\n(-157,-240,219,790,188)\t--nontrivial...--equivalent to (B) #1\n(-163,-107,501,816,128)\t--nontrivial...--equivalent to (B) #1\n(-163,-198,591,1214,413)\t--nontrivial...--equivalent to (B) #3\n(-163,-202,-609,186,113)\t--nontrivial...--equivalent to (B) #2\n(-175,60,-453,638,-82)\t--trivial\n(-175,90,207,454,-163)\t--nontrivial...--equivalent to (B) #3\n(-175,-190,147,618,53)\t--nontrivial...--equivalent to (B) #3\n(-175,340,-693,1074,-418)\t--trivial\n(-243,145,-156,545,-163)\t--nontrivial...--equivalent to (B) #1\n(-247,2,207,430,-75)\t--nontrivial...--equivalent to (B) #2\n(-325,95,-108,447,-97)\t--nontrivial...--equivalent to (B) #1\n(-325,355,-243,512,-192)\t--nontrivial...--equivalent to (B) #1\nFinished looking for Type 3 quartics.\nMordell rank contribution from B=im(eps) = 0\nSelmer  rank contribution from B=im(eps) = 2\nSha     rank contribution from B=im(eps) = 2\nMordell rank contribution from A=ker(eps) = 0\nSelmer  rank contribution from A=ker(eps) = 0\nSha     rank contribution from A=ker(eps) = 0\n\nSummary of results (all should be powers of 2):\n\nn0 = #E(Q)[2]    = 1\nn1 = #E(Q)/2E(Q) >= 1\nn2 = #S^(2)(E/Q) = 4\n#III(E/Q)[2]     <= 4\n\n0 <= rank <= selmer-rank = 2\n\n\nUsed full 2-descent via multiplication-by-2 map\n0 <= rank <= selmer-rank = 2\nSearching for points (bound = 8)...done:\n  found points which generate a subgroup of rank 0\n  and regulator 1\nProcessing points found during 2-descent...done:\n  now regulator = 1\n\n\nRegulator = 1\n\nThe rank has not been completely determined, \nonly a lower bound of 0 and an upper bound of 2.\n\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (10.4626 seconds)\nEnter curve: ",
+      "returncode": 0,
+      "timedOut": false
+    },
+    {
+      "case": {
+        "conductor": 2678,
+        "expectedTwoPrimaryOrder": 16,
+        "expectedTwoPrimaryStructure": null,
+        "label": "2678a1",
+        "noMagmaEvidence": {
+          "analyticRank": 0,
+          "backend": "sage",
+          "certificationState": "requires_higher_two_power_evidence",
+          "certified": false,
+          "errors": {},
+          "expectedPrimaryExponent": 4,
+          "expectedPrimaryOrder": 16,
+          "label": "2678a1",
+          "pPrimaryBoundExponent": null,
+          "pPrimaryBoundOrder": null,
+          "pPrimaryOrder": null,
+          "pPrimaryOrderExponent": null,
+          "policy": "no_magma",
+          "prime": 2,
+          "rankInterval": [
+            0,
+            2
+          ],
+          "reason": "ordinary 2-Selmer/Sha[2] data does not certify the required higher 2-primary structure",
+          "shaBound": [
+            2
+          ],
+          "status": "higher_two_power_unresolved",
+          "torsionOrder": 1,
+          "twoSelmerBound": 2
+        },
+        "prime": 2,
+        "sourceArtifact": "bsd_2primary_audit:rows, codex2_no_magma_unresolved:cases",
+        "torsionOrder": 1,
+        "twoSelmerRank": 2,
+        "visibleShaTwoOrder": 4,
+        "weierstrass": [
+          1,
+          1,
+          0,
+          -2882796,
+          -1879512496
+        ]
+      },
+      "certificate": {
+        "certificationState": "timeout",
+        "certified": false,
+        "computed": false,
+        "engine": "opendescent-native",
+        "expectedTwoPrimaryOrder": 16,
+        "expectedTwoPrimaryStructure": null,
+        "higherTwoPowerEvidence": null,
+        "kind": "higher_two_descent_certificate",
+        "label": "2678a1",
+        "missingTwoPowerFactor": 4,
+        "mwrankTrace": {},
+        "rankCertified": null,
+        "rankInterval": null,
+        "reason": "mwrank timed out after 240 seconds",
+        "shaTwoOrder": null,
+        "status": "higher_two_power_unavailable",
+        "torsionTwoPrimaryOrder": 1,
+        "twoSelmerRank": 2,
+        "visibleShaTwoOrder": 4
+      },
+      "mwrankParsed": null,
+      "rawOutput": "Curve [1,1,0,-2882796,-1879512496] :\tBasic pair: I=138374233, J=3245721979718\ndisc=63331682405506376269824\n2-adic index bound = 2\nBy Lemma 5.1(b), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\n*** BSD give two (I,J) pairs\nLooking for quartics with I = 138374233, J = 3245721979718\nLooking for Type 2 quartics:\nTrying positive a from 1 up to 116 (square a first...)\nTrying positive a from 1 up to 116 (...then non-square a)\n(2,4,-28795,1713424,-27925696)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #1\n(5,2,-14239,241028,-1048812)\t--trivial\n(5,6,-20227,572792,-4340784)\t--trivial\n(21,26,-11755,-1456,320)\t--trivial\n(29,-18,-15019,125360,-270016)\t--nontrivial...--equivalent to (B) #1\n(34,22,-21163,238064,-720064)\t--nontrivial...--equivalent to (B) #1\n(54,68,-12955,40794,-32617)\t--trivial\nTrying negative a from -1 down to -3861\n(-2,0,15857,637962,4711259)\t--nontrivial...--equivalent to (B) #1\n(-7,-6,6509,18752,-1138924)\t--nontrivial...--equivalent to (B) #1\n(-11,10,10445,106808,-246064)\t--nontrivial...--equivalent to (B) #1\n(-11,-18,7217,35820,-639052)\t--nontrivial...--equivalent to (B) #1\n(-19,2,6149,672,-441088)\t--nontrivial...--equivalent to (B) #1\n(-19,-14,30317,637240,3541712)\t--nontrivial...--equivalent to (B) #1\n(-19,-34,6389,13520,-421824)\t--trivial\n(-19,-34,59117,1823848,15537184)\t--nontrivial...--equivalent to (B) #1\n(-29,6,6677,9648,-270016)\t--nontrivial...--equivalent to (B) #1\n(-39,-26,6545,9476,-202560)\t--trivial\n(-67,94,7229,7512,-109744)\t--nontrivial...--equivalent to (B) #1\n(-91,-130,27761,269068,675124)\t--nontrivial...--equivalent to (B) #1\n(-99,26,6185,364,-84300)\t--trivial\n(-115,106,15497,73772,56756)\t--trivial\n(-123,62,15425,73436,58196)\t--trivial\n(-163,-246,6545,9412,-45292)\t--nontrivial...--equivalent to (B) #1\n(-163,286,7901,6136,-41520)\t--trivial\n(-163,-318,7229,16424,-36016)\t--nontrivial...--equivalent to (B) #1\n(-171,-34,14297,57972,35060)\t--trivial\n(-187,226,6149,-2352,-44104)\t--nontrivial...--equivalent to (B) #1\n(-193,-50,6173,1540,-43194)\t--trivial\n(-291,334,6293,-1552,-27840)\t--trivial\n(-331,-286,6185,3900,-24364)\t--nontrivial...--equivalent to (B) #1\n(-371,-110,9005,14072,-11824)\t--nontrivial...--equivalent to (B) #1\n(-379,-422,7085,9240,-16816)\t--nontrivial...--equivalent to (B) #1\n(-435,-194,6293,2672,-18624)\t--trivial\n(-499,-326,6065,2116,-16620)\t--trivial\n(-579,502,7073,1036,-12940)\t--trivial\n(-609,-886,5825,5476,-12300)\t--trivial\n(-691,1098,6617,-1700,-10732)\t--nontrivial...--equivalent to (B) #1\n(-694,-550,5981,2504,-11824)\t--nontrivial...--equivalent to (B) #1\n(-709,684,6215,-1642,-11328)\t--trivial\n(-739,626,5981,-2200,-11104)\t--nontrivial...--equivalent to (B) #1\n(-798,1160,5573,-3860,-9804)\t--trivial\n(-970,-1268,5669,4718,-7585)\t--trivial\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve: ",
+      "returncode": null,
+      "timedOut": true
+    },
+    {
+      "case": {
+        "conductor": 2738,
+        "expectedTwoPrimaryOrder": 16,
+        "expectedTwoPrimaryStructure": null,
+        "label": "2738c1",
+        "noMagmaEvidence": {
+          "analyticRank": 0,
+          "backend": "sage",
+          "certificationState": "requires_higher_two_power_evidence",
+          "certified": false,
+          "errors": {},
+          "expectedPrimaryExponent": 4,
+          "expectedPrimaryOrder": 16,
+          "label": "2738c1",
+          "pPrimaryBoundExponent": null,
+          "pPrimaryBoundOrder": null,
+          "pPrimaryOrder": null,
+          "pPrimaryOrderExponent": null,
+          "policy": "no_magma",
+          "prime": 2,
+          "rankInterval": [
+            0,
+            2
+          ],
+          "reason": "ordinary 2-Selmer/Sha[2] data does not certify the required higher 2-primary structure",
+          "shaBound": [
+            2,
+            37
+          ],
+          "status": "higher_two_power_unresolved",
+          "torsionOrder": 1,
+          "twoSelmerBound": 2
+        },
+        "prime": 2,
+        "sourceArtifact": "bsd_2primary_audit:rows, codex2_no_magma_unresolved:cases",
+        "torsionOrder": 1,
+        "twoSelmerRank": 2,
+        "visibleShaTwoOrder": 4,
+        "weierstrass": [
+          1,
+          1,
+          1,
+          -39045,
+          -7319857
+        ]
+      },
+      "certificate": {
+        "certificationState": "requires_higher_two_power_evidence",
+        "certified": false,
+        "computed": false,
+        "engine": "opendescent-native",
+        "expectedTwoPrimaryOrder": 16,
+        "expectedTwoPrimaryStructure": null,
+        "higherTwoPowerEvidence": null,
+        "kind": "higher_two_descent_certificate",
+        "label": "2738c1",
+        "missingTwoPowerFactor": 4,
+        "mwrankTrace": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": true,
+          "isogenousCurve": null,
+          "isogenyDescentDetected": false,
+          "method": "full 2-descent via multiplication-by-2 map",
+          "rankInterval": [
+            0,
+            2
+          ],
+          "secondDescentDetected": false,
+          "selmerDimensions": {},
+          "selmerOrder": 4,
+          "shaTwoBoundOperator": "<=",
+          "shaTwoBoundOrder": 4,
+          "shaTwoInformation": {},
+          "status": "ordinary full 2-descent evidence parsed; no higher step detected",
+          "type3Quartics": {
+            "count": 27,
+            "locallySolubleNewClassCount": 3,
+            "newClassCount": 3,
+            "newClasses": [
+              {
+                "group": "B",
+                "index": 1
+              },
+              {
+                "group": "B",
+                "index": 2
+              },
+              {
+                "group": "B",
+                "index": 3
+              }
+            ],
+            "records": [
+              {
+                "coefficients": [
+                  2,
+                  4,
+                  -12991,
+                  554538,
+                  -6676561
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  37,
+                  0,
+                  -6919,
+                  50616,
+                  -103600
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  37,
+                  74,
+                  -3367,
+                  13024,
+                  -14800
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  74,
+                  148,
+                  -1591,
+                  296,
+                  -592
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  111,
+                  74,
+                  -2035,
+                  2664,
+                  -1258
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  0,
+                  -1369,
+                  2738,
+                  0
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -37,
+                  0,
+                  185,
+                  3256,
+                  -4144
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  37,
+                  1184,
+                  2997,
+                  -1813
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  74,
+                  -1591,
+                  2516,
+                  222
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  74,
+                  629,
+                  2072,
+                  -4366
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  74,
+                  1517,
+                  3552,
+                  -814
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  74,
+                  17057,
+                  182780,
+                  559662
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -54,
+                  16,
+                  89,
+                  2808,
+                  -3088
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -59,
+                  18,
+                  1073,
+                  2400,
+                  -1204
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -111,
+                  74,
+                  -703,
+                  2664,
+                  -1480
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -111,
+                  -148,
+                  1295,
+                  3330,
+                  962
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -163,
+                  136,
+                  665,
+                  1016,
+                  -944
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -175,
+                  53,
+                  -451,
+                  1960,
+                  -944
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -185,
+                  222,
+                  1073,
+                  888,
+                  -592
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -193,
+                  -70,
+                  1037,
+                  1576,
+                  -202
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -259,
+                  222,
+                  -1147,
+                  1924,
+                  -592
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -259,
+                  -222,
+                  1073,
+                  1776,
+                  148
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -259,
+                  370,
+                  1073,
+                  592,
+                  -444
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -259,
+                  444,
+                  -481,
+                  1702,
+                  -1258
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -370,
+                  -148,
+                  1073,
+                  1258,
+                  -37
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -370,
+                  296,
+                  185,
+                  888,
+                  -592
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -526,
+                  -576,
+                  473,
+                  1072,
+                  32
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              }
+            ],
+            "truncated": false
+          }
+        },
+        "rankCertified": false,
+        "rankInterval": [
+          0,
+          2
+        ],
+        "reason": "ordinary 2-descent accounts for visible Sha[2] order 4, but expected 2-primary order is 16",
+        "shaTwoOrder": null,
+        "status": "ordinary_two_selmer_gap",
+        "torsionTwoPrimaryOrder": 1,
+        "twoSelmerRank": 2,
+        "visibleShaTwoOrder": 4
+      },
+      "mwrankParsed": {
+        "casselsPairing": {
+          "available": false,
+          "availableMethods": [],
+          "computed": false,
+          "engine": "mwrank_direct",
+          "matrix": null,
+          "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+          "status": "Cassels pairing not computed"
+        },
+        "engine": "mwrank_direct",
+        "generators": [],
+        "higherTwoDescent": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": true,
+          "isogenousCurve": null,
+          "isogenyDescentDetected": false,
+          "method": "full 2-descent via multiplication-by-2 map",
+          "rankInterval": [
+            0,
+            2
+          ],
+          "secondDescentDetected": false,
+          "selmerDimensions": {},
+          "selmerOrder": 4,
+          "shaTwoBoundOperator": "<=",
+          "shaTwoBoundOrder": 4,
+          "shaTwoInformation": {},
+          "status": "ordinary full 2-descent evidence parsed; no higher step detected",
+          "type3Quartics": {
+            "count": 27,
+            "locallySolubleNewClassCount": 3,
+            "newClassCount": 3,
+            "newClasses": [
+              {
+                "group": "B",
+                "index": 1
+              },
+              {
+                "group": "B",
+                "index": 2
+              },
+              {
+                "group": "B",
+                "index": 3
+              }
+            ],
+            "records": [
+              {
+                "coefficients": [
+                  2,
+                  4,
+                  -12991,
+                  554538,
+                  -6676561
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  37,
+                  0,
+                  -6919,
+                  50616,
+                  -103600
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  37,
+                  74,
+                  -3367,
+                  13024,
+                  -14800
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  74,
+                  148,
+                  -1591,
+                  296,
+                  -592
+                ],
+                "equivalentClass": null,
+                "locallySoluble": true,
+                "newClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "noRationalPointFound": true,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  111,
+                  74,
+                  -2035,
+                  2664,
+                  -1258
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  0,
+                  -1369,
+                  2738,
+                  0
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -37,
+                  0,
+                  185,
+                  3256,
+                  -4144
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  37,
+                  1184,
+                  2997,
+                  -1813
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  74,
+                  -1591,
+                  2516,
+                  222
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  74,
+                  629,
+                  2072,
+                  -4366
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  74,
+                  1517,
+                  3552,
+                  -814
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -37,
+                  74,
+                  17057,
+                  182780,
+                  559662
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -54,
+                  16,
+                  89,
+                  2808,
+                  -3088
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -59,
+                  18,
+                  1073,
+                  2400,
+                  -1204
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -111,
+                  74,
+                  -703,
+                  2664,
+                  -1480
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -111,
+                  -148,
+                  1295,
+                  3330,
+                  962
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -163,
+                  136,
+                  665,
+                  1016,
+                  -944
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -175,
+                  53,
+                  -451,
+                  1960,
+                  -944
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -185,
+                  222,
+                  1073,
+                  888,
+                  -592
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -193,
+                  -70,
+                  1037,
+                  1576,
+                  -202
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -259,
+                  222,
+                  -1147,
+                  1924,
+                  -592
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -259,
+                  -222,
+                  1073,
+                  1776,
+                  148
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -259,
+                  370,
+                  1073,
+                  592,
+                  -444
+                ],
+                "equivalentClass": null,
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": false,
+                "trivial": true
+              },
+              {
+                "coefficients": [
+                  -259,
+                  444,
+                  -481,
+                  1702,
+                  -1258
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 2
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -370,
+                  -148,
+                  1073,
+                  1258,
+                  -37
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 3
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -370,
+                  296,
+                  185,
+                  888,
+                  -592
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              },
+              {
+                "coefficients": [
+                  -526,
+                  -576,
+                  473,
+                  1072,
+                  32
+                ],
+                "equivalentClass": {
+                  "group": "B",
+                  "index": 1
+                },
+                "locallySoluble": false,
+                "newClass": null,
+                "noRationalPointFound": false,
+                "nontrivial": true,
+                "trivial": false
+              }
+            ],
+            "truncated": false
+          }
+        },
+        "label": "2738c1",
+        "rankCertified": false,
+        "rankInterval": [
+          0,
+          2
+        ],
+        "rankLowerBound": 0,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": 2,
+        "rawOutput": "Curve [1,1,1,-39045,-7319857] :\tBasic pair: I=1874161, J=12620600174\ndisc=-132947740728608689152\n2-adic index bound = 2\nBy Lemma 5.1(b), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\n*** BSD give two (I,J) pairs\nLooking for quartics with I = 1874161, J = 12620600174\nLooking for Type 3 quartics:\nTrying positive a from 1 up to 284 (square a first...)\nTrying positive a from 1 up to 284 (...then non-square a)\n(2,4,-12991,554538,-6676561)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #1\n(37,0,-6919,50616,-103600)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #2\n(37,74,-3367,13024,-14800)\t--nontrivial...--equivalent to (B) #2\n(74,148,-1591,296,-592)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #3\n(111,74,-2035,2664,-1258)\t--nontrivial...--equivalent to (B) #3\nTrying negative a from -1 down to -679\n(-37,0,-1369,2738,0)\t--trivial\n(-37,0,185,3256,-4144)\t--nontrivial...--equivalent to (B) #2\n(-37,37,1184,2997,-1813)\t--nontrivial...--equivalent to (B) #2\n(-37,74,-1591,2516,222)\t--nontrivial...--equivalent to (B) #3\n(-37,74,629,2072,-4366)\t--nontrivial...--equivalent to (B) #1\n(-37,74,1517,3552,-814)\t--nontrivial...--equivalent to (B) #1\n(-37,74,17057,182780,559662)\t--nontrivial...--equivalent to (B) #3\n(-54,16,89,2808,-3088)\t--nontrivial...--equivalent to (B) #3\n(-59,18,1073,2400,-1204)\t--nontrivial...--equivalent to (B) #2\n(-111,74,-703,2664,-1480)\t--nontrivial...--equivalent to (B) #3\n(-111,-148,1295,3330,962)\t--trivial\n(-163,136,665,1016,-944)\t--nontrivial...--equivalent to (B) #2\n(-175,53,-451,1960,-944)\t--nontrivial...--equivalent to (B) #2\n(-185,222,1073,888,-592)\t--nontrivial...--equivalent to (B) #1\n(-193,-70,1037,1576,-202)\t--nontrivial...--equivalent to (B) #3\n(-259,222,-1147,1924,-592)\t--nontrivial...--equivalent to (B) #2\n(-259,-222,1073,1776,148)\t--nontrivial...--equivalent to (B) #2\n(-259,370,1073,592,-444)\t--trivial\n(-259,444,-481,1702,-1258)\t--nontrivial...--equivalent to (B) #2\n(-370,-148,1073,1258,-37)\t--nontrivial...--equivalent to (B) #3\n(-370,296,185,888,-592)\t--nontrivial...--equivalent to (B) #1\n(-526,-576,473,1072,32)\t--nontrivial...--equivalent to (B) #1\nFinished looking for Type 3 quartics.\nMordell rank contribution from B=im(eps) = 0\nSelmer  rank contribution from B=im(eps) = 2\nSha     rank contribution from B=im(eps) = 2\nMordell rank contribution from A=ker(eps) = 0\nSelmer  rank contribution from A=ker(eps) = 0\nSha     rank contribution from A=ker(eps) = 0\n\nSummary of results (all should be powers of 2):\n\nn0 = #E(Q)[2]    = 1\nn1 = #E(Q)/2E(Q) >= 1\nn2 = #S^(2)(E/Q) = 4\n#III(E/Q)[2]     <= 4\n\n0 <= rank <= selmer-rank = 2\n\n\nUsed full 2-descent via multiplication-by-2 map\n0 <= rank <= selmer-rank = 2\nSearching for points (bound = 8)...done:\n  found points which generate a subgroup of rank 0\n  and regulator 1\nProcessing points found during 2-descent...done:\n  now regulator = 1\n\n\nRegulator = 1\n\nThe rank has not been completely determined, \nonly a lower bound of 0 and an upper bound of 2.\n\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (71.176 seconds)\nEnter curve: ",
+        "regulator": 1.0,
+        "returncode": 0,
+        "selmerError": "mwrank Selmer rank line not found",
+        "selmerSource": null,
+        "selmerUpperBound": null,
+        "status": "mwrank output did not close the rank interval",
+        "success": true,
+        "torsionOrder": null,
+        "twoSelmerRank": null
+      },
+      "rawOutput": "Curve [1,1,1,-39045,-7319857] :\tBasic pair: I=1874161, J=12620600174\ndisc=-132947740728608689152\n2-adic index bound = 2\nBy Lemma 5.1(b), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\n*** BSD give two (I,J) pairs\nLooking for quartics with I = 1874161, J = 12620600174\nLooking for Type 3 quartics:\nTrying positive a from 1 up to 284 (square a first...)\nTrying positive a from 1 up to 284 (...then non-square a)\n(2,4,-12991,554538,-6676561)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #1\n(37,0,-6919,50616,-103600)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #2\n(37,74,-3367,13024,-14800)\t--nontrivial...--equivalent to (B) #2\n(74,148,-1591,296,-592)\t--nontrivial...locally soluble...no rational point found (limit 10) --new (B) #3\n(111,74,-2035,2664,-1258)\t--nontrivial...--equivalent to (B) #3\nTrying negative a from -1 down to -679\n(-37,0,-1369,2738,0)\t--trivial\n(-37,0,185,3256,-4144)\t--nontrivial...--equivalent to (B) #2\n(-37,37,1184,2997,-1813)\t--nontrivial...--equivalent to (B) #2\n(-37,74,-1591,2516,222)\t--nontrivial...--equivalent to (B) #3\n(-37,74,629,2072,-4366)\t--nontrivial...--equivalent to (B) #1\n(-37,74,1517,3552,-814)\t--nontrivial...--equivalent to (B) #1\n(-37,74,17057,182780,559662)\t--nontrivial...--equivalent to (B) #3\n(-54,16,89,2808,-3088)\t--nontrivial...--equivalent to (B) #3\n(-59,18,1073,2400,-1204)\t--nontrivial...--equivalent to (B) #2\n(-111,74,-703,2664,-1480)\t--nontrivial...--equivalent to (B) #3\n(-111,-148,1295,3330,962)\t--trivial\n(-163,136,665,1016,-944)\t--nontrivial...--equivalent to (B) #2\n(-175,53,-451,1960,-944)\t--nontrivial...--equivalent to (B) #2\n(-185,222,1073,888,-592)\t--nontrivial...--equivalent to (B) #1\n(-193,-70,1037,1576,-202)\t--nontrivial...--equivalent to (B) #3\n(-259,222,-1147,1924,-592)\t--nontrivial...--equivalent to (B) #2\n(-259,-222,1073,1776,148)\t--nontrivial...--equivalent to (B) #2\n(-259,370,1073,592,-444)\t--trivial\n(-259,444,-481,1702,-1258)\t--nontrivial...--equivalent to (B) #2\n(-370,-148,1073,1258,-37)\t--nontrivial...--equivalent to (B) #3\n(-370,296,185,888,-592)\t--nontrivial...--equivalent to (B) #1\n(-526,-576,473,1072,32)\t--nontrivial...--equivalent to (B) #1\nFinished looking for Type 3 quartics.\nMordell rank contribution from B=im(eps) = 0\nSelmer  rank contribution from B=im(eps) = 2\nSha     rank contribution from B=im(eps) = 2\nMordell rank contribution from A=ker(eps) = 0\nSelmer  rank contribution from A=ker(eps) = 0\nSha     rank contribution from A=ker(eps) = 0\n\nSummary of results (all should be powers of 2):\n\nn0 = #E(Q)[2]    = 1\nn1 = #E(Q)/2E(Q) >= 1\nn2 = #S^(2)(E/Q) = 4\n#III(E/Q)[2]     <= 4\n\n0 <= rank <= selmer-rank = 2\n\n\nUsed full 2-descent via multiplication-by-2 map\n0 <= rank <= selmer-rank = 2\nSearching for points (bound = 8)...done:\n  found points which generate a subgroup of rank 0\n  and regulator 1\nProcessing points found during 2-descent...done:\n  now regulator = 1\n\n\nRegulator = 1\n\nThe rank has not been completely determined, \nonly a lower bound of 0 and an upper bound of 2.\n\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (71.176 seconds)\nEnter curve: ",
+      "returncode": 0,
+      "timedOut": false
+    },
+    {
+      "case": {
+        "conductor": 2742,
+        "expectedTwoPrimaryOrder": 16,
+        "expectedTwoPrimaryStructure": null,
+        "label": "2742b1",
+        "noMagmaEvidence": {
+          "analyticRank": 0,
+          "backend": "sage",
+          "certificationState": "requires_higher_two_power_evidence",
+          "certified": false,
+          "errors": {},
+          "expectedPrimaryExponent": 4,
+          "expectedPrimaryOrder": 16,
+          "label": "2742b1",
+          "pPrimaryBoundExponent": null,
+          "pPrimaryBoundOrder": null,
+          "pPrimaryOrder": null,
+          "pPrimaryOrderExponent": null,
+          "policy": "no_magma",
+          "prime": 2,
+          "rankInterval": [
+            0,
+            2
+          ],
+          "reason": "ordinary 2-Selmer/Sha[2] data does not certify the required higher 2-primary structure",
+          "shaBound": [
+            2
+          ],
+          "status": "higher_two_power_unresolved",
+          "torsionOrder": 2,
+          "twoSelmerBound": 2
+        },
+        "prime": 2,
+        "sourceArtifact": "bsd_2primary_audit:rows, codex2_no_magma_unresolved:cases",
+        "torsionOrder": 2,
+        "twoSelmerRank": 3,
+        "visibleShaTwoOrder": 4,
+        "weierstrass": [
+          1,
+          1,
+          0,
+          -10616841,
+          -13319381691
+        ]
+      },
+      "certificate": {
+        "certificationState": "requires_higher_two_power_evidence",
+        "certified": false,
+        "computed": false,
+        "engine": "opendescent-native",
+        "expectedTwoPrimaryOrder": 16,
+        "expectedTwoPrimaryStructure": null,
+        "higherTwoPowerEvidence": null,
+        "kind": "higher_two_descent_certificate",
+        "label": "2742b1",
+        "missingTwoPowerFactor": 4,
+        "mwrankTrace": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": false,
+          "isogenousCurve": null,
+          "isogenyDescentDetected": true,
+          "method": "2-isogeny descent with second local descent",
+          "rankInterval": null,
+          "secondDescentDetected": true,
+          "selmerDimensions": {
+            "rankBoundAfterFirstDescent": 2,
+            "rankBoundAfterSecondDescent": 2,
+            "rankPhiPrimeS2E": 3,
+            "rankPhiS2EPrime": 1,
+            "rankS2E": 3,
+            "rankS2EPrime": 3,
+            "rankSPhiEPrime": 3,
+            "rankSPhiPrimeE": 1
+          },
+          "selmerOrder": null,
+          "shaTwoBoundOperator": null,
+          "shaTwoBoundOrder": null,
+          "shaTwoInformation": {},
+          "status": "higher 2-descent evidence parsed from mwrank second descent step",
+          "type3Quartics": {
+            "count": 0,
+            "locallySolubleNewClassCount": 0,
+            "newClassCount": 0,
+            "newClasses": [],
+            "records": [],
+            "truncated": false
+          }
+        },
+        "rankCertified": null,
+        "rankInterval": null,
+        "reason": "ordinary 2-descent accounts for visible Sha[2] order 4, but expected 2-primary order is 16",
+        "shaTwoOrder": null,
+        "status": "ordinary_two_selmer_gap",
+        "torsionTwoPrimaryOrder": 2,
+        "twoSelmerRank": 3,
+        "visibleShaTwoOrder": 4
+      },
+      "mwrankParsed": {
+        "casselsPairing": {
+          "available": false,
+          "availableMethods": [],
+          "computed": false,
+          "engine": "mwrank_direct",
+          "matrix": null,
+          "reason": "mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",
+          "status": "Cassels pairing not computed"
+        },
+        "engine": "mwrank_direct",
+        "generators": [],
+        "higherTwoDescent": {
+          "available": true,
+          "computed": true,
+          "engine": "mwrank",
+          "fullMultiplicationByTwoDetected": false,
+          "isogenousCurve": null,
+          "isogenyDescentDetected": true,
+          "method": "2-isogeny descent with second local descent",
+          "rankInterval": null,
+          "secondDescentDetected": true,
+          "selmerDimensions": {
+            "rankBoundAfterFirstDescent": 2,
+            "rankBoundAfterSecondDescent": 2,
+            "rankPhiPrimeS2E": 3,
+            "rankPhiS2EPrime": 1,
+            "rankS2E": 3,
+            "rankS2EPrime": 3,
+            "rankSPhiEPrime": 3,
+            "rankSPhiPrimeE": 1
+          },
+          "selmerOrder": null,
+          "shaTwoBoundOperator": null,
+          "shaTwoBoundOrder": null,
+          "shaTwoInformation": {},
+          "status": "higher 2-descent evidence parsed from mwrank second descent step",
+          "type3Quartics": {
+            "count": 0,
+            "locallySolubleNewClassCount": 0,
+            "newClassCount": 0,
+            "newClasses": [],
+            "records": [],
+            "truncated": false
+          }
+        },
+        "label": "2742b1",
+        "rankCertified": false,
+        "rankInterval": null,
+        "rankLowerBound": null,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": null,
+        "rawOutput": "Curve [1,1,0,-10616841,-13319381691] :\t\n1 points of order 2:\n[3762:-1881:1]\n\nUsing 2-isogenous curve [0,-90298,0,457,0] (minimal model [1,1,0,-169869321,-852229595835])\n-------------------------------------------------------\nFirst step, determining 1st descent Selmer groups\n-------------------------------------------------------\nAfter first local descent, rank bound = 2\nrk(S^{phi}(E'))=\t3\nrk(S^{phi'}(E))=\t1\n\n-------------------------------------------------------\nSecond step, determining 2nd descent Selmer groups\n-------------------------------------------------------\nAfter second local descent, rank bound = 2\nrk(phi'(S^{2}(E)))=\t3\nrk(phi(S^{2}(E')))=\t1\nrk(S^{2}(E))=\t3\nrk(S^{2}(E'))=\t3\n\nThird step, determining E(Q)/phi(E'(Q)) and E'(Q)/phi'(E(Q))\n-------------------------------------------------------\n1. E(Q)/phi(E'(Q))\n-------------------------------------------------------\n(c,d)  =(45149,509607936)\n(c',d')=(-90298,457)\nFirst stage (no second descent yet)...\n(-1,0,45149,0,-509607936):  no rational point found (hlim=8)\n(-6,0,45149,0,-84934656):  no rational point found (hlim=8)\n(2,0,45149,0,254803968):  no rational point found (hlim=8)\n(3,0,45149,0,169869312):  no rational point found (hlim=8)\n(-2,0,45149,0,-254803968):  no rational point found (hlim=8)\n(-3,0,45149,0,-169869312):  no rational point found (hlim=8)\nAfter first global descent, this component of the rank\n\thas lower bound 0\n\tand upper bound 2\n\t(difference =   2)\nSecond descent will attempt to reduce this\nSecond stage (using second descent)...\nd1=-1: \nSecond descent inconclusive for d1=-1: ELS descendents exist but no rational point found\n\nd1=-6: Program mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve: RR: division by zero\n",
+        "regulator": null,
+        "returncode": -6,
+        "selmerError": "mwrank Selmer rank line not found",
+        "selmerSource": null,
+        "selmerUpperBound": null,
+        "status": "mwrank output did not close the rank interval",
+        "success": false,
+        "torsionOrder": null,
+        "twoSelmerRank": null
+      },
+      "rawOutput": "Curve [1,1,0,-10616841,-13319381691] :\t\n1 points of order 2:\n[3762:-1881:1]\n\nUsing 2-isogenous curve [0,-90298,0,457,0] (minimal model [1,1,0,-169869321,-852229595835])\n-------------------------------------------------------\nFirst step, determining 1st descent Selmer groups\n-------------------------------------------------------\nAfter first local descent, rank bound = 2\nrk(S^{phi}(E'))=\t3\nrk(S^{phi'}(E))=\t1\n\n-------------------------------------------------------\nSecond step, determining 2nd descent Selmer groups\n-------------------------------------------------------\nAfter second local descent, rank bound = 2\nrk(phi'(S^{2}(E)))=\t3\nrk(phi(S^{2}(E')))=\t1\nrk(S^{2}(E))=\t3\nrk(S^{2}(E'))=\t3\n\nThird step, determining E(Q)/phi(E'(Q)) and E'(Q)/phi'(E(Q))\n-------------------------------------------------------\n1. E(Q)/phi(E'(Q))\n-------------------------------------------------------\n(c,d)  =(45149,509607936)\n(c',d')=(-90298,457)\nFirst stage (no second descent yet)...\n(-1,0,45149,0,-509607936):  no rational point found (hlim=8)\n(-6,0,45149,0,-84934656):  no rational point found (hlim=8)\n(2,0,45149,0,254803968):  no rational point found (hlim=8)\n(3,0,45149,0,169869312):  no rational point found (hlim=8)\n(-2,0,45149,0,-254803968):  no rational point found (hlim=8)\n(-3,0,45149,0,-169869312):  no rational point found (hlim=8)\nAfter first global descent, this component of the rank\n\thas lower bound 0\n\tand upper bound 2\n\t(difference =   2)\nSecond descent will attempt to reduce this\nSecond stage (using second descent)...\nd1=-1: \nSecond descent inconclusive for d1=-1: ELS descendents exist but no rational point found\n\nd1=-6: Program mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve: RR: division by zero\n",
+      "returncode": -6,
+      "timedOut": false
+    }
+  ],
+  "sourceArtifact": "codex2_higher2_certificate.json",
+  "summary": {
+    "statusCounts": {
+      "higher_two_power_unavailable": 1,
+      "ordinary_two_selmer_gap": 3
+    },
+    "totalCases": 4,
+    "unresolvedLabels": [
+      "2045b1",
+      "2678a1",
+      "2738c1",
+      "2742b1"
+    ]
+  }
+}

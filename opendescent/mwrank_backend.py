@@ -43,6 +43,12 @@ def _float_or_none(value: str | None) -> float | None:
 def parse_mwrank_output(label: str, returncode: int, output: str) -> dict:
     rank = _int_or_none((RANK_RE.search(output) or [None, None])[1])
     selmer = _int_or_none((SELMER_RE.search(output) or [None, None])[1])
+    higher_two = parse_mwrank_higher_two_descent(output)
+    trace_interval = higher_two.get("rankInterval")
+    lower = rank
+    upper = rank
+    if rank is None and isinstance(trace_interval, list) and len(trace_interval) == 2:
+        lower, upper = trace_interval
     unconditional = "determined unconditionally" in output
     certified = returncode == 0 and unconditional and rank is not None
     regulator_match = REGULATOR_RE.search(output)
@@ -58,9 +64,9 @@ def parse_mwrank_output(label: str, returncode: int, output: str) -> dict:
     return {
         "label": label,
         "engine": "mwrank_direct",
-        "rankLowerBound": rank,
-        "rankUpperBound": rank if certified else None,
-        "rankInterval": [rank, rank] if certified else None,
+        "rankLowerBound": lower,
+        "rankUpperBound": upper if upper is not None else None,
+        "rankInterval": [lower, upper] if lower is not None and upper is not None else None,
         "rankCertified": certified,
         "twoSelmerRank": selmer,
         "selmerUpperBound": selmer,
@@ -70,7 +76,7 @@ def parse_mwrank_output(label: str, returncode: int, output: str) -> dict:
         "selmerError": None if selmer is not None else "mwrank Selmer rank line not found",
         "regulator": _float_or_none(regulator_match.group(1)) if regulator_match else None,
         "generators": generators,
-        "higherTwoDescent": parse_mwrank_higher_two_descent(output),
+        "higherTwoDescent": higher_two,
         "casselsPairing": cassels_pairing_placeholder(
             "mwrank_direct",
             reason="mwrank output records descent/Sha-size evidence but does not expose a Cassels pairing matrix",

@@ -85,6 +85,12 @@ Run the codex-2 BSD worklist with open-source tools only:
 python3 codex2_no_magma_completion.py --codex2-dir /Users/mbf_mini/p3/codex-2
 ```
 
+Run the codex-2 higher 2-descent certificate pass:
+
+```bash
+python3 codex2_higher2_completion.py --codex2-dir /Users/mbf_mini/p3/codex-2
+```
+
 Expected Sage-backed calibration summary:
 
 ```text

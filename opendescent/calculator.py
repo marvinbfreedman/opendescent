@@ -5,6 +5,7 @@ from __future__ import annotations
 from .cassels import cassels_pairing
 from .curve import EllipticCurve
 from .five_descent import native_five_coverings, native_five_descent
+from .higher_descent import higher_two_descent_certificate
 from .transcripts import selmer_group_evidence
 
 
@@ -68,3 +69,28 @@ def FiveCoverings(curve: EllipticCurve, search_bound: int = 50) -> dict:
 
 def CasselsPairing(curve: EllipticCurve, coverings: list[dict], prime: int = 5) -> dict:
     return cassels_pairing(curve, coverings, prime=prime).to_json()
+
+
+def HigherTwoDescentCertificate(
+    curve: EllipticCurve | dict | object,
+    *,
+    expected_order: int | None = None,
+    expected_structure: str | None = None,
+    mwrank_trace: dict | None = None,
+    higher_two_transcript: str | None = None,
+    two_selmer_rank: int | None = None,
+    rank_interval: list[int] | None = None,
+    torsion_order: int | None = None,
+    source: str | None = None,
+) -> dict:
+    return higher_two_descent_certificate(
+        _curve_label(curve),
+        expected_order=expected_order,
+        expected_structure=expected_structure,
+        mwrank_trace=mwrank_trace,
+        higher_two_transcript=higher_two_transcript,
+        two_selmer_rank=two_selmer_rank,
+        rank_interval=rank_interval,
+        torsion_order=torsion_order,
+        source=source,
+    )

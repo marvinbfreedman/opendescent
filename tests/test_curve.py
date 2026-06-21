@@ -4,8 +4,17 @@ from fractions import Fraction
 from tempfile import TemporaryDirectory
 
 from opendescent.backends import available_backends, run_backend
-from opendescent.calculator import CasselsPairing, FiveCoverings, FiveSelmerGroup
+from opendescent.calculator import CasselsPairing, FiveCoverings, FiveSelmerGroup, HigherTwoDescentCertificate
 from opendescent.certificate import build_certificate
+from opendescent.codex2_higher2 import (
+    HIGHER2_OUT,
+    SUMMARY_OUT as HIGHER2_SUMMARY_OUT,
+    UNRESOLVED_OUT as HIGHER2_UNRESOLVED_OUT,
+    load_higher2_cases,
+    render_markdown as render_higher2_markdown,
+    unresolved_report as higher2_unresolved_report,
+    write_outputs as write_higher2_outputs,
+)
 from opendescent.codex2_no_magma import (
     PRIMARY_OUT,
     SUMMARY_OUT,
@@ -29,6 +38,7 @@ from opendescent.magma_batch_export import (
     render_readme,
 )
 from opendescent.mwrank_backend import parse_mwrank_output
+from opendescent.higher_descent import parse_mwrank_higher_two_descent
 from opendescent.sage_primary import classify_primary_evidence, expected_exponent
 from opendescent.transcripts import (
     higher_two_power_evidence,
@@ -141,6 +151,47 @@ The rank and full Mordell-Weil basis have been determined unconditionally.
     assert row["casselsPairing"]["computed"] is False
 
 
+def test_mwrank_full_two_descent_parser_records_visible_sha2_gap():
+    output = """
+Looking for Type 3 quartics:
+(2,-2,-1449,20256,-81607)    --nontrivial...locally soluble...no rational point found (limit 10) --new (B) #1
+(17,-18,-1029,4094,-4987)    --nontrivial...locally soluble...no rational point found (limit 10) --new (B) #2
+Finished looking for Type 3 quartics.
+Summary of results (all should be powers of 2):
+n0 = #E(Q)[2]    = 1
+n1 = #E(Q)/2E(Q) >= 1
+n2 = #S^(2)(E/Q) = 4
+#III(E/Q)[2]     <= 4
+
+0 <= rank <= selmer-rank = 2
+Used full 2-descent via multiplication-by-2 map
+The rank has not been completely determined,
+only a lower bound of 0 and an upper bound of 2.
+"""
+    higher = parse_mwrank_higher_two_descent(output)
+    assert higher["fullMultiplicationByTwoDetected"] is True
+    assert higher["rankInterval"] == [0, 2]
+    assert higher["selmerOrder"] == 4
+    assert higher["shaTwoBoundOrder"] == 4
+    assert higher["shaTwoBoundOperator"] == "<="
+    assert higher["type3Quartics"]["newClassCount"] == 2
+    assert higher["type3Quartics"]["locallySolubleNewClassCount"] == 2
+
+    cert = HigherTwoDescentCertificate(
+        {"label": "2045b1"},
+        expected_order=16,
+        mwrank_trace=higher,
+        two_selmer_rank=2,
+        rank_interval=[0, 2],
+        torsion_order=1,
+    )
+    assert cert["certified"] is False
+    assert cert["certificationState"] == "requires_higher_two_power_evidence"
+    assert cert["status"] == "ordinary_two_selmer_gap"
+    assert cert["visibleShaTwoOrder"] == 4
+    assert cert["missingTwoPowerFactor"] == 4
+
+
 def test_unimplemented_backend_returns_json_failure():
     result = run_backend("pari_gp", "examples/calibration_curves.json")
     assert result["succeeded"] is False
@@ -235,6 +286,64 @@ def test_certificate_attaches_higher_two_power_transcript():
         assert evidence["matchesExpectedStructure"] is True
         assert evidence["matchesExpectedOrder"] is True
         assert evidence["status"] == "higher_two_power_match"
+
+
+def test_higher_two_descent_certificate_certifies_explicit_z4_plus_z4():
+    transcript = "Abelian Group isomorphic to Z/4 + Z/4\n"
+    cert = HigherTwoDescentCertificate(
+        {"label": "case"},
+        expected_order=16,
+        expected_structure="Z/4 + Z/4",
+        higher_two_transcript=transcript,
+    )
+    assert cert["certified"] is True
+    assert cert["certificationState"] == "certified"
+    assert cert["status"] == "higher_two_power_certified"
+    assert cert["higherTwoPowerEvidence"]["status"] == "higher_two_power_match"
+
+
+def test_higher_two_descent_certificate_rejects_plain_z2_plus_z2_for_order16():
+    transcript = "Abelian Group isomorphic to Z/2 + Z/2\n"
+    cert = HigherTwoDescentCertificate(
+        {"label": "case"},
+        expected_order=16,
+        expected_structure="Z/4 + Z/4",
+        higher_two_transcript=transcript,
+    )
+    assert cert["certified"] is False
+    assert cert["certificationState"] == "mismatch"
+    assert cert["status"] == "higher_two_power_mismatch"
+
+
+def test_certificate_attaches_higher_two_descent_certificate():
+    with TemporaryDirectory() as tmp:
+        base = Path(tmp)
+        transcript = base / "z4_plus_z4.txt"
+        transcript.write_text("Abelian Group isomorphic to Z/4 + Z/4\n")
+        input_path = base / "input.json"
+        payload = {
+            "curves": [
+                {
+                    "label": "higher-two",
+                    "weierstrass": [0, -1, 1, -10, -20],
+                    "prime": 2,
+                    "expectedTwoPrimaryStructure": "Z/4 + Z/4",
+                    "expectedTwoPrimaryOrder": 16,
+                    "higherTwoPowerTranscript": transcript.name,
+                }
+            ]
+        }
+        input_path.write_text(json.dumps(payload))
+        cert = build_certificate(
+            payload,
+            input_path=str(input_path),
+            higher_two_descent=True,
+            evidence_transcripts=True,
+        )
+        higher = cert["curves"][0]["higherTwoDescentCertificate"]
+        assert higher["certified"] is True
+        assert higher["status"] == "higher_two_power_certified"
+        assert cert["curves"][0]["nativeComputationStatus"]["statuses"]["higherTwoDescentCertificate"]["computed"] is True
 
 
 def test_five_selmer_group_calculator_parses_z5_plus_z5():
@@ -559,3 +668,72 @@ def test_codex2_no_magma_worklist_loader_and_outputs():
         assert outputs[PRIMARY_OUT].exists()
         assert outputs[SUMMARY_OUT].exists()
         assert outputs[UNRESOLVED_OUT].exists()
+
+
+def test_codex2_higher2_loader_and_outputs():
+    with TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        (root / "bsd_2primary_audit.json").write_text(
+            json.dumps(
+                {
+                    "rows": [
+                        {
+                            "label": "2045b1",
+                            "conductor": 2045,
+                            "aInvariants": [1, -1, 0, -5470, -862675],
+                            "bsd": {"predictedSha2PrimaryOrder": 16},
+                            "twoSelmer": {
+                                "dimensionOverF2": 2,
+                                "sha2OrderAfterTorsion": 4,
+                            },
+                            "torsion": {"order": 1},
+                        }
+                    ]
+                }
+            )
+        )
+        cases = load_higher2_cases(root)
+        assert cases[0]["label"] == "2045b1"
+        assert cases[0]["expectedTwoPrimaryOrder"] == 16
+        assert cases[0]["visibleShaTwoOrder"] == 4
+
+        trace = parse_mwrank_higher_two_descent(
+            "#S^(2)(E/Q) = 4\n#III(E/Q)[2]     <= 4\n0 <= rank <= selmer-rank = 2\n"
+        )
+        certificate = HigherTwoDescentCertificate(
+            {"label": "2045b1"},
+            expected_order=16,
+            mwrank_trace=trace,
+            two_selmer_rank=2,
+            torsion_order=1,
+        )
+        report = {
+            "artifact": "codex2_higher2_certificate",
+            "policy": "no_magma",
+            "summary": {
+                "totalCases": 1,
+                "certifiedCases": 0,
+                "unresolvedCases": 1,
+                "statusCounts": {certificate["status"]: 1},
+            },
+            "results": [
+                {
+                    "case": cases[0],
+                    "returncode": 0,
+                    "timedOut": False,
+                    "rawOutput": "",
+                    "mwrankParsed": {"higherTwoDescent": trace},
+                    "certificate": certificate,
+                }
+            ],
+        }
+        markdown = render_higher2_markdown(report)
+        assert "codex-2 Higher 2-Descent Summary" in markdown
+        assert "ordinary_two_selmer_gap" in markdown
+        unresolved = higher2_unresolved_report(report)
+        assert unresolved["summary"]["unresolvedLabels"] == ["2045b1"]
+        outputs = write_higher2_outputs(report, root / "out")
+        assert sorted(outputs) == sorted([HIGHER2_OUT, HIGHER2_SUMMARY_OUT, HIGHER2_UNRESOLVED_OUT])
+        assert outputs[HIGHER2_OUT].exists()
+        assert outputs[HIGHER2_SUMMARY_OUT].exists()
+        assert outputs[HIGHER2_UNRESOLVED_OUT].exists()
