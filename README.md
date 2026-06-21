@@ -73,6 +73,12 @@ Attach native 5-descent and 5-covering Cassels-pairing task output:
 python3 -m opendescent.cli examples/calibration_curves.json --native-descent-tasks --summary-only
 ```
 
+Export local Magma batches for unresolved p=3 and p=5 BSD descent probes:
+
+```bash
+python3 bsd_local_magma_batch_export.py
+```
+
 Expected Sage-backed calibration summary:
 
 ```text

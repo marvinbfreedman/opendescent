@@ -11,6 +11,14 @@ from opendescent.f5 import is_alternating_matrix, nullspace_mod, rank_mod, rref_
 from opendescent.five_descent import FiveCovering, five_descent_prime_set, native_five_descent
 from opendescent.finite_field import ap, count_points_mod_p
 from opendescent.local import reduction_record
+from opendescent.magma_batch_export import (
+    P3_REMAINING_CASES,
+    P5_PROBE_CASES,
+    export_batches,
+    render_p3_magma,
+    render_p5_magma,
+    render_readme,
+)
 from opendescent.mwrank_backend import parse_mwrank_output
 from opendescent.transcripts import (
     higher_two_power_evidence,
@@ -356,3 +364,50 @@ def test_certificate_attaches_native_descent_tasks():
     assert curve["fiveCoverings"]["kind"] == "native_five_coverings"
     assert curve["casselsPairing"]["kind"] == "cassels_pairing"
     assert curve["nativeComputationStatus"]["complete"] is False
+
+
+def test_magma_batch_export_renders_expected_case_sets():
+    assert [case.label for case in P3_REMAINING_CASES] == [
+        "2429b1",
+        "2534e1",
+        "2534f1",
+        "2674b1",
+        "2849a1",
+    ]
+    assert [case.label for case in P5_PROBE_CASES] == [
+        "1664k1",
+        "2366f1",
+        "2574d1",
+        "2834d1",
+        "2900d1",
+    ]
+
+    p3 = render_p3_magma(P3_REMAINING_CASES)
+    assert p3.count("ThreeSelmerGroup(E)") == 5
+    assert 'SetClassGroupBounds("GRH")' in p3
+    assert not any(line.strip() == 'SetClassGroupBounds("GRH");' for line in p3.splitlines())
+    assert "===== 2534e1 p=3 unconditional =====" in p3
+    assert "expectedSelmer=9" in p3
+
+    p5 = render_p5_magma(P5_PROBE_CASES)
+    assert p5.count("FiveSelmerGroup") >= 10
+    assert "SelmerGroup(5, E)" in p5
+    assert "SelmerGroup(E, 5)" in p5
+    assert "===== 2900d1 p=5 probe =====" in p5
+
+
+def test_magma_batch_export_writes_requested_files():
+    with TemporaryDirectory() as tmp:
+        outputs = export_batches(Path(tmp), P3_REMAINING_CASES, P5_PROBE_CASES)
+        assert sorted(outputs) == [
+            "bsd_local_magma_p3_remaining.m",
+            "bsd_local_magma_p5_probe.m",
+            "bsd_local_magma_readme.md",
+        ]
+        for path in outputs.values():
+            assert path.exists()
+        readme = outputs["bsd_local_magma_readme.md"].read_text()
+        assert "magma -b bsd_local_magma_p3_remaining.m" in readme
+        assert "bsd_record_magma_three_selmer.py --label 2429b1" in readme
+        assert "fiveSelmerTranscript" in readme
+        assert "Order(G) = 9" in readme
