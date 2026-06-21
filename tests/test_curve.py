@@ -6,6 +6,15 @@ from tempfile import TemporaryDirectory
 from opendescent.backends import available_backends, run_backend
 from opendescent.calculator import CasselsPairing, FiveCoverings, FiveSelmerGroup
 from opendescent.certificate import build_certificate
+from opendescent.codex2_no_magma import (
+    PRIMARY_OUT,
+    SUMMARY_OUT,
+    UNRESOLVED_OUT,
+    completion_summary,
+    load_codex2_worklist,
+    render_markdown,
+    write_outputs,
+)
 from opendescent.curve import EllipticCurve, Point
 from opendescent.f5 import is_alternating_matrix, nullspace_mod, rank_mod, rref_mod
 from opendescent.five_descent import FiveCovering, five_descent_prime_set, native_five_descent
@@ -20,6 +29,7 @@ from opendescent.magma_batch_export import (
     render_readme,
 )
 from opendescent.mwrank_backend import parse_mwrank_output
+from opendescent.sage_primary import classify_primary_evidence, expected_exponent
 from opendescent.transcripts import (
     higher_two_power_evidence,
     parse_abelian_group_structure,
@@ -411,3 +421,141 @@ def test_magma_batch_export_writes_requested_files():
         assert "bsd_record_magma_three_selmer.py --label 2429b1" in readme
         assert "fiveSelmerTranscript" in readme
         assert "Order(G) = 9" in readme
+
+
+def test_sage_primary_classifier_certifies_exact_order():
+    case = {"label": "2429b1", "prime": 3, "targetPrimaryOrder": 9}
+    raw = {
+        "rankBounds": [0, 0],
+        "analyticRank": 0,
+        "torsionOrder": 1,
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": 2,
+    }
+    evidence = classify_primary_evidence(case, raw)
+    assert expected_exponent(3, 9) == 2
+    assert evidence["certified"] is True
+    assert evidence["certificationState"] == "certified"
+    assert evidence["status"] == "sage_primary_order_confirmed"
+    assert evidence["pPrimaryOrder"] == 9
+
+
+def test_sage_primary_classifier_keeps_bounds_non_certifying():
+    case = {"label": "2534e1", "prime": 3, "targetPrimaryOrder": 9}
+    raw = {
+        "rankBounds": [0, 0],
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": None,
+        "errors": {
+            "pPrimaryOrderExponent": {
+                "type": "ValueError",
+                "message": "The order is not provably known using Skinner-Urban.",
+            }
+        },
+    }
+    evidence = classify_primary_evidence(case, raw)
+    assert evidence["certified"] is False
+    assert evidence["certificationState"] == "bounded_not_certified"
+    assert evidence["status"] == "sage_primary_bound_matches_expected"
+    assert evidence["pPrimaryBoundOrder"] == 9
+
+
+def test_sage_primary_classifier_marks_unavailable_and_higher_two():
+    unavailable = classify_primary_evidence(
+        {"label": "2900d1", "prime": 5, "targetPrimaryOrder": 25},
+        {
+            "errors": {
+                "pPrimaryBoundExponent": {"message": "The curve has to have semi-stable reduction at p."},
+                "pPrimaryOrderExponent": {"message": "The order is not provably known."},
+            }
+        },
+    )
+    assert unavailable["status"] == "sage_primary_unavailable"
+    assert unavailable["certificationState"] == "unavailable"
+
+    two = classify_primary_evidence(
+        {"label": "2045b1", "prime": 2, "targetPrimaryOrder": 16},
+        {"rankBounds": [0, 2], "twoSelmerBound": 2, "shaBound": [2]},
+    )
+    assert two["status"] == "higher_two_power_unresolved"
+    assert two["certificationState"] == "requires_higher_two_power_evidence"
+    assert two["twoSelmerBound"] == 2
+
+
+def test_codex2_no_magma_worklist_loader_and_outputs():
+    with TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        (root / "bsd_primary_descent_tasks.json").write_text(
+            json.dumps(
+                {
+                    "selectedThreeSelmerTasks": [
+                        {
+                            "label": "2429b1",
+                            "conductor": 2429,
+                            "aInvariants": [1, 1, 0, -115, -528],
+                            "prime": 3,
+                            "targetPrimaryOrder": 9,
+                            "expectedSelmerOrder": 9,
+                        }
+                    ],
+                    "twoDescentAuditTasks": [
+                        {
+                            "label": "2045b1",
+                            "conductor": 2045,
+                            "aInvariants": [1, -1, 0, -5470, -862675],
+                            "prime": 2,
+                            "targetPrimaryOrder": 16,
+                            "expectedSelmerOrder": 16,
+                        }
+                    ],
+                    "externalDescentTasks": [],
+                }
+            )
+        )
+        (root / "bsd_5primary_probe.json").write_text(
+            json.dumps(
+                {
+                    "tasks": [
+                        {
+                            "label": "1664k1",
+                            "conductor": 1664,
+                            "aInvariants": [0, -1, 0, -76162, -8064798],
+                            "prime": 5,
+                            "targetPrimaryOrder": 25,
+                            "expectedSelmerOrder": 25,
+                        }
+                    ]
+                }
+            )
+        )
+        (root / "bsd_2primary_audit.json").write_text(json.dumps({"rows": []}))
+
+        cases = load_codex2_worklist(root)
+        assert [(case["label"], case["prime"]) for case in cases] == [
+            ("2045b1", 2),
+            ("2429b1", 3),
+            ("1664k1", 5),
+        ]
+
+        report_cases = []
+        for case in cases:
+            raw = {
+                2: {"rankBounds": [0, 2], "twoSelmerBound": 2},
+                3: {"rankBounds": [0, 0], "pPrimaryOrderExponent": 2},
+                5: {"rankBounds": [0, 0], "pPrimaryOrderExponent": 2},
+            }[case["prime"]]
+            report_cases.append({**case, "evidence": classify_primary_evidence(case, raw)})
+        report = {
+            "artifact": "codex2_no_magma_primary_evidence",
+            "policy": "no_magma",
+            "summary": completion_summary(report_cases),
+            "cases": report_cases,
+        }
+        markdown = render_markdown(report)
+        assert "codex-2 Magma-Free Completion Summary" in markdown
+        assert "sage_primary_order_confirmed" in markdown
+        outputs = write_outputs(report, root / "out")
+        assert sorted(outputs) == sorted([PRIMARY_OUT, SUMMARY_OUT, UNRESOLVED_OUT])
+        assert outputs[PRIMARY_OUT].exists()
+        assert outputs[SUMMARY_OUT].exists()
+        assert outputs[UNRESOLVED_OUT].exists()

@@ -1,0 +1,1120 @@
+{
+  "artifact": "codex2_no_magma_primary_evidence",
+  "backend": "sage",
+  "cases": [
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2045,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "requires_higher_two_power_evidence",
+        "certified": false,
+        "errors": {},
+        "expectedPrimaryExponent": 4,
+        "expectedPrimaryOrder": 16,
+        "label": "2045b1",
+        "pPrimaryBoundExponent": null,
+        "pPrimaryBoundOrder": null,
+        "pPrimaryOrder": null,
+        "pPrimaryOrderExponent": null,
+        "policy": "no_magma",
+        "prime": 2,
+        "rankInterval": [
+          0,
+          2
+        ],
+        "reason": "ordinary 2-Selmer/Sha[2] data does not certify the required higher 2-primary structure",
+        "shaBound": [
+          2
+        ],
+        "status": "higher_two_power_unresolved",
+        "torsionOrder": 1,
+        "twoSelmerBound": 2
+      },
+      "expectedPrimaryOrder": 16,
+      "expectedSelmerOrder": 16,
+      "label": "2045b1",
+      "predictedShaFactorization": "2^4",
+      "predictedShaOrder": 16,
+      "prime": 2,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2045b1",
+        "prime": 2,
+        "rankBounds": [
+          0,
+          2
+        ],
+        "shaBound": [
+          2
+        ],
+        "success": true,
+        "torsionOrder": 1,
+        "twoSelmerBound": 2,
+        "weierstrass": [
+          1,
+          -1,
+          0,
+          -5470,
+          -862675
+        ]
+      },
+      "sourceArtifact": "bsd_2primary_audit:rows, bsd_primary_descent_tasks:twoDescentAuditTasks",
+      "weierstrass": [
+        1,
+        -1,
+        0,
+        -5470,
+        -862675
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2678,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "requires_higher_two_power_evidence",
+        "certified": false,
+        "errors": {},
+        "expectedPrimaryExponent": 4,
+        "expectedPrimaryOrder": 16,
+        "label": "2678a1",
+        "pPrimaryBoundExponent": null,
+        "pPrimaryBoundOrder": null,
+        "pPrimaryOrder": null,
+        "pPrimaryOrderExponent": null,
+        "policy": "no_magma",
+        "prime": 2,
+        "rankInterval": [
+          0,
+          2
+        ],
+        "reason": "ordinary 2-Selmer/Sha[2] data does not certify the required higher 2-primary structure",
+        "shaBound": [
+          2
+        ],
+        "status": "higher_two_power_unresolved",
+        "torsionOrder": 1,
+        "twoSelmerBound": 2
+      },
+      "expectedPrimaryOrder": 16,
+      "expectedSelmerOrder": 16,
+      "label": "2678a1",
+      "predictedShaFactorization": "2^4",
+      "predictedShaOrder": 16,
+      "prime": 2,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2678a1",
+        "prime": 2,
+        "rankBounds": [
+          0,
+          2
+        ],
+        "shaBound": [
+          2
+        ],
+        "success": true,
+        "torsionOrder": 1,
+        "twoSelmerBound": 2,
+        "weierstrass": [
+          1,
+          1,
+          0,
+          -2882796,
+          -1879512496
+        ]
+      },
+      "sourceArtifact": "bsd_2primary_audit:rows, bsd_primary_descent_tasks:twoDescentAuditTasks",
+      "weierstrass": [
+        1,
+        1,
+        0,
+        -2882796,
+        -1879512496
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2738,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "requires_higher_two_power_evidence",
+        "certified": false,
+        "errors": {},
+        "expectedPrimaryExponent": 4,
+        "expectedPrimaryOrder": 16,
+        "label": "2738c1",
+        "pPrimaryBoundExponent": null,
+        "pPrimaryBoundOrder": null,
+        "pPrimaryOrder": null,
+        "pPrimaryOrderExponent": null,
+        "policy": "no_magma",
+        "prime": 2,
+        "rankInterval": [
+          0,
+          2
+        ],
+        "reason": "ordinary 2-Selmer/Sha[2] data does not certify the required higher 2-primary structure",
+        "shaBound": [
+          2,
+          37
+        ],
+        "status": "higher_two_power_unresolved",
+        "torsionOrder": 1,
+        "twoSelmerBound": 2
+      },
+      "expectedPrimaryOrder": 16,
+      "expectedSelmerOrder": 16,
+      "label": "2738c1",
+      "predictedShaFactorization": "2^4",
+      "predictedShaOrder": 16,
+      "prime": 2,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2738c1",
+        "prime": 2,
+        "rankBounds": [
+          0,
+          2
+        ],
+        "shaBound": [
+          2,
+          37
+        ],
+        "success": true,
+        "torsionOrder": 1,
+        "twoSelmerBound": 2,
+        "weierstrass": [
+          1,
+          1,
+          1,
+          -39045,
+          -7319857
+        ]
+      },
+      "sourceArtifact": "bsd_2primary_audit:rows, bsd_primary_descent_tasks:twoDescentAuditTasks",
+      "weierstrass": [
+        1,
+        1,
+        1,
+        -39045,
+        -7319857
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2742,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "requires_higher_two_power_evidence",
+        "certified": false,
+        "errors": {},
+        "expectedPrimaryExponent": 4,
+        "expectedPrimaryOrder": 16,
+        "label": "2742b1",
+        "pPrimaryBoundExponent": null,
+        "pPrimaryBoundOrder": null,
+        "pPrimaryOrder": null,
+        "pPrimaryOrderExponent": null,
+        "policy": "no_magma",
+        "prime": 2,
+        "rankInterval": [
+          0,
+          2
+        ],
+        "reason": "ordinary 2-Selmer/Sha[2] data does not certify the required higher 2-primary structure",
+        "shaBound": [
+          2
+        ],
+        "status": "higher_two_power_unresolved",
+        "torsionOrder": 2,
+        "twoSelmerBound": 2
+      },
+      "expectedPrimaryOrder": 16,
+      "expectedSelmerOrder": 32,
+      "label": "2742b1",
+      "predictedShaFactorization": "2^4",
+      "predictedShaOrder": 16,
+      "prime": 2,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2742b1",
+        "prime": 2,
+        "rankBounds": [
+          0,
+          2
+        ],
+        "shaBound": [
+          2
+        ],
+        "success": true,
+        "torsionOrder": 2,
+        "twoSelmerBound": 2,
+        "weierstrass": [
+          1,
+          1,
+          0,
+          -10616841,
+          -13319381691
+        ]
+      },
+      "sourceArtifact": "bsd_2primary_audit:rows, bsd_primary_descent_tasks:twoDescentAuditTasks",
+      "weierstrass": [
+        1,
+        1,
+        0,
+        -10616841,
+        -13319381691
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2429,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "certified",
+        "certified": true,
+        "errors": {},
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 9,
+        "label": "2429b1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 9,
+        "pPrimaryOrder": 9,
+        "pPrimaryOrderExponent": 2,
+        "policy": "no_magma",
+        "prime": 3,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage sha().p_primary_order(3) proves primary order 9.",
+        "shaBound": [
+          2,
+          3
+        ],
+        "status": "sage_primary_order_confirmed",
+        "torsionOrder": 2,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 9,
+      "expectedSelmerOrder": 9,
+      "label": "2429b1",
+      "predictedShaFactorization": "3^2",
+      "predictedShaOrder": 9,
+      "prime": 3,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2429b1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": 2,
+        "prime": 3,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          3
+        ],
+        "success": true,
+        "torsionOrder": 2,
+        "weierstrass": [
+          1,
+          1,
+          0,
+          -115,
+          -528
+        ]
+      },
+      "sourceArtifact": "bsd_primary_descent_tasks:selectedThreeSelmerTasks, bsd_primary_descent_tasks:threeSelmerTasks",
+      "weierstrass": [
+        1,
+        1,
+        0,
+        -115,
+        -528
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2534,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "bounded_not_certified",
+        "certified": false,
+        "errors": {
+          "pPrimaryOrderExponent": {
+            "message": "The order is not provably known using Skinner-Urban.\nTry running p_primary_bound to get a bound.",
+            "type": "ValueError"
+          }
+        },
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 9,
+        "label": "2534e1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 9,
+        "pPrimaryOrder": null,
+        "pPrimaryOrderExponent": null,
+        "policy": "no_magma",
+        "prime": 3,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage proves the 3-primary Sha order is at most 9, matching the expected exponent, but exact-order certification failed.",
+        "shaBound": [
+          2,
+          3
+        ],
+        "status": "sage_primary_bound_matches_expected",
+        "torsionOrder": 4,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 9,
+      "expectedSelmerOrder": 9,
+      "label": "2534e1",
+      "predictedShaFactorization": "3^2",
+      "predictedShaOrder": 9,
+      "prime": 3,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {
+          "pPrimaryOrderExponent": {
+            "message": "The order is not provably known using Skinner-Urban.\nTry running p_primary_bound to get a bound.",
+            "type": "ValueError"
+          }
+        },
+        "label": "2534e1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": null,
+        "prime": 3,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          3
+        ],
+        "success": true,
+        "torsionOrder": 4,
+        "weierstrass": [
+          1,
+          -1,
+          1,
+          -1393324,
+          -640018129
+        ]
+      },
+      "sourceArtifact": "bsd_primary_descent_tasks:selectedThreeSelmerTasks, bsd_primary_descent_tasks:threeSelmerTasks",
+      "weierstrass": [
+        1,
+        -1,
+        1,
+        -1393324,
+        -640018129
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2534,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "bounded_not_certified",
+        "certified": false,
+        "errors": {
+          "pPrimaryOrderExponent": {
+            "message": "The order is not provably known using Skinner-Urban.\nTry running p_primary_bound to get a bound.",
+            "type": "ValueError"
+          }
+        },
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 9,
+        "label": "2534f1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 9,
+        "pPrimaryOrder": null,
+        "pPrimaryOrderExponent": null,
+        "policy": "no_magma",
+        "prime": 3,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage proves the 3-primary Sha order is at most 9, matching the expected exponent, but exact-order certification failed.",
+        "shaBound": [
+          2,
+          3
+        ],
+        "status": "sage_primary_bound_matches_expected",
+        "torsionOrder": 1,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 9,
+      "expectedSelmerOrder": 9,
+      "label": "2534f1",
+      "predictedShaFactorization": "3^2",
+      "predictedShaOrder": 9,
+      "prime": 3,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {
+          "pPrimaryOrderExponent": {
+            "message": "The order is not provably known using Skinner-Urban.\nTry running p_primary_bound to get a bound.",
+            "type": "ValueError"
+          }
+        },
+        "label": "2534f1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": null,
+        "prime": 3,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          3
+        ],
+        "success": true,
+        "torsionOrder": 1,
+        "weierstrass": [
+          1,
+          -1,
+          1,
+          -303,
+          -1955
+        ]
+      },
+      "sourceArtifact": "bsd_primary_descent_tasks:selectedThreeSelmerTasks, bsd_primary_descent_tasks:threeSelmerTasks",
+      "weierstrass": [
+        1,
+        -1,
+        1,
+        -303,
+        -1955
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2674,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "certified",
+        "certified": true,
+        "errors": {},
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 9,
+        "label": "2674b1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 9,
+        "pPrimaryOrder": 9,
+        "pPrimaryOrderExponent": 2,
+        "policy": "no_magma",
+        "prime": 3,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage sha().p_primary_order(3) proves primary order 9.",
+        "shaBound": [
+          2,
+          3
+        ],
+        "status": "sage_primary_order_confirmed",
+        "torsionOrder": 2,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 9,
+      "expectedSelmerOrder": 9,
+      "label": "2674b1",
+      "predictedShaFactorization": "3^2",
+      "predictedShaOrder": 9,
+      "prime": 3,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2674b1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": 2,
+        "prime": 3,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          3
+        ],
+        "success": true,
+        "torsionOrder": 2,
+        "weierstrass": [
+          1,
+          1,
+          0,
+          -2758,
+          -55020
+        ]
+      },
+      "sourceArtifact": "bsd_primary_descent_tasks:selectedThreeSelmerTasks, bsd_primary_descent_tasks:threeSelmerTasks",
+      "weierstrass": [
+        1,
+        1,
+        0,
+        -2758,
+        -55020
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2849,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "certified",
+        "certified": true,
+        "errors": {},
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 9,
+        "label": "2849a1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 9,
+        "pPrimaryOrder": 9,
+        "pPrimaryOrderExponent": 2,
+        "policy": "no_magma",
+        "prime": 3,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage sha().p_primary_order(3) proves primary order 9.",
+        "shaBound": [
+          2,
+          3
+        ],
+        "status": "sage_primary_order_confirmed",
+        "torsionOrder": 2,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 9,
+      "expectedSelmerOrder": 9,
+      "label": "2849a1",
+      "predictedShaFactorization": "3^2",
+      "predictedShaOrder": 9,
+      "prime": 3,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2849a1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": 2,
+        "prime": 3,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          3
+        ],
+        "success": true,
+        "torsionOrder": 2,
+        "weierstrass": [
+          1,
+          1,
+          1,
+          -53484,
+          -4843180
+        ]
+      },
+      "sourceArtifact": "bsd_primary_descent_tasks:selectedThreeSelmerTasks, bsd_primary_descent_tasks:threeSelmerTasks",
+      "weierstrass": [
+        1,
+        1,
+        1,
+        -53484,
+        -4843180
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 1664,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "certified",
+        "certified": true,
+        "errors": {},
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 25,
+        "label": "1664k1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 25,
+        "pPrimaryOrder": 25,
+        "pPrimaryOrderExponent": 2,
+        "policy": "no_magma",
+        "prime": 5,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage sha().p_primary_order(5) proves primary order 25.",
+        "shaBound": [
+          2,
+          5
+        ],
+        "status": "sage_primary_order_confirmed",
+        "torsionOrder": 2,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 25,
+      "expectedSelmerOrder": 25,
+      "label": "1664k1",
+      "predictedShaFactorization": "5^2",
+      "predictedShaOrder": 25,
+      "prime": 5,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "1664k1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": 2,
+        "prime": 5,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          5
+        ],
+        "success": true,
+        "torsionOrder": 2,
+        "weierstrass": [
+          0,
+          -1,
+          0,
+          -76162,
+          -8064798
+        ]
+      },
+      "sourceArtifact": "bsd_5primary_probe:tasks, bsd_primary_descent_tasks:externalDescentTasks",
+      "weierstrass": [
+        0,
+        -1,
+        0,
+        -76162,
+        -8064798
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2366,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "certified",
+        "certified": true,
+        "errors": {},
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 25,
+        "label": "2366f1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 25,
+        "pPrimaryOrder": 25,
+        "pPrimaryOrderExponent": 2,
+        "policy": "no_magma",
+        "prime": 5,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage sha().p_primary_order(5) proves primary order 25.",
+        "shaBound": [
+          2,
+          5,
+          13
+        ],
+        "status": "sage_primary_order_confirmed",
+        "torsionOrder": 1,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 25,
+      "expectedSelmerOrder": 25,
+      "label": "2366f1",
+      "predictedShaFactorization": "5^2",
+      "predictedShaOrder": 25,
+      "prime": 5,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2366f1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": 2,
+        "prime": 5,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          5,
+          13
+        ],
+        "success": true,
+        "torsionOrder": 1,
+        "weierstrass": [
+          1,
+          -1,
+          0,
+          -528241,
+          -147664867
+        ]
+      },
+      "sourceArtifact": "bsd_5primary_probe:tasks, bsd_primary_descent_tasks:externalDescentTasks",
+      "weierstrass": [
+        1,
+        -1,
+        0,
+        -528241,
+        -147664867
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2574,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "certified",
+        "certified": true,
+        "errors": {},
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 25,
+        "label": "2574d1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 25,
+        "pPrimaryOrder": 25,
+        "pPrimaryOrderExponent": 2,
+        "policy": "no_magma",
+        "prime": 5,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage sha().p_primary_order(5) proves primary order 25.",
+        "shaBound": [
+          2,
+          3,
+          5
+        ],
+        "status": "sage_primary_order_confirmed",
+        "torsionOrder": 1,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 25,
+      "expectedSelmerOrder": 25,
+      "label": "2574d1",
+      "predictedShaFactorization": "5^2",
+      "predictedShaOrder": 25,
+      "prime": 5,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2574d1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": 2,
+        "prime": 5,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          3,
+          5
+        ],
+        "success": true,
+        "torsionOrder": 1,
+        "weierstrass": [
+          1,
+          -1,
+          0,
+          -51969609,
+          -144342625779
+        ]
+      },
+      "sourceArtifact": "bsd_5primary_probe:tasks, bsd_primary_descent_tasks:externalDescentTasks",
+      "weierstrass": [
+        1,
+        -1,
+        0,
+        -51969609,
+        -144342625779
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2834,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "certified",
+        "certified": true,
+        "errors": {},
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 25,
+        "label": "2834d1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryBoundOrder": 25,
+        "pPrimaryOrder": 25,
+        "pPrimaryOrderExponent": 2,
+        "policy": "no_magma",
+        "prime": 5,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "Sage sha().p_primary_order(5) proves primary order 25.",
+        "shaBound": [
+          2,
+          5
+        ],
+        "status": "sage_primary_order_confirmed",
+        "torsionOrder": 1,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 25,
+      "expectedSelmerOrder": 25,
+      "label": "2834d1",
+      "predictedShaFactorization": "5^2",
+      "predictedShaOrder": 25,
+      "prime": 5,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {},
+        "label": "2834d1",
+        "pPrimaryBoundExponent": 2,
+        "pPrimaryOrderExponent": 2,
+        "prime": 5,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          5
+        ],
+        "success": true,
+        "torsionOrder": 1,
+        "weierstrass": [
+          1,
+          -1,
+          1,
+          -8109,
+          -279017
+        ]
+      },
+      "sourceArtifact": "bsd_5primary_probe:tasks, bsd_primary_descent_tasks:externalDescentTasks",
+      "weierstrass": [
+        1,
+        -1,
+        1,
+        -8109,
+        -279017
+      ]
+    },
+    {
+      "backendReturncode": 0,
+      "backendStderr": "",
+      "backendTimedOut": false,
+      "conductor": 2900,
+      "evidence": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "certificationState": "unavailable",
+        "certified": false,
+        "errors": {
+          "pPrimaryBoundExponent": {
+            "message": "The curve has to have semi-stable reduction at p.",
+            "type": "ValueError"
+          },
+          "pPrimaryOrderExponent": {
+            "message": "The order is not provably known using Skinner-Urban.\nTry running p_primary_bound to get a bound.",
+            "type": "ValueError"
+          }
+        },
+        "expectedPrimaryExponent": 2,
+        "expectedPrimaryOrder": 25,
+        "label": "2900d1",
+        "pPrimaryBoundExponent": null,
+        "pPrimaryBoundOrder": null,
+        "pPrimaryOrder": null,
+        "pPrimaryOrderExponent": null,
+        "policy": "no_magma",
+        "prime": 5,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "reason": "pPrimaryOrderExponent: The order is not provably known using Skinner-Urban.\nTry running p_primary_bound to get a bound.; pPrimaryBoundExponent: The curve has to have semi-stable reduction at p.",
+        "shaBound": [
+          2,
+          5
+        ],
+        "status": "sage_primary_unavailable",
+        "torsionOrder": 1,
+        "twoSelmerBound": null
+      },
+      "expectedPrimaryOrder": 25,
+      "expectedSelmerOrder": 25,
+      "label": "2900d1",
+      "predictedShaFactorization": "5^2",
+      "predictedShaOrder": 25,
+      "prime": 5,
+      "rawBackendResult": {
+        "analyticRank": 0,
+        "backend": "sage",
+        "errors": {
+          "pPrimaryBoundExponent": {
+            "message": "The curve has to have semi-stable reduction at p.",
+            "type": "ValueError"
+          },
+          "pPrimaryOrderExponent": {
+            "message": "The order is not provably known using Skinner-Urban.\nTry running p_primary_bound to get a bound.",
+            "type": "ValueError"
+          }
+        },
+        "label": "2900d1",
+        "pPrimaryBoundExponent": null,
+        "pPrimaryOrderExponent": null,
+        "prime": 5,
+        "rankBounds": [
+          0,
+          0
+        ],
+        "shaBound": [
+          2,
+          5
+        ],
+        "success": true,
+        "torsionOrder": 1,
+        "weierstrass": [
+          0,
+          0,
+          0,
+          -120775,
+          -16155250
+        ]
+      },
+      "sourceArtifact": "bsd_5primary_probe:tasks, bsd_primary_descent_tasks:externalDescentTasks",
+      "weierstrass": [
+        0,
+        0,
+        0,
+        -120775,
+        -16155250
+      ]
+    }
+  ],
+  "codex2Dir": "/Users/mbf_mini/p3/codex-2",
+  "generatedAt": "2026-06-21T05:16:01.553238+00:00",
+  "policy": "no_magma",
+  "summary": {
+    "certifiedCases": 7,
+    "certifiedLabels": [
+      "2429b1",
+      "2674b1",
+      "2849a1",
+      "1664k1",
+      "2366f1",
+      "2574d1",
+      "2834d1"
+    ],
+    "statusCounts": {
+      "higher_two_power_unresolved": 4,
+      "sage_primary_bound_matches_expected": 2,
+      "sage_primary_order_confirmed": 7,
+      "sage_primary_unavailable": 1
+    },
+    "statusCountsByPrime": {
+      "2": {
+        "higher_two_power_unresolved": 4
+      },
+      "3": {
+        "sage_primary_bound_matches_expected": 2,
+        "sage_primary_order_confirmed": 3
+      },
+      "5": {
+        "sage_primary_order_confirmed": 4,
+        "sage_primary_unavailable": 1
+      }
+    },
+    "totalCases": 14,
+    "unresolvedCases": 7,
+    "unresolvedLabels": [
+      "2045b1",
+      "2678a1",
+      "2738c1",
+      "2742b1",
+      "2534e1",
+      "2534f1",
+      "2900d1"
+    ]
+  },
+  "timeoutSecondsPerCase": 240
+}

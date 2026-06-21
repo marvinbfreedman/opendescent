@@ -79,6 +79,12 @@ Export local Magma batches for unresolved p=3 and p=5 BSD descent probes:
 python3 bsd_local_magma_batch_export.py
 ```
 
+Run the codex-2 BSD worklist with open-source tools only:
+
+```bash
+python3 codex2_no_magma_completion.py --codex2-dir /Users/mbf_mini/p3/codex-2
+```
+
 Expected Sage-backed calibration summary:
 
 ```text
