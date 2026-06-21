@@ -1,0 +1,23 @@
+{
+  "curves": [
+    {
+      "label": "11a1",
+      "conductor": 11,
+      "weierstrass": [0, -1, 1, -10, -20],
+      "knownRank": 0
+    },
+    {
+      "label": "37a1",
+      "conductor": 37,
+      "weierstrass": [0, 0, 1, -1, 0],
+      "knownRank": 1
+    },
+    {
+      "label": "389a1",
+      "conductor": 389,
+      "weierstrass": [0, 1, 1, -2, 0],
+      "knownRank": 2
+    }
+  ]
+}
+
