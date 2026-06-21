@@ -635,6 +635,10 @@
     "local solubility for coverings",
     "2-Selmer upper bound",
     "higher 2-descent or Cassels pairing closure when Selmer rank exceeds rank lower bound",
+    "native 5-Selmer descent for FiveSelmerGroup(E)",
+    "degree-5 genus-one covering construction",
+    "local solubility for 5-coverings",
+    "native Cassels pairing entries for 5-coverings",
     "Mordell-Weil rank certificate"
   ],
   "status": "rank certificate",

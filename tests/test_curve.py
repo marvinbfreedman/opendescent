@@ -4,9 +4,11 @@ from fractions import Fraction
 from tempfile import TemporaryDirectory
 
 from opendescent.backends import available_backends, run_backend
-from opendescent.calculator import FiveSelmerGroup
+from opendescent.calculator import CasselsPairing, FiveCoverings, FiveSelmerGroup
 from opendescent.certificate import build_certificate
 from opendescent.curve import EllipticCurve, Point
+from opendescent.f5 import is_alternating_matrix, nullspace_mod, rank_mod, rref_mod
+from opendescent.five_descent import FiveCovering, five_descent_prime_set, native_five_descent
 from opendescent.finite_field import ap, count_points_mod_p
 from opendescent.local import reduction_record
 from opendescent.mwrank_backend import parse_mwrank_output
@@ -63,6 +65,15 @@ def test_backend_registry_shape():
     assert registry["native"]["available"] is True
     assert "sage" in registry
     assert registry["magma"]["kind"] == "optional licensed external"
+
+
+def test_f5_linear_algebra_helpers():
+    matrix = [[1, 2, 3], [2, 0, 1], [0, 0, 0]]
+    rref, pivots = rref_mod(matrix, 5)
+    assert pivots == [0, 1]
+    assert rank_mod(matrix, 5) == 2
+    assert len(nullspace_mod(matrix, 5)) == 1
+    assert is_alternating_matrix([[0, 2], [3, 0]], 5)
 
 
 def test_mwrank_output_parser_closes_rank_interval():
@@ -234,10 +245,53 @@ Defined on 2 generators
 
 def test_five_selmer_group_calculator_marks_unavailable_without_transcript():
     curve = EllipticCurve.from_weierstrass([0, -1, 1, -10, -20], label="11a1")
-    evidence = FiveSelmerGroup(curve)
+    evidence = FiveSelmerGroup(curve, mode="transcript")
     assert evidence["computed"] is False
     assert evidence["available"] is False
     assert evidence["status"] == "unavailable"
+
+
+def test_native_five_descent_task_is_partial_and_auditable():
+    curve = EllipticCurve.from_weierstrass([0, -1, 1, -10, -20], label="11a1")
+    result = FiveSelmerGroup(curve, mode="native", search_bound=10)
+    assert result["kind"] == "native_five_descent"
+    assert result["source"] == "native"
+    assert result["computed"] is False
+    assert 5 in result["task"]["localPrimes"]
+    assert "construct degree-5 genus-one normal curve representatives" in result["missingSteps"]
+    assert five_descent_prime_set(curve) == result["task"]["localPrimes"]
+    assert native_five_descent(curve, search_bound=10).to_json()["status"] == result["status"]
+
+
+def test_native_five_coverings_task_is_partial():
+    curve = EllipticCurve.from_weierstrass([0, -1, 1, -10, -20], label="11a1")
+    result = FiveCoverings(curve, search_bound=10)
+    assert result["kind"] == "native_five_coverings"
+    assert result["computed"] is False
+    assert result["coverings"] == []
+
+
+def test_cassels_pairing_computes_supplied_five_covering_matrix():
+    curve = EllipticCurve.from_weierstrass([0, -1, 1, -10, -20], label="11a1")
+    coverings = [
+        FiveCovering(label="A", cassels_values={"B": 2}).to_json(),
+        FiveCovering(label="B").to_json(),
+    ]
+    result = CasselsPairing(curve, coverings, prime=5)
+    assert result["computed"] is True
+    assert result["matrix"] == [[0, 2], [3, 0]]
+    assert result["alternating"] is True
+    assert result["rank"] == 2
+    assert result["radicalDimension"] == 0
+
+
+def test_cassels_pairing_marks_missing_entries():
+    curve = EllipticCurve.from_weierstrass([0, -1, 1, -10, -20], label="11a1")
+    coverings = [FiveCovering(label="A").to_json(), FiveCovering(label="B").to_json()]
+    result = CasselsPairing(curve, coverings, prime=5)
+    assert result["computed"] is False
+    assert result["status"].startswith("partial")
+    assert result["missingEntries"] == [["A", "B"]]
 
 
 def test_certificate_attaches_five_selmer_transcript():
@@ -285,3 +339,20 @@ def test_certificate_marks_missing_required_five_selmer_evidence():
     assert evidence["function"] == "FiveSelmerGroup(E)"
     assert evidence["required"] is True
     assert evidence["status"] == "missing_five_selmer_evidence"
+
+
+def test_certificate_attaches_native_descent_tasks():
+    payload = {
+        "curves": [
+            {
+                "label": "native-tasks",
+                "weierstrass": [0, -1, 1, -10, -20],
+            }
+        ]
+    }
+    cert = build_certificate(payload, native_descent_tasks=True, point_bound=10)
+    curve = cert["curves"][0]
+    assert curve["fiveDescent"]["kind"] == "native_five_descent"
+    assert curve["fiveCoverings"]["kind"] == "native_five_coverings"
+    assert curve["casselsPairing"]["kind"] == "cassels_pairing"
+    assert curve["nativeComputationStatus"]["complete"] is False

@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+from .cassels import cassels_pairing
 from .curve import EllipticCurve
+from .five_descent import native_five_coverings, native_five_descent
 from .transcripts import selmer_group_evidence
 
 
@@ -19,16 +21,20 @@ def FiveSelmerGroup(
     expected_structure: str | None = None,
     grh: bool = False,
     source: str | None = None,
+    mode: str = "native",
+    search_bound: int = 50,
 ) -> dict:
     """Return auditable FiveSelmerGroup(E) evidence.
 
-    OpenDescent does not yet compute 5-Selmer groups natively.  This function
-    is therefore a calculator primitive for imported backend output: pass a
-    transcript containing a group line such as ``Z/5 + Z/5`` or a reported order.
+    Transcript input is treated as imported evidence.  Without a transcript,
+    ``mode="native"`` runs the native 5-descent task scaffold and reports the
+    current partial proof state.
     """
 
     label = _curve_label(curve)
     if transcript is None:
+        if mode == "native" and isinstance(curve, EllipticCurve):
+            return native_five_descent(curve, search_bound=search_bound).to_json()
         return {
             "label": label,
             "kind": "five_selmer_group",
@@ -54,3 +60,11 @@ def FiveSelmerGroup(
     evidence["available"] = True
     evidence["computed"] = evidence["order"] is not None or bool(evidence["cyclicFactors"])
     return evidence
+
+
+def FiveCoverings(curve: EllipticCurve, search_bound: int = 50) -> dict:
+    return native_five_coverings(curve, search_bound=search_bound)
+
+
+def CasselsPairing(curve: EllipticCurve, coverings: list[dict], prime: int = 5) -> dict:
+    return cassels_pairing(curve, coverings, prime=prime).to_json()

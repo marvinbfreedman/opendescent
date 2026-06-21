@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 from .backends import available_backends, run_backend
-from .calculator import FiveSelmerGroup
+from .calculator import CasselsPairing, FiveCoverings, FiveSelmerGroup
 from .curve import EllipticCurve
 from .finite_field import ap, primes_upto
 from .local import bad_primes, reduction_record
@@ -268,6 +268,39 @@ def add_higher_two_power_evidence(cert: dict, row: dict, base_dir: Path, evidenc
     )
 
 
+def native_status_block(cert: dict) -> dict:
+    statuses = {}
+    for key in ("fiveDescent", "fiveCoverings", "casselsPairing"):
+        if key in cert:
+            statuses[key] = {
+                "computed": cert[key].get("computed"),
+                "status": cert[key].get("status"),
+            }
+    complete = bool(statuses) and all(row.get("computed") is True for row in statuses.values())
+    return {
+        "engine": "opendescent-native",
+        "complete": complete,
+        "statuses": statuses,
+    }
+
+
+def add_native_descent_tasks(
+    cert: dict,
+    curve: EllipticCurve,
+    point_bound: int,
+    five_descent: bool,
+    cassels_pairing: bool,
+) -> None:
+    if five_descent:
+        cert["fiveDescent"] = FiveSelmerGroup(curve, mode="native", search_bound=point_bound)
+        cert["fiveCoverings"] = FiveCoverings(curve, search_bound=point_bound)
+    if cassels_pairing:
+        coverings = cert.get("fiveCoverings", {}).get("coverings", [])
+        cert["casselsPairing"] = CasselsPairing(curve, coverings, prime=5)
+    if five_descent or cassels_pairing:
+        cert["nativeComputationStatus"] = native_status_block(cert)
+
+
 def build_certificate(
     payload: dict,
     point_bound: int = 50,
@@ -275,6 +308,9 @@ def build_certificate(
     backend: str = "native",
     input_path: str | None = None,
     evidence_transcripts: bool = False,
+    five_descent: bool = False,
+    cassels_pairing: bool = False,
+    native_descent_tasks: bool = False,
 ) -> dict:
     backend_result = run_backend(backend, input_path)
     backend_rows = {}
@@ -297,6 +333,9 @@ def build_certificate(
             add_transcript_evidence(cert, row, base_dir)
         add_five_selmer_evidence(cert, curve, row, base_dir, evidence_transcripts)
         add_higher_two_power_evidence(cert, row, base_dir, evidence_transcripts)
+        run_five = five_descent or native_descent_tasks
+        run_cassels = cassels_pairing or native_descent_tasks
+        add_native_descent_tasks(cert, curve, point_bound, run_five, run_cassels)
         if "knownRank" in row:
             cert["knownRank"] = row["knownRank"]
         curves.append(cert)
@@ -325,6 +364,9 @@ def build_certificate(
             "2-Selmer upper bound",
             "higher 2-descent or Cassels pairing closure when Selmer rank exceeds rank lower bound",
             "native 5-Selmer descent for FiveSelmerGroup(E)",
+            "degree-5 genus-one covering construction",
+            "local solubility for 5-coverings",
+            "native Cassels pairing entries for 5-coverings",
             "Mordell-Weil rank certificate",
         ],
     }

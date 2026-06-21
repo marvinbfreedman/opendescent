@@ -24,6 +24,8 @@ emits machine-readable JSON certificates.
 - higher 2-descent evidence capture from mwrank second-descent traces
 - higher 2-power transcript parsing for structures like `Z/4 + Z/4`
 - calculator primitive for `FiveSelmerGroup(E)` transcript evidence
+- native 5-descent task records with local-prime selection and proof gaps
+- native Cassels-pairing task records for 5-covering representatives
 - explicit Cassels-pairing status fields in certificates
 
 Native OpenDescent 2-descent is intentionally marked as a gap until the full
@@ -31,9 +33,10 @@ algorithm is implemented.  Cassels pairings are also marked as not computed
 unless a backend explicitly provides pairing data.
 Plain 2-Selmer output is not treated as evidence for `Z/4 + Z/4` or another
 higher 2-primary structure.
-`FiveSelmerGroup(E)` is currently an evidence-ingestion calculator primitive:
-it parses explicit transcript/backend output such as `Z/5 + Z/5`; native
-5-descent computation is still roadmap work.
+`FiveSelmerGroup(E)` can parse explicit transcript/backend output such as
+`Z/5 + Z/5` and can run a native task scaffold.  The native path records
+local-prime inputs and rational 5-torsion candidates, but it remains partial
+until degree-5 covering construction and local solubility kernels are complete.
 
 ## Quick Start
 
@@ -62,6 +65,12 @@ Run the three imported `codex-2` timeout cases:
 python3 -m opendescent.cli examples/codex2_timeout_cases.json --backend sage --summary-only
 python3 -m opendescent.cli examples/codex2_timeout_cases.json --backend mwrank_direct --summary-only
 python3 -m opendescent.cli examples/codex2_timeout_cases.json --backend native --evidence-transcripts --out timeout_evidence.json
+```
+
+Attach native 5-descent and 5-covering Cassels-pairing task output:
+
+```bash
+python3 -m opendescent.cli examples/calibration_curves.json --native-descent-tasks --summary-only
 ```
 
 Expected Sage-backed calibration summary:
@@ -126,6 +135,6 @@ live in `examples/transcripts/`.
    Selmer gaps.
 6. Native higher 2-power structure certification, including `Z/4 + Z/4`-type
    evidence.
-7. Native 5-Selmer descent, replacing transcript-only `FiveSelmerGroup(E)`
-   evidence.
-8. Mordell-Weil rank certificate closing lower and upper bounds.
+7. Complete native 5-covering construction and local solubility.
+8. Complete native Cassels-pairing entry computation for 5-coverings.
+9. Mordell-Weil rank certificate closing lower and upper bounds.

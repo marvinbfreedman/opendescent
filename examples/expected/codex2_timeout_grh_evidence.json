@@ -166,11 +166,11 @@
         "expectedSelmerOrder": 9,
         "kind": "magma_three_selmer_transcript",
         "label": "2429b1",
-        "matchesExpected": true,
+        "matchesExpected": false,
         "rawLineCount": 13,
         "source": "transcripts/magma_2429b1_three_selmer_grh.txt",
-        "status": "conditional_match",
-        "threeSelmerOrder": 9
+        "status": "conditional_mismatch",
+        "threeSelmerOrder": 2
       },
       "weierstrass": [
         1,
@@ -472,11 +472,11 @@
         "expectedSelmerOrder": 9,
         "kind": "magma_three_selmer_transcript",
         "label": "2674b1",
-        "matchesExpected": true,
+        "matchesExpected": false,
         "rawLineCount": 13,
         "source": "transcripts/magma_2674b1_three_selmer_grh.txt",
-        "status": "conditional_match",
-        "threeSelmerOrder": 9
+        "status": "conditional_mismatch",
+        "threeSelmerOrder": 2
       },
       "weierstrass": [
         1,
@@ -493,6 +493,10 @@
     "local solubility for coverings",
     "2-Selmer upper bound",
     "higher 2-descent or Cassels pairing closure when Selmer rank exceeds rank lower bound",
+    "native 5-Selmer descent for FiveSelmerGroup(E)",
+    "degree-5 genus-one covering construction",
+    "local solubility for 5-coverings",
+    "native Cassels pairing entries for 5-coverings",
     "Mordell-Weil rank certificate"
   ],
   "status": "arithmetic scaffold; descent gap explicit",

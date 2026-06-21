@@ -43,6 +43,12 @@ def print_summary(cert: dict) -> None:
                 f" fiveSelmer={five.get('normalizedStructure') or five.get('order') or five.get('status')}"
                 f" fiveSelmerStatus={five.get('status')}"
             )
+        five_native = curve.get("fiveDescent")
+        if five_native:
+            line += f" nativeFiveDescent={five_native.get('status')}"
+        cassels_native = curve.get("casselsPairing")
+        if cassels_native:
+            line += f" casselsPairingStatus={cassels_native.get('status')}"
         evidence = curve.get("threeSelmerEvidence")
         if evidence:
             line += (
@@ -63,6 +69,13 @@ def main() -> None:
     parser.add_argument("--quiet", action="store_true", help="Suppress concise summary when writing to a file.")
     parser.add_argument("--summary-only", action="store_true", help="Print only the concise certificate summary.")
     parser.add_argument("--evidence-transcripts", action="store_true", help="Attach transcript evidence referenced by input curves.")
+    parser.add_argument("--five-descent", action="store_true", help="Attach native 5-descent task output.")
+    parser.add_argument("--cassels-pairing", action="store_true", help="Attach native Cassels-pairing task output for 5-coverings.")
+    parser.add_argument(
+        "--native-descent-tasks",
+        action="store_true",
+        help="Attach all native descent task outputs currently supported.",
+    )
     parser.add_argument(
         "--backend",
         choices=BACKENDS,
@@ -86,6 +99,9 @@ def main() -> None:
         backend=args.backend,
         input_path=input_path,
         evidence_transcripts=args.evidence_transcripts,
+        five_descent=args.five_descent,
+        cassels_pairing=args.cassels_pairing,
+        native_descent_tasks=args.native_descent_tasks,
     )
     text = json.dumps(cert, indent=2, sort_keys=True) + "\n"
     if args.summary_only:

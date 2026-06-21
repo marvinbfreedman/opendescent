@@ -17,9 +17,11 @@ OpenDescent's native engine should eventually certify elliptic-curve rank and
    certify the relevant Sha/Selmer obstruction.
 7. Certify higher 2-primary structure claims such as `Z/4 + Z/4`, either from
    native higher 2-descent data or from a verified Cassels-pairing computation.
-8. Implement native 5-descent so `FiveSelmerGroup(E)` no longer depends on
-   imported transcript evidence.
-9. Combine point-search or height-pairing lower bounds with Selmer upper bounds
+8. Complete native degree-5 genus-one covering construction for
+   `FiveSelmerGroup(E)`.
+9. Complete local solubility and relation computation for native 5-descent.
+10. Complete native Cassels-pairing entry computation for 5-coverings.
+11. Combine point-search or height-pairing lower bounds with Selmer upper bounds
    to close the rank interval.
 
 ## Imported Timeout Cases
@@ -39,6 +41,8 @@ but native OpenDescent must keep `higherTwoDescent.computed=false` and
 If a case requires higher 2-power information, native OpenDescent must also
 produce or import explicit `higherTwoPowerEvidence`; ordinary 2-Selmer ranks are
 not enough for a `Z/4 + Z/4`-type claim.
-For now, `FiveSelmerGroup(E)` is transcript-backed evidence only.  Native
-certificates should not claim computed 5-Selmer groups until the native
-5-descent milestone is complete.
+`FiveSelmerGroup(E)` now has a native task scaffold, but native certificates
+must not claim computed 5-Selmer groups until degree-5 covering construction,
+local solubility, and relation computation are complete.  Cassels-pairing
+certificates must not claim computed entries unless the matrix entries are
+actually supplied or computed and verified alternating.

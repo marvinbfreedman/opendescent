@@ -27,6 +27,11 @@ and easy to compare across backends.
 - `descent`: rank/Selmer certificate block
 - `threeSelmerEvidence`: optional external 3-Selmer transcript evidence
 - `fiveSelmerEvidence`: optional external `FiveSelmerGroup(E)` evidence
+- `fiveDescent`: optional native 5-descent task result
+- `fiveCoverings`: optional native 5-covering task result
+- `casselsPairing`: optional native Cassels-pairing task result for
+  5-coverings
+- `nativeComputationStatus`: summary of attached native task completion
 - `higherTwoPowerEvidence`: optional external higher 2-primary evidence, such
   as `Z/4 + Z/4`
 
@@ -123,9 +128,8 @@ or ordinary second-descent trace from being mistaken for `Z/4 + Z/4` evidence.
 
 ## FiveSelmerGroup(E)
 
-OpenDescent exposes a calculator-style `FiveSelmerGroup(E)` evidence primitive.
-It does not yet compute a native 5-descent.  Instead, it records explicit
-backend or transcript output, for example:
+OpenDescent exposes a calculator-style `FiveSelmerGroup(E)` primitive.  It can
+record explicit backend or transcript output, for example:
 
 ```text
 FiveSelmerGroup(E)
@@ -165,6 +169,28 @@ loaded, the certificate records:
   "status": "missing_five_selmer_evidence"
 }
 ```
+
+With `--five-descent` or `--native-descent-tasks`, OpenDescent also attaches a
+native `fiveDescent` block.  The native block currently records local primes,
+the Weierstrass model, bounded rational 5-torsion candidates, and missing proof
+kernels.  It must keep `computed=false` until degree-5 genus-one covering
+construction, local solubility, and relation computation are implemented.
+
+## Five-Covering Cassels Pairing
+
+With `--cassels-pairing` or `--native-descent-tasks`, OpenDescent attaches a
+native `casselsPairing` block for 5-covering representatives.  If no native
+5-coverings are available, the status is partial.  If covering records provide
+pairing entries, OpenDescent assembles the matrix over `F_5`, checks that it is
+alternating, and records the rank and radical basis.
+
+The pairing block may contain:
+
+- `matrix`: entries modulo `5`, or `null`
+- `rank`: matrix rank over `F_5`
+- `radicalBasis`: nullspace basis over `F_5`
+- `alternating`: whether the matrix is alternating
+- `missingEntries`: covering pairs without pairing data
 
 ## Optional Case Metadata
 

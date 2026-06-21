@@ -44,8 +44,13 @@ infer it from an ordinary 2-Selmer rank alone.
 
 For 5-primary work, OpenDescent provides a calculator primitive named
 `FiveSelmerGroup(E)` that records explicit transcript/backend output such as
-`Z/5 + Z/5`.  This is not yet a native 5-descent implementation; certificates
-keep the evidence source and match checks visible.
+`Z/5 + Z/5` and runs a native 5-descent task scaffold.  The native path records
+local-prime inputs and missing proof kernels, but it does not yet construct
+general degree-5 coverings.
+
+For Cassels pairings, OpenDescent can assemble and validate an `F_5` pairing
+matrix when 5-covering records supply pairing entries.  It does not infer
+entries from Selmer dimensions or transcript summaries.
 
 ## Design Difference
 
