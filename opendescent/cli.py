@@ -19,7 +19,9 @@ def print_summary(cert: dict) -> None:
             f"{curve['label']}: "
             f"rankInterval={descent.get('rankInterval')} "
             f"certified={descent.get('rankCertified')} "
-            f"selmer={descent.get('twoSelmerRank')}"
+            f"selmer={descent.get('twoSelmerRank')} "
+            f"torsion={descent.get('torsionOrder')} "
+            f"engine={descent.get('engine')}"
         )
 
 
@@ -31,6 +33,7 @@ def main() -> None:
     parser.add_argument("--prime-bound", type=int, default=31)
     parser.add_argument("--list-backends", action="store_true", help="Print backend availability and exit.")
     parser.add_argument("--quiet", action="store_true", help="Suppress concise summary when writing to a file.")
+    parser.add_argument("--summary-only", action="store_true", help="Print only the concise certificate summary.")
     parser.add_argument(
         "--backend",
         choices=BACKENDS,
@@ -55,6 +58,12 @@ def main() -> None:
         input_path=input_path,
     )
     text = json.dumps(cert, indent=2, sort_keys=True) + "\n"
+    if args.summary_only:
+        if args.out != "-":
+            Path(args.out).write_text(text)
+            print(f"wrote {args.out}")
+        print_summary(cert)
+        return
     if args.out == "-":
         print(text, end="")
     else:

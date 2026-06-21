@@ -20,6 +20,7 @@ emits machine-readable JSON certificates.
 - naive integral point search
 - JSON certificate CLI
 - optional Sage/eclib backend for rank intervals and 2-Selmer ranks
+- direct mwrank/eclib backend for independent rank/Selmer cross-checks
 
 Native OpenDescent 2-descent is intentionally marked as a gap until the full
 algorithm is implemented.
@@ -37,6 +38,12 @@ Sage-backed open-source rank/Selmer certificate:
 
 ```bash
 python3 -m opendescent.cli examples/calibration_curves.json --backend sage --out certificate.sage.json
+```
+
+Direct mwrank/eclib certificate summary:
+
+```bash
+python3 -m opendescent.cli examples/calibration_curves.json --backend mwrank_direct --summary-only
 ```
 
 Expected Sage-backed calibration summary:
@@ -73,17 +80,20 @@ y^2 + a1*x*y + a3*y = x^3 + a2*x^2 + a4*x + a6
 | --- | --- | --- |
 | `native` | partial | OpenDescent's own arithmetic and explicit descent gaps |
 | `sage` | working | Open-source Sage/eclib rank bounds, Selmer rank, torsion |
+| `mwrank_direct` | working | Direct eclib/mwrank rank and 2-Selmer adapter |
 | `pari_gp` | planned | PARI/GP number-theory support |
-| `mwrank_direct` | planned | Direct eclib/mwrank adapter |
 | `magma` | optional detector only | Future licensed-user adapter; not required and not bundled |
 
 Certification is true only when the backend returns equal lower and upper rank
 bounds.
 
+Committed calibration fixtures live in `examples/expected/`.
+
 ## Documentation
 
 - [Certificate format](docs/certificate-format.md)
 - [Comparison with Magma, Sage, and PARI/GP](docs/comparison.md)
+- [Native roadmap](docs/native-roadmap.md)
 
 ## Roadmap
 

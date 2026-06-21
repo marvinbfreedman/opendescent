@@ -24,7 +24,8 @@ certificate format while native descent modules are developed.
 
 PARI/GP and mwrank/eclib are open-source arithmetic engines.  OpenDescent will
 support direct adapters for them so users can cross-check certificates without a
-single monolithic system.
+single monolithic system.  The direct `mwrank` adapter is the first of these
+cross-check backends.
 
 ## Design Difference
 
@@ -34,4 +35,3 @@ OpenDescent is certificate-first:
 - every unavailable proof step should be explicit
 - generated certificates should be diffable
 - external backends should be replaceable
-

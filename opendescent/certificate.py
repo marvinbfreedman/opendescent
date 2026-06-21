@@ -57,6 +57,8 @@ def merge_backend(cert: dict, backend_rows: dict) -> dict:
         "rankInterval": [lower, upper] if lower is not None and upper is not None else None,
         "rankCertified": certified,
         "torsionOrder": row.get("torsionOrder"),
+        "regulator": row.get("regulator"),
+        "generators": row.get("generators"),
         "rankSource": row.get("rankSource"),
         "selmerSource": row.get("selmerSource"),
         "selmerError": row.get("selmerError"),

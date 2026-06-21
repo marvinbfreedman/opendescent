@@ -9,6 +9,7 @@ and easy to compare across backends.
 - `version`: OpenDescent certificate version
 - `status`: human-readable run status
 - `backend`: selected backend, usually `native` or `sage`
+- `availableBackends`: backend detector results from the local machine
 - `backendResult`: raw backend execution record when an external backend is used
 - `curves`: list of per-curve certificates
 - `remainingWork`: explicit native implementation gaps
@@ -37,8 +38,29 @@ The `descent` block is the certification boundary.
 - `twoSelmerRank`: 2-Selmer rank when available
 - `selmerUpperBound`: Selmer-derived upper bound when available
 - `torsionOrder`: torsion subgroup order when available
+- `regulator`: regulator when reported by a backend
+- `generators`: generators reported by a backend when available
 - `status`: human-readable certificate state
 
 OpenDescent must not mark `rankCertified=true` unless the rank interval is
 closed by a successful backend.
 
+## Summary Output
+
+The CLI supports:
+
+```bash
+python3 -m opendescent.cli examples/calibration_curves.json --backend sage --summary-only
+```
+
+Summary mode prints only the run status, selected backend, curve label, rank
+interval, certification flag, 2-Selmer rank, torsion order, and engine.  JSON
+output remains the canonical certificate format.
+
+## Calibration Fixtures
+
+The repository keeps expected calibration certificates in `examples/expected/`:
+
+- `native_calibration.json`
+- `sage_calibration.json`
+- `mwrank_calibration.json`

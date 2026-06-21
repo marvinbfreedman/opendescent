@@ -1,0 +1,605 @@
+{
+  "artifact": "opendescent_certificate",
+  "availableBackends": {
+    "magma": {
+      "available": false,
+      "description": "Detector only; Magma is not bundled or required",
+      "kind": "optional licensed external"
+    },
+    "mwrank_direct": {
+      "available": true,
+      "description": "Direct eclib/mwrank rank and 2-Selmer adapter",
+      "kind": "open-source external"
+    },
+    "native": {
+      "available": true,
+      "description": "OpenDescent native arithmetic scaffold",
+      "kind": "built-in"
+    },
+    "pari_gp": {
+      "available": true,
+      "description": "PARI/GP adapter placeholder",
+      "kind": "planned external"
+    },
+    "sage": {
+      "available": true,
+      "description": "Sage/eclib rank bounds, Selmer rank, and torsion",
+      "kind": "open-source external"
+    }
+  },
+  "backend": "mwrank_direct",
+  "backendResult": {
+    "command": "python3 -m opendescent.mwrank_backend",
+    "parsed": {
+      "artifact": "opendescent_mwrank_backend",
+      "curves": {
+        "11a1": {
+          "engine": "mwrank_direct",
+          "generators": [],
+          "label": "11a1",
+          "rankCertified": true,
+          "rankInterval": [
+            0,
+            0
+          ],
+          "rankLowerBound": 0,
+          "rankSource": "mwrank:Rank",
+          "rankUpperBound": 0,
+          "rawOutput": "Curve [0,-1,1,-10,-20] :\tBasic pair: I=496, J=40016\ndisc=-1113184512\n2-adic index bound = 2\nBy Lemma 5.1(a), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\nLooking for quartics with I = 496, J = 40016\nLooking for Type 3 quartics:\nTrying positive a from 1 up to 3 (square a first...)\n(1,0,-94,484,-695)\t--trivial\n(1,0,-28,44,-24)\t--trivial\nTrying positive a from 1 up to 3 (...then non-square a)\nTrying negative a from -1 down to -9\n(-2,-1,11,21,-13)\t--trivial\n(-2,2,-4,32,-28)\t--trivial\n(-6,2,2,14,-8)\t--trivial\n(-7,-12,2,16,1)\t--trivial\nFinished looking for Type 3 quartics.\nMordell rank contribution from B=im(eps) = 0\nSelmer  rank contribution from B=im(eps) = 0\nSha     rank contribution from B=im(eps) = 0\nMordell rank contribution from A=ker(eps) = 0\nSelmer  rank contribution from A=ker(eps) = 0\nSha     rank contribution from A=ker(eps) = 0\n\nUsed full 2-descent via multiplication-by-2 map\nRank = 0\nRank of S^2(E)  = 0\n\nProcessing points found during 2-descent...done:\n  now regulator = 1\n\n\nRegulator = 1\n\nThe rank and full Mordell-Weil basis have been determined unconditionally.\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (0.030671 seconds)\nEnter curve: ",
+          "regulator": 1.0,
+          "returncode": 0,
+          "selmerError": null,
+          "selmerSource": "mwrank:Rank of S^2(E)",
+          "selmerUpperBound": 0,
+          "status": "certified rank interval",
+          "success": true,
+          "torsionOrder": null,
+          "twoSelmerRank": 0
+        },
+        "37a1": {
+          "engine": "mwrank_direct",
+          "generators": [
+            {
+              "height": 0.051111408239969,
+              "index": 1,
+              "point": "[0:-1:1]"
+            }
+          ],
+          "label": "37a1",
+          "rankCertified": true,
+          "rankInterval": [
+            1,
+            1
+          ],
+          "rankLowerBound": 1,
+          "rankSource": "mwrank:Rank",
+          "rankUpperBound": 1,
+          "rawOutput": "Curve [0,0,1,-1,0] :\tBasic pair: I=48, J=-432\ndisc=255744\n2-adic index bound = 2\nBy Lemma 5.1(a), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\nLooking for quartics with I = 48, J = -432\nLooking for Type 2 quartics:\nTrying positive a from 1 up to 1 (square a first...)\n(1,0,-6,4,1)\t--trivial\nTrying positive a from 1 up to 1 (...then non-square a)\nFinished looking for Type 2 quartics.\nLooking for Type 1 quartics:\nTrying positive a from 1 up to 2 (square a first...)\n(1,0,0,4,4)\t--nontrivial...(x:y:z) = (1 : 1 : 0)\nPoint = [0:0:1]\n\theight = 0.051111408239969\nRank of B=im(eps) increases to 1 (The previous point is on the egg)\nExiting search for Type 1 quartics after finding one which is globally soluble.\nMordell rank contribution from B=im(eps) = 1\nSelmer  rank contribution from B=im(eps) = 1\nSha     rank contribution from B=im(eps) = 0\nMordell rank contribution from A=ker(eps) = 0\nSelmer  rank contribution from A=ker(eps) = 0\nSha     rank contribution from A=ker(eps) = 0\n\nUsed full 2-descent via multiplication-by-2 map\nRank = 1\nRank of S^2(E)  = 1\n\nSearching for points (bound = 8)...done:\n  found points which generate a subgroup of rank 1\n  and regulator 0.051111408239969\nProcessing points found during 2-descent...done:\n  now regulator = 0.051111408239969\nSaturating (with bound = 1000)...done:\n  points were already saturated.\nTransferring points from minimal curve [0,0,1,-1,0] back to original curve [0,0,1,-1,0]\n\nGenerator 1 is [0:-1:1]; height 0.051111408239969\n\nRegulator = 0.051111408239969\n\nThe rank and full Mordell-Weil basis have been determined unconditionally.\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (1.08328 seconds)\nEnter curve: ",
+          "regulator": 0.051111408239969,
+          "returncode": 0,
+          "selmerError": null,
+          "selmerSource": "mwrank:Rank of S^2(E)",
+          "selmerUpperBound": 1,
+          "status": "certified rank interval",
+          "success": true,
+          "torsionOrder": null,
+          "twoSelmerRank": 1
+        },
+        "389a1": {
+          "engine": "mwrank_direct",
+          "generators": [
+            {
+              "height": 0.3270007736516,
+              "index": 1,
+              "point": "[0:-1:1]"
+            },
+            {
+              "height": 0.68666708330559,
+              "index": 2,
+              "point": "[-1:1:1]"
+            }
+          ],
+          "label": "389a1",
+          "rankCertified": true,
+          "rankInterval": [
+            2,
+            2
+          ],
+          "rankLowerBound": 2,
+          "rankSource": "mwrank:Rank",
+          "rankUpperBound": 2,
+          "rawOutput": "Curve [0,1,1,-2,0] :\tBasic pair: I=112, J=-1712\ndisc=2688768\n2-adic index bound = 2\nBy Lemma 5.1(a), 2-adic index = 1\n2-adic index = 1\nOne (I,J) pair\nLooking for quartics with I = 112, J = -1712\nLooking for Type 2 quartics:\nTrying positive a from 1 up to 2 (square a first...)\n(1,0,-8,4,4)\t--nontrivial...(x:y:z) = (1 : 1 : 0)\nPoint = [1:0:1]\n\theight = 0.47671165934374\nRank of B=im(eps) increases to 1\nTrying positive a from 1 up to 2 (...then non-square a)\nTrying negative a from -1 down to -1\nFinished looking for Type 2 quartics.\nLooking for Type 1 quartics:\nTrying positive a from 1 up to 3 (square a first...)\n(1,0,4,12,8)\t--nontrivial...(x:y:z) = (1 : 1 : 0)\nPoint = [-1:1:1]\n\theight = 0.68666708330559\nRank of B=im(eps) increases to 2 (The previous point is on the egg)\nExiting search for Type 1 quartics after finding one which is globally soluble.\nMordell rank contribution from B=im(eps) = 2\nSelmer  rank contribution from B=im(eps) = 2\nSha     rank contribution from B=im(eps) = 0\nMordell rank contribution from A=ker(eps) = 0\nSelmer  rank contribution from A=ker(eps) = 0\nSha     rank contribution from A=ker(eps) = 0\n\nUsed full 2-descent via multiplication-by-2 map\nRank = 2\nRank of S^2(E)  = 2\n\nSearching for points (bound = 8)...done:\n  found points which generate a subgroup of rank 2\n  and regulator 0.15246017794314\nProcessing points found during 2-descent...done:\n  now regulator = 0.15246017794314\nSaturating (with bound = 1000)...done:\n  points were already saturated.\nTransferring points from minimal curve [0,1,1,-2,0] back to original curve [0,1,1,-2,0]\n\nGenerator 1 is [0:-1:1]; height 0.3270007736516\nGenerator 2 is [-1:1:1]; height 0.68666708330559\n\nRegulator = 0.15246017794314\n\nThe rank and full Mordell-Weil basis have been determined unconditionally.\n\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\ndetermine the rank of an elliptic curve E over Q, and list a\nset of points that generate E(Q) modulo 2E(Q).\nand finally saturate to obtain generating points on the curve.\nFor more details see the mwrank documentation.\nFor details of algorithms see the author's book.\n\nPlease acknowledge use of this program in published work, \nand send problems to john.cremona@gmail.com.\n\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\nUsing multiprecision floating point with 50 bits precision.\nEnter curve:  (1.51061 seconds)\nEnter curve: ",
+          "regulator": 0.15246017794314,
+          "returncode": 0,
+          "selmerError": null,
+          "selmerSource": "mwrank:Rank of S^2(E)",
+          "selmerUpperBound": 2,
+          "status": "certified rank interval",
+          "success": true,
+          "torsionOrder": null,
+          "twoSelmerRank": 2
+        }
+      },
+      "failures": {},
+      "success": true
+    },
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\n  \"artifact\": \"opendescent_mwrank_backend\",\n  \"curves\": {\n    \"11a1\": {\n      \"engine\": \"mwrank_direct\",\n      \"generators\": [],\n      \"label\": \"11a1\",\n      \"rankCertified\": true,\n      \"rankInterval\": [\n        0,\n        0\n      ],\n      \"rankLowerBound\": 0,\n      \"rankSource\": \"mwrank:Rank\",\n      \"rankUpperBound\": 0,\n      \"rawOutput\": \"Curve [0,-1,1,-10,-20] :\\tBasic pair: I=496, J=40016\\ndisc=-1113184512\\n2-adic index bound = 2\\nBy Lemma 5.1(a), 2-adic index = 1\\n2-adic index = 1\\nOne (I,J) pair\\nLooking for quartics with I = 496, J = 40016\\nLooking for Type 3 quartics:\\nTrying positive a from 1 up to 3 (square a first...)\\n(1,0,-94,484,-695)\\t--trivial\\n(1,0,-28,44,-24)\\t--trivial\\nTrying positive a from 1 up to 3 (...then non-square a)\\nTrying negative a from -1 down to -9\\n(-2,-1,11,21,-13)\\t--trivial\\n(-2,2,-4,32,-28)\\t--trivial\\n(-6,2,2,14,-8)\\t--trivial\\n(-7,-12,2,16,1)\\t--trivial\\nFinished looking for Type 3 quartics.\\nMordell rank contribution from B=im(eps) = 0\\nSelmer  rank contribution from B=im(eps) = 0\\nSha     rank contribution from B=im(eps) = 0\\nMordell rank contribution from A=ker(eps) = 0\\nSelmer  rank contribution from A=ker(eps) = 0\\nSha     rank contribution from A=ker(eps) = 0\\n\\nUsed full 2-descent via multiplication-by-2 map\\nRank = 0\\nRank of S^2(E)  = 0\\n\\nProcessing points found during 2-descent...done:\\n  now regulator = 1\\n\\n\\nRegulator = 1\\n\\nThe rank and full Mordell-Weil basis have been determined unconditionally.\\n\\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\\ndetermine the rank of an elliptic curve E over Q, and list a\\nset of points that generate E(Q) modulo 2E(Q).\\nand finally saturate to obtain generating points on the curve.\\nFor more details see the mwrank documentation.\\nFor details of algorithms see the author's book.\\n\\nPlease acknowledge use of this program in published work, \\nand send problems to john.cremona@gmail.com.\\n\\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\\nUsing multiprecision floating point with 50 bits precision.\\nEnter curve:  (0.030671 seconds)\\nEnter curve: \",\n      \"regulator\": 1.0,\n      \"returncode\": 0,\n      \"selmerError\": null,\n      \"selmerSource\": \"mwrank:Rank of S^2(E)\",\n      \"selmerUpperBound\": 0,\n      \"status\": \"certified rank interval\",\n      \"success\": true,\n      \"torsionOrder\": null,\n      \"twoSelmerRank\": 0\n    },\n    \"37a1\": {\n      \"engine\": \"mwrank_direct\",\n      \"generators\": [\n        {\n          \"height\": 0.051111408239969,\n          \"index\": 1,\n          \"point\": \"[0:-1:1]\"\n        }\n      ],\n      \"label\": \"37a1\",\n      \"rankCertified\": true,\n      \"rankInterval\": [\n        1,\n        1\n      ],\n      \"rankLowerBound\": 1,\n      \"rankSource\": \"mwrank:Rank\",\n      \"rankUpperBound\": 1,\n      \"rawOutput\": \"Curve [0,0,1,-1,0] :\\tBasic pair: I=48, J=-432\\ndisc=255744\\n2-adic index bound = 2\\nBy Lemma 5.1(a), 2-adic index = 1\\n2-adic index = 1\\nOne (I,J) pair\\nLooking for quartics with I = 48, J = -432\\nLooking for Type 2 quartics:\\nTrying positive a from 1 up to 1 (square a first...)\\n(1,0,-6,4,1)\\t--trivial\\nTrying positive a from 1 up to 1 (...then non-square a)\\nFinished looking for Type 2 quartics.\\nLooking for Type 1 quartics:\\nTrying positive a from 1 up to 2 (square a first...)\\n(1,0,0,4,4)\\t--nontrivial...(x:y:z) = (1 : 1 : 0)\\nPoint = [0:0:1]\\n\\theight = 0.051111408239969\\nRank of B=im(eps) increases to 1 (The previous point is on the egg)\\nExiting search for Type 1 quartics after finding one which is globally soluble.\\nMordell rank contribution from B=im(eps) = 1\\nSelmer  rank contribution from B=im(eps) = 1\\nSha     rank contribution from B=im(eps) = 0\\nMordell rank contribution from A=ker(eps) = 0\\nSelmer  rank contribution from A=ker(eps) = 0\\nSha     rank contribution from A=ker(eps) = 0\\n\\nUsed full 2-descent via multiplication-by-2 map\\nRank = 1\\nRank of S^2(E)  = 1\\n\\nSearching for points (bound = 8)...done:\\n  found points which generate a subgroup of rank 1\\n  and regulator 0.051111408239969\\nProcessing points found during 2-descent...done:\\n  now regulator = 0.051111408239969\\nSaturating (with bound = 1000)...done:\\n  points were already saturated.\\nTransferring points from minimal curve [0,0,1,-1,0] back to original curve [0,0,1,-1,0]\\n\\nGenerator 1 is [0:-1:1]; height 0.051111408239969\\n\\nRegulator = 0.051111408239969\\n\\nThe rank and full Mordell-Weil basis have been determined unconditionally.\\n\\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\\ndetermine the rank of an elliptic curve E over Q, and list a\\nset of points that generate E(Q) modulo 2E(Q).\\nand finally saturate to obtain generating points on the curve.\\nFor more details see the mwrank documentation.\\nFor details of algorithms see the author's book.\\n\\nPlease acknowledge use of this program in published work, \\nand send problems to john.cremona@gmail.com.\\n\\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\\nUsing multiprecision floating point with 50 bits precision.\\nEnter curve:  (1.08328 seconds)\\nEnter curve: \",\n      \"regulator\": 0.051111408239969,\n      \"returncode\": 0,\n      \"selmerError\": null,\n      \"selmerSource\": \"mwrank:Rank of S^2(E)\",\n      \"selmerUpperBound\": 1,\n      \"status\": \"certified rank interval\",\n      \"success\": true,\n      \"torsionOrder\": null,\n      \"twoSelmerRank\": 1\n    },\n    \"389a1\": {\n      \"engine\": \"mwrank_direct\",\n      \"generators\": [\n        {\n          \"height\": 0.3270007736516,\n          \"index\": 1,\n          \"point\": \"[0:-1:1]\"\n        },\n        {\n          \"height\": 0.68666708330559,\n          \"index\": 2,\n          \"point\": \"[-1:1:1]\"\n        }\n      ],\n      \"label\": \"389a1\",\n      \"rankCertified\": true,\n      \"rankInterval\": [\n        2,\n        2\n      ],\n      \"rankLowerBound\": 2,\n      \"rankSource\": \"mwrank:Rank\",\n      \"rankUpperBound\": 2,\n      \"rawOutput\": \"Curve [0,1,1,-2,0] :\\tBasic pair: I=112, J=-1712\\ndisc=2688768\\n2-adic index bound = 2\\nBy Lemma 5.1(a), 2-adic index = 1\\n2-adic index = 1\\nOne (I,J) pair\\nLooking for quartics with I = 112, J = -1712\\nLooking for Type 2 quartics:\\nTrying positive a from 1 up to 2 (square a first...)\\n(1,0,-8,4,4)\\t--nontrivial...(x:y:z) = (1 : 1 : 0)\\nPoint = [1:0:1]\\n\\theight = 0.47671165934374\\nRank of B=im(eps) increases to 1\\nTrying positive a from 1 up to 2 (...then non-square a)\\nTrying negative a from -1 down to -1\\nFinished looking for Type 2 quartics.\\nLooking for Type 1 quartics:\\nTrying positive a from 1 up to 3 (square a first...)\\n(1,0,4,12,8)\\t--nontrivial...(x:y:z) = (1 : 1 : 0)\\nPoint = [-1:1:1]\\n\\theight = 0.68666708330559\\nRank of B=im(eps) increases to 2 (The previous point is on the egg)\\nExiting search for Type 1 quartics after finding one which is globally soluble.\\nMordell rank contribution from B=im(eps) = 2\\nSelmer  rank contribution from B=im(eps) = 2\\nSha     rank contribution from B=im(eps) = 0\\nMordell rank contribution from A=ker(eps) = 0\\nSelmer  rank contribution from A=ker(eps) = 0\\nSha     rank contribution from A=ker(eps) = 0\\n\\nUsed full 2-descent via multiplication-by-2 map\\nRank = 2\\nRank of S^2(E)  = 2\\n\\nSearching for points (bound = 8)...done:\\n  found points which generate a subgroup of rank 2\\n  and regulator 0.15246017794314\\nProcessing points found during 2-descent...done:\\n  now regulator = 0.15246017794314\\nSaturating (with bound = 1000)...done:\\n  points were already saturated.\\nTransferring points from minimal curve [0,1,1,-2,0] back to original curve [0,1,1,-2,0]\\n\\nGenerator 1 is [0:-1:1]; height 0.3270007736516\\nGenerator 2 is [-1:1:1]; height 0.68666708330559\\n\\nRegulator = 0.15246017794314\\n\\nThe rank and full Mordell-Weil basis have been determined unconditionally.\\n\\nProgram mwrank: uses 2-descent (via 2-isogeny if possible) to\\ndetermine the rank of an elliptic curve E over Q, and list a\\nset of points that generate E(Q) modulo 2E(Q).\\nand finally saturate to obtain generating points on the curve.\\nFor more details see the mwrank documentation.\\nFor details of algorithms see the author's book.\\n\\nPlease acknowledge use of this program in published work, \\nand send problems to john.cremona@gmail.com.\\n\\neclib version 20250627, using NTL bigints and NTL real and complex multiprecision floating point\\nUsing multiprecision floating point with 50 bits precision.\\nEnter curve:  (1.51061 seconds)\\nEnter curve: \",\n      \"regulator\": 0.15246017794314,\n      \"returncode\": 0,\n      \"selmerError\": null,\n      \"selmerSource\": \"mwrank:Rank of S^2(E)\",\n      \"selmerUpperBound\": 2,\n      \"status\": \"certified rank interval\",\n      \"success\": true,\n      \"torsionOrder\": null,\n      \"twoSelmerRank\": 2\n    }\n  },\n  \"failures\": {},\n  \"success\": true\n}\n",
+    "succeeded": true
+  },
+  "curves": [
+    {
+      "badPrimes": [
+        11
+      ],
+      "conductor": 11,
+      "descent": {
+        "engine": "mwrank_direct",
+        "generators": [],
+        "rankCertified": true,
+        "rankInterval": [
+          0,
+          0
+        ],
+        "rankLowerBound": 0,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": 0,
+        "regulator": 1.0,
+        "selmerError": null,
+        "selmerSource": "mwrank:Rank of S^2(E)",
+        "selmerUpperBound": 0,
+        "status": "certified rank interval",
+        "torsionOrder": null,
+        "twoSelmerRank": 0
+      },
+      "goodPrimeSamples": [
+        {
+          "a_p": -2,
+          "p": 2
+        },
+        {
+          "a_p": -1,
+          "p": 3
+        },
+        {
+          "a_p": 1,
+          "p": 5
+        },
+        {
+          "a_p": -2,
+          "p": 7
+        },
+        {
+          "a_p": 4,
+          "p": 13
+        },
+        {
+          "a_p": -2,
+          "p": 17
+        },
+        {
+          "a_p": 0,
+          "p": 19
+        },
+        {
+          "a_p": -1,
+          "p": 23
+        },
+        {
+          "a_p": 0,
+          "p": 29
+        },
+        {
+          "a_p": 7,
+          "p": 31
+        }
+      ],
+      "integralPointSearch": {
+        "bound": 50,
+        "count": 4,
+        "points": [
+          [
+            "5",
+            "5"
+          ],
+          [
+            "5",
+            "-6"
+          ],
+          [
+            "16",
+            "60"
+          ],
+          [
+            "16",
+            "-61"
+          ]
+        ],
+        "truncated": false
+      },
+      "invariants": {
+        "b2": -4,
+        "b4": -20,
+        "b6": -79,
+        "b8": -21,
+        "c4": 496,
+        "c6": 20008,
+        "discriminant": -161051,
+        "j": "-122023936/161051"
+      },
+      "knownRank": 0,
+      "label": "11a1",
+      "localRecords": [
+        {
+          "a_p": -1,
+          "localFactor": [
+            1,
+            1
+          ],
+          "p": 11,
+          "reduction": "split multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 5
+        }
+      ],
+      "weierstrass": [
+        0,
+        -1,
+        1,
+        -10,
+        -20
+      ]
+    },
+    {
+      "badPrimes": [
+        37
+      ],
+      "conductor": 37,
+      "descent": {
+        "engine": "mwrank_direct",
+        "generators": [
+          {
+            "height": 0.051111408239969,
+            "index": 1,
+            "point": "[0:-1:1]"
+          }
+        ],
+        "rankCertified": true,
+        "rankInterval": [
+          1,
+          1
+        ],
+        "rankLowerBound": 1,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": 1,
+        "regulator": 0.051111408239969,
+        "selmerError": null,
+        "selmerSource": "mwrank:Rank of S^2(E)",
+        "selmerUpperBound": 1,
+        "status": "certified rank interval",
+        "torsionOrder": null,
+        "twoSelmerRank": 1
+      },
+      "goodPrimeSamples": [
+        {
+          "a_p": -2,
+          "p": 2
+        },
+        {
+          "a_p": -3,
+          "p": 3
+        },
+        {
+          "a_p": -2,
+          "p": 5
+        },
+        {
+          "a_p": -1,
+          "p": 7
+        },
+        {
+          "a_p": -5,
+          "p": 11
+        },
+        {
+          "a_p": -2,
+          "p": 13
+        },
+        {
+          "a_p": 0,
+          "p": 17
+        },
+        {
+          "a_p": 0,
+          "p": 19
+        },
+        {
+          "a_p": 2,
+          "p": 23
+        },
+        {
+          "a_p": 6,
+          "p": 29
+        },
+        {
+          "a_p": -4,
+          "p": 31
+        }
+      ],
+      "integralPointSearch": {
+        "bound": 50,
+        "count": 10,
+        "points": [
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "-1",
+            "-1"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "2",
+            "-3"
+          ],
+          [
+            "6",
+            "14"
+          ],
+          [
+            "6",
+            "-15"
+          ]
+        ],
+        "truncated": false
+      },
+      "invariants": {
+        "b2": 0,
+        "b4": -2,
+        "b6": 1,
+        "b8": -1,
+        "c4": 48,
+        "c6": -216,
+        "discriminant": 37,
+        "j": "110592/37"
+      },
+      "knownRank": 1,
+      "label": "37a1",
+      "localRecords": [
+        {
+          "a_p": 1,
+          "localFactor": [
+            1,
+            -1
+          ],
+          "p": 37,
+          "reduction": "nonsplit multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 1
+        }
+      ],
+      "weierstrass": [
+        0,
+        0,
+        1,
+        -1,
+        0
+      ]
+    },
+    {
+      "badPrimes": [
+        389
+      ],
+      "conductor": 389,
+      "descent": {
+        "engine": "mwrank_direct",
+        "generators": [
+          {
+            "height": 0.3270007736516,
+            "index": 1,
+            "point": "[0:-1:1]"
+          },
+          {
+            "height": 0.68666708330559,
+            "index": 2,
+            "point": "[-1:1:1]"
+          }
+        ],
+        "rankCertified": true,
+        "rankInterval": [
+          2,
+          2
+        ],
+        "rankLowerBound": 2,
+        "rankSource": "mwrank:Rank",
+        "rankUpperBound": 2,
+        "regulator": 0.15246017794314,
+        "selmerError": null,
+        "selmerSource": "mwrank:Rank of S^2(E)",
+        "selmerUpperBound": 2,
+        "status": "certified rank interval",
+        "torsionOrder": null,
+        "twoSelmerRank": 2
+      },
+      "goodPrimeSamples": [
+        {
+          "a_p": -2,
+          "p": 2
+        },
+        {
+          "a_p": -2,
+          "p": 3
+        },
+        {
+          "a_p": -3,
+          "p": 5
+        },
+        {
+          "a_p": -5,
+          "p": 7
+        },
+        {
+          "a_p": -4,
+          "p": 11
+        },
+        {
+          "a_p": -3,
+          "p": 13
+        },
+        {
+          "a_p": -6,
+          "p": 17
+        },
+        {
+          "a_p": 5,
+          "p": 19
+        },
+        {
+          "a_p": -4,
+          "p": 23
+        },
+        {
+          "a_p": -6,
+          "p": 29
+        },
+        {
+          "a_p": 4,
+          "p": 31
+        }
+      ],
+      "integralPointSearch": {
+        "bound": 50,
+        "count": 16,
+        "points": [
+          [
+            "-2",
+            "0"
+          ],
+          [
+            "-2",
+            "-1"
+          ],
+          [
+            "-1",
+            "1"
+          ],
+          [
+            "-1",
+            "-2"
+          ],
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-1"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "-1"
+          ],
+          [
+            "3",
+            "5"
+          ],
+          [
+            "3",
+            "-6"
+          ],
+          [
+            "4",
+            "8"
+          ],
+          [
+            "4",
+            "-9"
+          ],
+          [
+            "6",
+            "15"
+          ],
+          [
+            "6",
+            "-16"
+          ],
+          [
+            "39",
+            "246"
+          ],
+          [
+            "39",
+            "-247"
+          ]
+        ],
+        "truncated": false
+      },
+      "invariants": {
+        "b2": 4,
+        "b4": -4,
+        "b6": 1,
+        "b8": -3,
+        "c4": 112,
+        "c6": -856,
+        "discriminant": 389,
+        "j": "1404928/389"
+      },
+      "knownRank": 2,
+      "label": "389a1",
+      "localRecords": [
+        {
+          "a_p": -1,
+          "localFactor": [
+            1,
+            1
+          ],
+          "p": 389,
+          "reduction": "split multiplicative",
+          "status": "basic multiplicative criterion",
+          "vDelta": 1
+        }
+      ],
+      "weierstrass": [
+        0,
+        1,
+        1,
+        -2,
+        0
+      ]
+    }
+  ],
+  "remainingWork": [
+    "full Tate algorithm",
+    "2-covering construction",
+    "local solubility for coverings",
+    "2-Selmer upper bound",
+    "Mordell-Weil rank certificate"
+  ],
+  "status": "rank certificate",
+  "version": "0.1.0"
+}
